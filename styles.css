@@ -230,3 +230,55 @@ body {
     position: relative;
     top: 5px;
 }
+
+#loading_bars {
+    position: absolute;
+    top: 25px;
+    left: 3%;
+    height: 450px;
+    width: 94%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+}
+
+#loading_bar_1 {
+    position: relative;
+}
+
+#loading_bar_2 {
+    position: relative;
+}
+
+#loading_bar_3 {
+    position: relative;
+}
+
+#loading_bar_4 {
+    position: relative;
+}
+
+#loading_bar_5 {
+    position: relative;
+}
+
+#loading_bar_6 {
+    position: relative;
+}
+
+#loading_bar_7 {
+    position: relative;
+}
+
+#loading_bar_8 {
+    position: relative;
+}
+
+#loading_bar_9 {
+    position: relative;
+}
+
+#loading_bar_10 {
+    position: relative;
+}
