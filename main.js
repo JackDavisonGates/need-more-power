@@ -32,7 +32,11 @@ var TurbineData = {
 var MiscellaneousData = {
     numberFormat: 2,
     gameTicks: 0,
-    gameSpeed: 20,
+    gameSpeed: 50,
+    toBeDisplayed: "",
+    displayNumber: 0,
+    display: "",
+    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 }
 
 function nixieBanner(string) {
@@ -42,6 +46,46 @@ function nixieBanner(string) {
   for (x in string.toUpperCase()) {
     document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
   }
+}
+
+function updateDisplay() {
+    if (MiscellaneousData.toBeDisplayed == "") {
+        return
+    }
+    if (MiscellaneousData.displayNumber < 4) {
+        for (i = 0; i <= MiscellaneousData.displayNumber; i++) {
+            MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * 25)] + MiscellaneousData.display
+        }
+    } else {
+        if (MiscellaneousData.displayNumber+2 > MiscellaneousData.toBeDisplayed.length) {
+            var xnum = 1
+            for (i = MiscellaneousData.displayNumber - MiscellaneousData.toBeDisplayed.length; i <= 4; i++) {
+                MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * 25)] + MiscellaneousData.display
+                xnum += 1
+            }
+            for (i = MiscellaneousData.toBeDisplayed.length-xnum; i >= 0; i--) {
+                MiscellaneousData.display = MiscellaneousData.toBeDisplayed[i] + MiscellaneousData.display
+            }
+        } else {
+            for (i = 0; i <= 4; i++) {
+                MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * 25)] + MiscellaneousData.display
+            }
+            for (i = (MiscellaneousData.displayNumber-4); i >= 0; i--) {
+                MiscellaneousData.display = MiscellaneousData.toBeDisplayed[i] + MiscellaneousData.display
+            }
+        }
+    }
+    nixieBanner(MiscellaneousData.display)
+    MiscellaneousData.display = ""
+    MiscellaneousData.displayNumber++
+    if (MiscellaneousData.displayNumber == MiscellaneousData.toBeDisplayed.length + 6) {
+        MiscellaneousData.displayNumber = 0
+        MiscellaneousData.toBeDisplayed = ""
+    }
+}
+
+function displayText(string) {
+    MiscellaneousData.toBeDisplayed = string
 }
 
 //var data = {
@@ -326,15 +370,17 @@ function mainLoopSlow () {
     gatherMaterials()
     planetProduction()
     useTelescope()
+
 }
 
 var mainGameLoop = window.setInterval(function() {
-    mainLoopFast()
-    if (MiscellaneousData.gameTicks % 10 == 0) {
-        mainLoopMediam()
-    }
-    if (MiscellaneousData.gameTicks % 25 == 0) {
-        mainLoopSlow()
-    }
+    // mainLoopFast()
+    // if (MiscellaneousData.gameTicks % 10 == 0) {
+    //     mainLoopMediam()
+    // }
+    // if (MiscellaneousData.gameTicks % 25 == 0) {
+    //     mainLoopSlow()
+    // }
+    updateDisplay()
     MiscellaneousData.gameTicks += 1
 }, MiscellaneousData.gameSpeed)
