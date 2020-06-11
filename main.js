@@ -36,7 +36,7 @@ var MiscellaneousData = {
 }
 
 function nixieBanner(string) {
-  for (i = 0; i < 27; i++) {
+  for (i = string.length; i < 27; i++) {
     document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
   }
   for (x in string.toUpperCase()) {
