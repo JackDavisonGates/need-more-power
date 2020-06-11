@@ -35,6 +35,15 @@ var MiscellaneousData = {
     gameSpeed: 20,
 }
 
+function nixieBanner(string) {
+  for (i = 0; i < 27; i++) {
+    document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
+  }
+  for (x in string.toUpperCase()) {
+    document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+  }
+}
+
 //var data = {
 //  labels: ["0"],
 //  datasets: [{
