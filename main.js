@@ -36,7 +36,7 @@ var MiscellaneousData = {
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
-    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     randomDigitsLen: 8,
 }
 
@@ -49,7 +49,7 @@ function nixieBanner(string) {
   }
 }
 
-function updateDisplay() {
+function updateDisplay(id = 0) {
     if (MiscellaneousData.toBeDisplayed == "") {
         return
     }
@@ -82,7 +82,11 @@ function updateDisplay() {
             }
         }
     }
-    nixieBanner(MiscellaneousData.display)
+    if (id == 0) {
+        nixieBanner(MiscellaneousData.display)
+    } else {
+        document.getElementById(id).innerHTML = MiscellaneousData.display
+    }
     MiscellaneousData.display = ""
     MiscellaneousData.displayNumber++
     if (MiscellaneousData.displayNumber == MiscellaneousData.toBeDisplayed.length + MiscellaneousData.randomDigitsLen + 2) {
