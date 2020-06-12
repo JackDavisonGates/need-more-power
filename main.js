@@ -36,7 +36,8 @@ var MiscellaneousData = {
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
-    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+    randomDigitsLen: 8,
 }
 
 function nixieBanner(string) {
@@ -52,25 +53,31 @@ function updateDisplay() {
     if (MiscellaneousData.toBeDisplayed == "") {
         return
     }
-    if (MiscellaneousData.displayNumber < 4) {
+    if (MiscellaneousData.randomDigitsLen > MiscellaneousData.toBeDisplayed.length) {
+        MiscellaneousData.randomDigitsLen = MiscellaneousData.toBeDisplayed.length - 2
+        if (MiscellaneousData.randomDigitsLen < 0) {
+            MiscellaneousData.randomDigitsLen = 0
+        }
+    }
+    if (MiscellaneousData.displayNumber < MiscellaneousData.randomDigitsLen) {
         for (i = 0; i <= MiscellaneousData.displayNumber; i++) {
-            MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * 25)] + MiscellaneousData.display
+            MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * MiscellaneousData.stringCHR.length)] + MiscellaneousData.display
         }
     } else {
         if (MiscellaneousData.displayNumber+2 > MiscellaneousData.toBeDisplayed.length) {
             var xnum = 1
-            for (i = MiscellaneousData.displayNumber - MiscellaneousData.toBeDisplayed.length; i <= 4; i++) {
-                MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * 25)] + MiscellaneousData.display
+            for (i = MiscellaneousData.displayNumber - MiscellaneousData.toBeDisplayed.length; i <= MiscellaneousData.randomDigitsLen; i++) {
+                MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * MiscellaneousData.stringCHR.length)] + MiscellaneousData.display
                 xnum += 1
             }
             for (i = MiscellaneousData.toBeDisplayed.length-xnum; i >= 0; i--) {
                 MiscellaneousData.display = MiscellaneousData.toBeDisplayed[i] + MiscellaneousData.display
             }
         } else {
-            for (i = 0; i <= 4; i++) {
-                MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * 25)] + MiscellaneousData.display
+            for (i = 0; i <= MiscellaneousData.randomDigitsLen; i++) {
+                MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * MiscellaneousData.stringCHR.length)] + MiscellaneousData.display
             }
-            for (i = (MiscellaneousData.displayNumber-4); i >= 0; i--) {
+            for (i = (MiscellaneousData.displayNumber-MiscellaneousData.randomDigitsLen); i >= 0; i--) {
                 MiscellaneousData.display = MiscellaneousData.toBeDisplayed[i] + MiscellaneousData.display
             }
         }
@@ -78,7 +85,7 @@ function updateDisplay() {
     nixieBanner(MiscellaneousData.display)
     MiscellaneousData.display = ""
     MiscellaneousData.displayNumber++
-    if (MiscellaneousData.displayNumber == MiscellaneousData.toBeDisplayed.length + 6) {
+    if (MiscellaneousData.displayNumber == MiscellaneousData.toBeDisplayed.length + MiscellaneousData.randomDigitsLen + 2) {
         MiscellaneousData.displayNumber = 0
         MiscellaneousData.toBeDisplayed = ""
     }
