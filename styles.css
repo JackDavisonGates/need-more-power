@@ -282,3 +282,16 @@ body {
 #loading_bar_10 {
     position: relative;
 }
+
+#loading_bars::-webkit-scrollbar {
+    width: 12px;
+}
+
+#loading_bars::-webkit-scrollbar-track {
+    background: url('Assets/scrollbar-M.png');
+    width: 12px;
+}
+
+#loading_bars::-webkit-scrollbar-thumb {
+    background: url('Assets/scrollbar-H.png');
+}
