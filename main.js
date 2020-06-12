@@ -38,6 +38,7 @@ var MiscellaneousData = {
     display: "",
     stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     randomDigitsLen: 8,
+    displayID: "",
 }
 
 function nixieBanner(string) {
@@ -49,7 +50,7 @@ function nixieBanner(string) {
   }
 }
 
-function updateDisplay(id = 0) {
+function updateDisplay(id = "") {
     if (MiscellaneousData.toBeDisplayed == "") {
         return
     }
@@ -82,7 +83,7 @@ function updateDisplay(id = 0) {
             }
         }
     }
-    if (id == 0) {
+    if (id == "") {
         nixieBanner(MiscellaneousData.display)
     } else {
         document.getElementById(id).innerHTML = MiscellaneousData.display
@@ -392,6 +393,6 @@ var mainGameLoop = window.setInterval(function() {
     // if (MiscellaneousData.gameTicks % 25 == 0) {
     //     mainLoopSlow()
     // }
-    updateDisplay()
+    updateDisplay(MiscellaneousData.displayID)
     MiscellaneousData.gameTicks += 1
 }, MiscellaneousData.gameSpeed)
