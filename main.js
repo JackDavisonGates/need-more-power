@@ -41,6 +41,21 @@ var MiscellaneousData = {
     displayID: "",
 }
 
+function myFunction(id){
+  document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_5").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_6").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_7").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
+  document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png";
+
+  document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+}
+
+
 function nixieBanner(string) {
   for (i = string.length; i < 27; i++) {
     document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";

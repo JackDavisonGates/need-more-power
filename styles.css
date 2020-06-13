@@ -138,3 +138,39 @@ body {
     top: 15px;
     left: 218px;
 }
+
+#tab_button_1:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_2:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_3:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_4:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_5:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_6:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_7:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_8:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_button_9:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
