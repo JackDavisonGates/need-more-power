@@ -147,9 +147,9 @@ function displayMaterial(material) {
     switch (material) {
         case "energy":
             MiscellaneousData.toBeDisplayed =
-            formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) + "RPM " +
-            formatNumber(PowerData.currentPower) + "/" +
-            formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)))
+            formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed, 1) + "RPM " +
+            formatNumber(PowerData.currentPower, 1) + "/" +
+            formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)), 1)
             break;
         default:
         case "wood":
