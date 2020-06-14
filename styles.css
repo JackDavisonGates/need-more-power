@@ -177,10 +177,10 @@ body {
 
 #resources {
     display: grid;
-    grid-template-rows: 40px 40px 40px 40px 40px 40px;
-    grid-template-columns: 40px 80px 60px;
+    grid-template-rows: 20px 20px 20px 20px 20px 20px;
+    grid-template-columns: 120px 60px;
     position: absolute;
     z-index: 1;
-    top: 15px;
+    top: 10px;
     left: 10px;
 }
