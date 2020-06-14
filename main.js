@@ -137,6 +137,24 @@ function startMessage() {
         case 500:
             MiscellaneousData.toBeDisplayed = "spin turbine"
             break;
+        case 600:
+            displayMaterial("energy")
+            break;
+    }
+}
+
+function displayMaterial(material) {
+    switch (material) {
+        case "energy":
+            MiscellaneousData.toBeDisplayed =
+            formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) + "RPM " +
+            formatNumber(PowerData.currentPower) + "/" +
+            formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)))
+            break;
+        default:
+        case "wood":
+            Pass
+            break;
     }
 }
 
