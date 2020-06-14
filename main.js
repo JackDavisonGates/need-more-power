@@ -115,6 +115,31 @@ function displayText(string) {
     MiscellaneousData.toBeDisplayed = string
 }
 
+function startMessage() {
+    switch (MiscellaneousData.gameTicks) {
+        default:
+            break;
+        case 0:
+            MiscellaneousData.toBeDisplayed = "wellcom comander"
+            break;
+        case 100:
+            MiscellaneousData.toBeDisplayed = "error power failing"
+            break;
+        case 200:
+            MiscellaneousData.toBeDisplayed = "rebooting system"
+            break;
+        case 300:
+            MiscellaneousData.toBeDisplayed = "rebooting failed"
+            break;
+        case 400:
+            MiscellaneousData.toBeDisplayed = "manual restart needed"
+            break;
+        case 500:
+            MiscellaneousData.toBeDisplayed = "spin turbine"
+            break;
+    }
+}
+
 //var data = {
 //  labels: ["0"],
 //  datasets: [{
@@ -408,6 +433,7 @@ var mainGameLoop = window.setInterval(function() {
     // if (MiscellaneousData.gameTicks % 25 == 0) {
     //     mainLoopSlow()
     // }
+    startMessage()
     updateDisplay(MiscellaneousData.displayID)
     MiscellaneousData.gameTicks += 1
 }, MiscellaneousData.gameSpeed)
