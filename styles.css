@@ -174,3 +174,13 @@ body {
 #tab_button_9:hover {
     background: url('Assets/Button_Tabs_Center_Hover.png')
 }
+
+#resources {
+    display: grid;
+    grid-template-rows: 40px 40px 40px 40px 40px 40px;
+    grid-template-columns: 40px 80px 60px;
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    left: 10px;
+}
