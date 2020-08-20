@@ -41,34 +41,69 @@ var MiscellaneousData = {
     displayID: "",
 }
 
-function myFunction(id){
-  document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_5").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_6").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_7").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
-  document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png";
+var DisplayData = {
+    energyDisplayNixiePart: 0,
+    nixieDisplayRunning: 0,
+}
 
-  document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+function testButton() {
+    if (DisplayData.energyDisplayNixiePart == 2) {
+        DisplayData.energyDisplayNixiePart = 3
+    } else if (DisplayData.energyDisplayNixiePart == 4) {
+        DisplayData.energyDisplayNixiePart = 1
+    }
+}
+
+function myFunction(id, evt, tabName) {
+    document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_5").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_6").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_7").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
+    document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png";
+
+    document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+
+    var tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 
 function nixieBanner(string) {
-  for (i = string.length; i < 27; i++) {
-    document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
-  }
-  for (x in string.toUpperCase()) {
-    document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
-  }
+    for (i = string.length; i < 27; i++) {
+        document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
+    }
+    for (x in string.toUpperCase()) {
+        document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+    }
 }
 
 function updateDisplay(id = "") {
-    if (MiscellaneousData.toBeDisplayed == "") {
+    if (MiscellaneousData.toBeDisplayed == "" && MiscellaneousData.display == "") {
+        DisplayData.nixieDisplayRunning = 0
+        return
+    } else if (MiscellaneousData.display != "") {
+        nixieBanner(MiscellaneousData.display)
+        MiscellaneousData.display = ""
+        DisplayData.nixieDisplayRunning = 0
         return
     }
+    DisplayData.nixieDisplayRunning = 1
     if (MiscellaneousData.randomDigitsLen > MiscellaneousData.toBeDisplayed.length) {
         MiscellaneousData.randomDigitsLen = MiscellaneousData.toBeDisplayed.length - 2
         if (MiscellaneousData.randomDigitsLen < 0) {
@@ -80,20 +115,20 @@ function updateDisplay(id = "") {
             MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * MiscellaneousData.stringCHR.length)] + MiscellaneousData.display
         }
     } else {
-        if (MiscellaneousData.displayNumber+2 > MiscellaneousData.toBeDisplayed.length) {
+        if (MiscellaneousData.displayNumber + 2 > MiscellaneousData.toBeDisplayed.length) {
             var xnum = 1
             for (i = MiscellaneousData.displayNumber - MiscellaneousData.toBeDisplayed.length; i <= MiscellaneousData.randomDigitsLen; i++) {
                 MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * MiscellaneousData.stringCHR.length)] + MiscellaneousData.display
                 xnum += 1
             }
-            for (i = MiscellaneousData.toBeDisplayed.length-xnum; i >= 0; i--) {
+            for (i = MiscellaneousData.toBeDisplayed.length - xnum; i >= 0; i--) {
                 MiscellaneousData.display = MiscellaneousData.toBeDisplayed[i] + MiscellaneousData.display
             }
         } else {
             for (i = 0; i <= MiscellaneousData.randomDigitsLen; i++) {
                 MiscellaneousData.display = MiscellaneousData.stringCHR[Math.floor(Math.random() * MiscellaneousData.stringCHR.length)] + MiscellaneousData.display
             }
-            for (i = (MiscellaneousData.displayNumber-MiscellaneousData.randomDigitsLen); i >= 0; i--) {
+            for (i = (MiscellaneousData.displayNumber - MiscellaneousData.randomDigitsLen); i >= 0; i--) {
                 MiscellaneousData.display = MiscellaneousData.toBeDisplayed[i] + MiscellaneousData.display
             }
         }
@@ -138,22 +173,82 @@ function startMessage() {
             MiscellaneousData.toBeDisplayed = "spin turbine"
             break;
         case 600:
-            displayMaterial("energy")
+            DisplayData.energyDisplayNixiePart = 1
+            displayMaterial("energy", DisplayData.energyDisplayNixiePart)
+            break;
+        case 630:
+            document.getElementById("Turbine-spin-button").style.visibility = "visible"
             break;
     }
 }
 
-function displayMaterial(material) {
-    switch (material) {
-        case "energy":
-            MiscellaneousData.toBeDisplayed =
-            formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed, 1) + "RPM " +
-            formatNumber(PowerData.currentPower, 1) + "/" +
-            formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)), 1)
-            break;
+function displayMaterial(material, active) {
+    switch (active) {
         default:
-        case "wood":
-            Pass
+            break;
+        case 1:
+            switch (material) {
+                default:
+                    break;
+                case "energy":
+                    MiscellaneousData.toBeDisplayed =
+                        formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed, 1) + "RPM " +
+                        formatNumber(PowerData.currentPower, 1) + "/" +
+                        formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)), 1)
+                    DisplayData.energyDisplayNixiePart = 2
+                    break;
+                case "wood":
+                    Pass
+                    break;
+            }
+            break;
+        case 2:
+            if (DisplayData.nixieDisplayRunning == 0) {
+                switch (material) {
+                    default:
+                        break;
+                    case "energy":
+                        MiscellaneousData.display =
+                            formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed, 1) + "RPM " +
+                            formatNumber(PowerData.currentPower, 1) + "/" +
+                            formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)), 1)
+                        break;
+                    case "wood":
+                        Pass
+                        break;
+                }
+            }
+            break;
+        case 3:
+            switch (material) {
+                default:
+                    break;
+                case "energy":
+                    MiscellaneousData.toBeDisplayed = formatNumber(TurbineData.generatorEfficency *
+                        ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                        MiscellaneousData.gameSpeed) + "W per sec"
+                    DisplayData.energyDisplayNixiePart = 4
+                    break;
+                case "wood":
+                    Pass
+                    break;
+            }
+            break;
+        case 4:
+            if (DisplayData.nixieDisplayRunning == 0) {
+                switch (material) {
+                    default:
+                        break;
+                    case "energy":
+                        MiscellaneousData.display = formatNumber(TurbineData.generatorEfficency *
+                            ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                            MiscellaneousData.gameSpeed) + "W per sec"
+                        break;
+                    case "wood":
+                        Pass
+                        break;
+                }
+            }
             break;
     }
 }
@@ -357,9 +452,10 @@ function revealTabs() {
 
 function updateText(update) {
     if (update == "Power") {
-        document.getElementById("RPM").innerHTML = formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) + " RPM"
-        document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(PowerData.currentPower) + "W/" + formatNumber(PowerStorageData.totalPowerStorage) + "W"
-        document.getElementById("RPMTipText").innerHTML = formatNumber(TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) * 4) + "W per sec"
+        displayMaterial("energy", DisplayData.energyDisplayNixiePart)
+        // document.getElementById("RPM").innerHTML = formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) + " RPM"
+        // document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(PowerData.currentPower) + "W/" + formatNumber(PowerStorageData.totalPowerStorage) + "W"
+        // document.getElementById("RPMTipText").innerHTML = formatNumber(TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) * MiscellaneousData.gameSpeed) + "W per sec"
     } else if (update == "Buildings") {
         document.getElementById("getPump").innerHTML = "Buy pump (Currently Ownd " + BuildingData.pumps + ") Cost: " + formatNumber(BuildingCostData.pumpCost) + " Steel"
         document.getElementById("getDril").innerHTML = "Buy dril (Currently Ownd " + BuildingData.drils + ") Cost: " + formatNumber(BuildingCostData.drilCost) + " Iron"
@@ -425,33 +521,32 @@ let setUpToolTip = function() {
 
 setUpToolTip()
 
-function mainLoopFast () {
-    workers()
+function mainLoopFast() {
+    //workers()
+    updateDisplay(MiscellaneousData.displayID)
 }
 
-function mainLoopMediam () {
+function mainLoopMediam() {
     slowTurbine()
     makePower(TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000))
-    revealTabs()
-//    updateGraph()
+    //revealTabs()
+    //updateGraph()
 }
 
-function mainLoopSlow () {
+function mainLoopSlow() {
     gatherMaterials()
     planetProduction()
     useTelescope()
-
 }
 
 var mainGameLoop = window.setInterval(function() {
-    // mainLoopFast()
-    // if (MiscellaneousData.gameTicks % 10 == 0) {
-    //     mainLoopMediam()
-    // }
-    // if (MiscellaneousData.gameTicks % 25 == 0) {
-    //     mainLoopSlow()
-    // }
+    mainLoopFast()
+    if (MiscellaneousData.gameTicks % 10 == 0) {
+        mainLoopMediam()
+    }
+    if (MiscellaneousData.gameTicks % 25 == 0) {
+        //mainLoopSlow()
+    }
     startMessage()
-    updateDisplay(MiscellaneousData.displayID)
     MiscellaneousData.gameTicks += 1
 }, MiscellaneousData.gameSpeed)

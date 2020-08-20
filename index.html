@@ -92,7 +92,7 @@
                         <div id="Background_ML"></div>
                         <div id="Background_MM" style="font-family:Major_Mono_Display;color:white">
                             <b>HELLO</b>
-                            <button id="button_test" onclick="displayText('Hello World you suck')">test</button>
+                            <button id="button_test" onclick="testButton()">test</button>
                         </div>
                         <div id="Background_MR"></div>
                         <div id="Background_LL"></div>
@@ -111,16 +111,33 @@
                     <div id="Block" style="width:100%;height:600px;">
                         <div id="Tabs">
                             <img src="Assets/Button_Tabs_Left.png" style="width:12px;height:28px;margin:0px 12px">
-                            <img id="tab_button_1" onclick="myFunction('tab_button_1')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_2" onclick="myFunction('tab_button_2')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_3" onclick="myFunction('tab_button_3')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_4" onclick="myFunction('tab_button_4')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_5" onclick="myFunction('tab_button_5')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_6" onclick="myFunction('tab_button_6')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_7" onclick="myFunction('tab_button_7')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_8" onclick="myFunction('tab_button_8')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
-                            <img id="tab_button_9" onclick="myFunction('tab_button_9')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_1" onclick="myFunction('tab_button_1', event, 'Turbine')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_2" onclick="myFunction('tab_button_2', event, 'Upgrades')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_3" onclick="myFunction('tab_button_3', event, 'Workers')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_4" onclick="myFunction('tab_button_4', event, 'Materials')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_5" onclick="myFunction('tab_button_5')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_6" onclick="myFunction('tab_button_6')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_7" onclick="myFunction('tab_button_7')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_8" onclick="myFunction('tab_button_8')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
+                            <img class="tablinks" id="tab_button_9" onclick="myFunction('tab_button_9')" src="Assets/Button_Tabs_Center.png" style="width:80px;height:28px;">
                             <img src="Assets/Button_Tabs_Right.png" style="width:12px;height:28px;">
+                        </div>
+
+                        <div id="Turbine" class="tabcontent">
+                            <h3>Turbine</h3>
+                            <button id="Turbine-spin-button" data-tooltip="spin me" class="hover-reveal" onclick="spinTurbine()" style="visibility: hidden">Spin Turbine</button>
+                        </div>
+
+                        <div id="Upgrades" class="tabcontent">
+                            <h3>Upgrades</h3>
+                        </div>
+
+                        <div id="Workers" class="tabcontent">
+                            <h3>Workers</h3>
+                        </div>
+
+                        <div id="Materials" class="tabcontent">
+                            <h3>Materials</h3>
                         </div>
 
                         <div id="Background_UL">

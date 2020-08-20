@@ -175,6 +175,17 @@ body {
     background: url('Assets/Button_Tabs_Center_Hover.png')
 }
 
+.tabcontent {
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    grid-template-columns: 716px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 45px;
+    left: 245px;
+}
+
 #resources {
     display: grid;
     grid-template-rows: 20px 20px 20px 20px 20px 20px;
