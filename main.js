@@ -54,6 +54,12 @@ function testButton() {
     } else if (DisplayData.energyDisplayNixiePart == 6) {
         DisplayData.energyDisplayNixiePart = 7
     } else if (DisplayData.energyDisplayNixiePart == 8) {
+        DisplayData.energyDisplayNixiePart = 9
+    } else if (DisplayData.energyDisplayNixiePart == 10) {
+        DisplayData.energyDisplayNixiePart = 11
+    } else if (DisplayData.energyDisplayNixiePart == 12) {
+        DisplayData.energyDisplayNixiePart = 13
+    } else if (DisplayData.energyDisplayNixiePart == 14) {
         DisplayData.energyDisplayNixiePart = 1
     }
 }
@@ -309,6 +315,99 @@ function displayMaterial(material, active) {
                         MiscellaneousData.display = formatNumber(TurbineData.generatorEfficency *
                             ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
                             MiscellaneousData.gameSpeed * 60 * 60) + "W per hour"
+                        break;
+                    case "wood":
+                        Pass
+                        break;
+                }
+            }
+            break;
+        case 9:
+            switch (material) {
+                default:
+                    break;
+                case "energy":
+                    MiscellaneousData.toBeDisplayed = formatNumber(TurbineData.generatorEfficency *
+                        ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                        MiscellaneousData.gameSpeed * 60 * 60 * 24) + "W per day"
+                    DisplayData.energyDisplayNixiePart = 10
+                    break;
+                case "wood":
+                    Pass
+                    break;
+            }
+            break;
+        case 10:
+            if (DisplayData.nixieDisplayRunning == 0) {
+                switch (material) {
+                    default:
+                        break;
+                    case "energy":
+                        MiscellaneousData.display = formatNumber(TurbineData.generatorEfficency *
+                            ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                            MiscellaneousData.gameSpeed * 60 * 60 * 24) + "W per day"
+                        break;
+                    case "wood":
+                        Pass
+                        break;
+                }
+            }
+            break;
+        case 11:
+            switch (material) {
+                default:
+                    break;
+                case "energy":
+                    MiscellaneousData.toBeDisplayed = formatNumber(TurbineData.generatorEfficency *
+                        ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                        MiscellaneousData.gameSpeed * 60 * 60 * 24 * 7) + "W per week"
+                    DisplayData.energyDisplayNixiePart = 12
+                    break;
+                case "wood":
+                    Pass
+                    break;
+            }
+            break;
+        case 12:
+            if (DisplayData.nixieDisplayRunning == 0) {
+                switch (material) {
+                    default:
+                        break;
+                    case "energy":
+                        MiscellaneousData.display = formatNumber(TurbineData.generatorEfficency *
+                            ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                            MiscellaneousData.gameSpeed * 60 * 60 * 24 * 7) + "W per week"
+                        break;
+                    case "wood":
+                        Pass
+                        break;
+                }
+            }
+            break;
+        case 13:
+            switch (material) {
+                default:
+                    break;
+                case "energy":
+                    MiscellaneousData.toBeDisplayed = formatNumber(TurbineData.generatorEfficency *
+                        ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                        MiscellaneousData.gameSpeed * 60 * 60 * 24 * 7 * 52) + "W per year"
+                    DisplayData.energyDisplayNixiePart = 14
+                    break;
+                case "wood":
+                    Pass
+                    break;
+            }
+            break;
+        case 14:
+            if (DisplayData.nixieDisplayRunning == 0) {
+                switch (material) {
+                    default:
+                        break;
+                    case "energy":
+                        MiscellaneousData.display = formatNumber(TurbineData.generatorEfficency *
+                            ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) *
+                            MiscellaneousData.gameSpeed * 60 * 60 * 24 * 7 * 52) + "W per year"
                         break;
                     case "wood":
                         Pass
