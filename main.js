@@ -47,6 +47,7 @@ var DisplayData = {
 }
 
 function buttonStat(stat, button) {
+    console.log("buttonStat")
     switch (button) {
         case "turbine":
             switch (stat) {
@@ -337,6 +338,19 @@ function startMessage() {
             break;
         case 630:
             document.getElementById("Turbine-spin-button").style.visibility = "visible"
+            document.getElementById("energy_stats_button_1").style.visibility = "visible"
+            document.getElementById("energy_stats_button_2").style.visibility = "visible"
+            document.getElementById("energy_stats_button_3").style.visibility = "visible"
+            document.getElementById("energy_stats_button_4").style.visibility = "visible"
+            document.getElementById("energy_stats_button_5").style.visibility = "visible"
+            document.getElementById("energy_stats_button_6").style.visibility = "visible"
+            document.getElementById("energy_stats_button_7").style.visibility = "visible"
+            document.getElementById("energy_stats_connector_1").style.visibility = "visible"
+            document.getElementById("energy_stats_connector_2").style.visibility = "visible"
+            document.getElementById("energy_stats_connector_3").style.visibility = "visible"
+            document.getElementById("energy_stats_connector_4").style.visibility = "visible"
+            document.getElementById("energy_stats_connector_5").style.visibility = "visible"
+            document.getElementById("energy_stats_connector_6").style.visibility = "visible"
             break;
     }
 }
