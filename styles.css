@@ -195,3 +195,30 @@ body {
     top: 10px;
     left: 10px;
 }
+
+#energy_stats_buttons {
+    display: grid;
+    grid-template-columns: 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px;
+    position: absolute;
+    z-index: 1;
+    top: 450px;
+    left: -24px;
+}
+
+#energy_stats_buttons_pressed {
+    display: grid;
+    grid-template-columns: 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px;
+    position: absolute;
+    z-index: 3;
+    top: 450px;
+    left: -24px;
+}
+
+#energy_stats_buttons_hover {
+    display: grid;
+    grid-template-columns: 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px;
+    position: absolute;
+    z-index: 2;
+    top: 450px;
+    left: -24px;
+}
