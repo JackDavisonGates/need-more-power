@@ -46,6 +46,13 @@ var DisplayData = {
     nixieDisplayRunning: 0,
 }
 
+var NixieTubes = {
+  "a" : "Nixie_001",
+  "A" : "Nixei_001",
+  "b" : "Nixie_002",
+  "B" : "Nixie_002"
+}
+
 function buttonStat(stat, button) {
     console.log("buttonStat")
     switch (button) {
