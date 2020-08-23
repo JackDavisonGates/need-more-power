@@ -46,11 +46,16 @@ var DisplayData = {
     nixieDisplayRunning: 0,
 }
 
-var NixieTubes = {
-  "a" : "Nixie_001",
-  "A" : "Nixei_001",
-  "b" : "Nixie_002",
-  "B" : "Nixie_002"
+var TabData = {
+    energyTabAccess: 0,
+    workersTabAccess: 0,
+    upgradesTabAccess: 0,
+    materialsTabAccess: 0,
+    spaceTabAccess: 0,
+    buildingsTabAccess: 0,
+    reaserchTabAccess: 0,
+    resetTabAccess: 0,
+    setingsTabAccess: 0,
 }
 
 function buttonStat(stat, button) {
@@ -76,7 +81,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_1_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_1_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_1").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_1_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_1_hover").style.visibility = "hidden"
@@ -92,7 +98,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_2_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_2_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_2").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_2_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_2_hover").style.visibility = "hidden"
@@ -108,7 +115,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_3_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_3_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_3").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_3_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_3_hover").style.visibility = "hidden"
@@ -124,7 +132,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_4_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_4_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_4").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_4_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_4_hover").style.visibility = "hidden"
@@ -140,7 +149,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_5_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_5_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_5").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_5_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_5_hover").style.visibility = "hidden"
@@ -156,7 +166,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_6_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_6_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_6").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_6_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_6_hover").style.visibility = "hidden"
@@ -172,7 +183,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_7_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_7_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_7").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_7_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_7_hover").style.visibility = "hidden"
@@ -222,32 +234,104 @@ function energyStatsButtons(button) {
 }
 
 function tabEvent(id, evt, tabName) {
-    document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_5").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_6").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_7").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
-    document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png";
+    var access = 0
 
-    document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
-
-    var tabcontent, tablinks;
-
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+    switch (id) {
+        case "tab_button_1":
+            if (TabData.energyTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_2":
+            if (TabData.upgradesTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_3":
+            if (TabData.workersTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_4":
+            if (TabData.materialsTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_5":
+            if (TabData.spaceTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_6":
+            if (TabData.buildingsTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_7":
+            if (TabData.reaserchTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_8":
+            if (TabData.resetTabAccess == 1) {
+                access = 1
+            }
+            break;
+        case "tab_button_9":
+            if (TabData.setingsTabAccess == 1) {
+                access = 1
+            }
+            break;
+        default:
+            break;
     }
 
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    if (TabData.energyTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.upgradesTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.workersTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.materialsTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.spaceTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_5").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.buildingsTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_6").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.reaserchTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_7").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.resetTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
+    }
+    if (TabData.setingsTabAccess == 1 && access == 1) {
+        document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png";
     }
 
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    if (access == 1) {
+        document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+
+        var tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
 }
 
 
@@ -256,7 +340,18 @@ function nixieBanner(string) {
         document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
     }
     for (x in string.toUpperCase()) {
-        document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+        switch (x) {
+            case ".":
+                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_007.png";
+                break;
+            case "/":
+                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_006.png";
+                break;
+            default:
+                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+                break;
+        }
+
     }
 }
 
@@ -344,20 +439,10 @@ function startMessage() {
             displayMaterial("energy", DisplayData.energyDisplayNixiePart)
             break;
         case 630:
-            document.getElementById("Turbine-spin-button").style.visibility = "visible"
-            document.getElementById("energy_stats_button_1").style.visibility = "visible"
-            document.getElementById("energy_stats_button_2").style.visibility = "visible"
-            document.getElementById("energy_stats_button_3").style.visibility = "visible"
-            document.getElementById("energy_stats_button_4").style.visibility = "visible"
-            document.getElementById("energy_stats_button_5").style.visibility = "visible"
-            document.getElementById("energy_stats_button_6").style.visibility = "visible"
-            document.getElementById("energy_stats_button_7").style.visibility = "visible"
-            document.getElementById("energy_stats_connector_1").style.visibility = "visible"
-            document.getElementById("energy_stats_connector_2").style.visibility = "visible"
-            document.getElementById("energy_stats_connector_3").style.visibility = "visible"
-            document.getElementById("energy_stats_connector_4").style.visibility = "visible"
-            document.getElementById("energy_stats_connector_5").style.visibility = "visible"
-            document.getElementById("energy_stats_connector_6").style.visibility = "visible"
+            TabData.energyTabAccess = 1
+            document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png"
+            TabData.setingsTabAccess = 1
+            document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png"
             break;
     }
 }
@@ -661,14 +746,12 @@ function spinTurbine(amount = TurbineData.turbineSpinForce) {
         TurbineData.turbineSpeed = TurbineData.turbineMaxSpeed
     }
     updateText("Power")
-    //document.getElementById("RPM").innerHTML =  formatNumber(gameData.turbineSpeed) + "RPM"
 }
 
 function slowTurbine() {
     var speedLoss = TurbineData.turbineSpeed * (TurbineData.turbineFriction + TurbineData.generatorFriction)
     TurbineData.turbineSpeed -= speedLoss
     updateText("Power")
-    //document.getElementById("RPM").innerHTML =  formatNumber(gameData.turbineSpeed + gameData.turbineMinSpeed) + "RPM"
 }
 
 function makePower(amount) {
@@ -679,8 +762,6 @@ function makePower(amount) {
             PowerData.totalPower -= PowerStorageData.currentPower - (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors)
             PowerData.currentPower = PowerStorageData.capasitorsStorage * PowerStorageData.capasitors
         }
-        //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
-        //document.getElementById("totalPower").innerHTML = formatNumber(gameData.totalPower) + "W  (Total Power)"
     } else if (PowerData.currentPower < (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteriesStorage * PowerStorageData.batteries)) {
         PowerData.currentPower += amount * PowerStorageData.batteriesEfficency
         PowerData.totalPower += amount
@@ -688,142 +769,153 @@ function makePower(amount) {
             PowerData.totalPower -= PowerData.currentPower - (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteriesStorage * PowerStorageData.batteries)
             PowerData.currentPower = PowerStorageData.capasitorsStorage * PowerStorageData.capasitors
         }
-        //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
-        //document.getElementById("totalPower").innerHTML = formatNumber(gameData.totalPower) + "W  (Total Power)"
     }
     updateText("Power")
 }
 
 function revealTabs() {
-    if (PowerData.currentPower >= 5) {
-        document.getElementById("upgradesTab").style.display = "block"
+    if (PowerData.currentPower >= 50 && TabData.upgradesTabAccess == 0) {
+        TabData.upgradesTabAccess = 1
+        document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png"
     }
-    if (PowerData.currentPower >= 100) {
-        document.getElementById("materialsTab").style.display = "block"
+    if (PowerData.currentPower >= 100 && TabData.workersTabAccess == 0) {
+        TabData.workersTabAccess = 1
+        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png"
     }
-    if (StockpillData.wood >= 5) {
-        document.getElementById("BuildingsTab").style.display = "block"
-    }
-    if (PowerData.currentPower >= 500) {
-        document.getElementById("spaceTab").style.display = "block"
-    }
-    if (PowerData.currentPower >= 10000) {
-        document.getElementById("WorkersTab").style.display = "block"
-
-    }
-    if (StockpillData.wood > 0) {
-        document.getElementById("woodDisplay").style.display = "block"
-        document.getElementById("woodDisplay").style.color = "Azure"
-        document.getElementById("woodWorkers").style.display = "block"
-        document.getElementById("woodWorkers").style.color = "Azure"
-        document.getElementById("woodWorkers+").style.display = "block"
-        document.getElementById("woodWorkers-").style.display = "block"
-    }
-    if (StockpillData.sand > 0) {
-        document.getElementById("sandDisplay").style.display = "block"
-        document.getElementById("sandDisplay").style.color = "Azure"
-        document.getElementById("sandWorkers").style.display = "block"
-        document.getElementById("sandWorkers").style.color = "Azure"
-        document.getElementById("sandWorkers+").style.display = "block"
-        document.getElementById("sandWorkers-").style.display = "block"
-    }
-    if (StockpillData.iron > 0) {
-        document.getElementById("ironDisplay").style.display = "block"
-        document.getElementById("ironDisplay").style.color = "Azure"
-        document.getElementById("ironWorkers").style.display = "block"
-        document.getElementById("ironWorkers").style.color = "Azure"
-        document.getElementById("ironWorkers+").style.display = "block"
-        document.getElementById("ironWorkers-").style.display = "block"
-    }
-    if (StockpillData.coal > 0) {
-        document.getElementById("coalDisplay").style.display = "block"
-        document.getElementById("coalDisplay").style.color = "Azure"
-        document.getElementById("coalWorkers").style.display = "block"
-        document.getElementById("coalWorkers").style.color = "Azure"
-        document.getElementById("coalWorkers+").style.display = "block"
-        document.getElementById("coalWorkers-").style.display = "block"
-    }
-    if (StockpillData.oil > 0) {
-        document.getElementById("oilDisplay").style.display = "block"
-        document.getElementById("oilDisplay").style.color = "Azure"
-        document.getElementById("oilWorkers").style.display = "block"
-        document.getElementById("oilWorkers").style.color = "Azure"
-        document.getElementById("oilWorkers+").style.display = "block"
-        document.getElementById("oilWorkers-").style.display = "block"
-    }
-    if (StockpillData.plastic > 0) {
-        document.getElementById("plasticDisplay").style.display = "block"
-        document.getElementById("plasticDisplay").style.color = "Azure"
-        document.getElementById("plasticWorkers").style.display = "block"
-        document.getElementById("plasticWorkers").style.color = "Azure"
-        document.getElementById("plasticWorkers+").style.display = "block"
-        document.getElementById("plasticWorkers-").style.display = "block"
-    }
-    if (StockpillData.glass > 0) {
-        document.getElementById("glassDisplay").style.display = "block"
-        document.getElementById("glassDisplay").style.color = "Azure"
-        document.getElementById("glassWorkers").style.display = "block"
-        document.getElementById("glassWorkers").style.color = "Azure"
-        document.getElementById("glassWorkers+").style.display = "block"
-        document.getElementById("glassWorkers-").style.display = "block"
-    }
-    if (StockpillData.steel > 0) {
-        document.getElementById("steelDisplay").style.display = "block"
-        document.getElementById("steelDisplay").style.color = "Azure"
-        document.getElementById("steelWorkers").style.display = "block"
-        document.getElementById("steelWorkers").style.color = "Azure"
-        document.getElementById("steelWorkers+").style.display = "block"
-        document.getElementById("steelWorkers-").style.display = "block"
-    }
+    // if (StockpillData.wood >= 5) {
+    //     document.getElementById("BuildingsTab").style.display = "block"
+    // }
+    // if (PowerData.currentPower >= 500) {
+    //     document.getElementById("spaceTab").style.display = "block"
+    // }
+    // if (PowerData.currentPower >= 10000) {
+    //     document.getElementById("WorkersTab").style.display = "block"
+    //
+    // }
+    // if (StockpillData.wood > 0) {
+    //     document.getElementById("woodDisplay").style.display = "block"
+    //     document.getElementById("woodDisplay").style.color = "Azure"
+    //     document.getElementById("woodWorkers").style.display = "block"
+    //     document.getElementById("woodWorkers").style.color = "Azure"
+    //     document.getElementById("woodWorkers+").style.display = "block"
+    //     document.getElementById("woodWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.sand > 0) {
+    //     document.getElementById("sandDisplay").style.display = "block"
+    //     document.getElementById("sandDisplay").style.color = "Azure"
+    //     document.getElementById("sandWorkers").style.display = "block"
+    //     document.getElementById("sandWorkers").style.color = "Azure"
+    //     document.getElementById("sandWorkers+").style.display = "block"
+    //     document.getElementById("sandWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.iron > 0) {
+    //     document.getElementById("ironDisplay").style.display = "block"
+    //     document.getElementById("ironDisplay").style.color = "Azure"
+    //     document.getElementById("ironWorkers").style.display = "block"
+    //     document.getElementById("ironWorkers").style.color = "Azure"
+    //     document.getElementById("ironWorkers+").style.display = "block"
+    //     document.getElementById("ironWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.coal > 0) {
+    //     document.getElementById("coalDisplay").style.display = "block"
+    //     document.getElementById("coalDisplay").style.color = "Azure"
+    //     document.getElementById("coalWorkers").style.display = "block"
+    //     document.getElementById("coalWorkers").style.color = "Azure"
+    //     document.getElementById("coalWorkers+").style.display = "block"
+    //     document.getElementById("coalWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.oil > 0) {
+    //     document.getElementById("oilDisplay").style.display = "block"
+    //     document.getElementById("oilDisplay").style.color = "Azure"
+    //     document.getElementById("oilWorkers").style.display = "block"
+    //     document.getElementById("oilWorkers").style.color = "Azure"
+    //     document.getElementById("oilWorkers+").style.display = "block"
+    //     document.getElementById("oilWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.plastic > 0) {
+    //     document.getElementById("plasticDisplay").style.display = "block"
+    //     document.getElementById("plasticDisplay").style.color = "Azure"
+    //     document.getElementById("plasticWorkers").style.display = "block"
+    //     document.getElementById("plasticWorkers").style.color = "Azure"
+    //     document.getElementById("plasticWorkers+").style.display = "block"
+    //     document.getElementById("plasticWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.glass > 0) {
+    //     document.getElementById("glassDisplay").style.display = "block"
+    //     document.getElementById("glassDisplay").style.color = "Azure"
+    //     document.getElementById("glassWorkers").style.display = "block"
+    //     document.getElementById("glassWorkers").style.color = "Azure"
+    //     document.getElementById("glassWorkers+").style.display = "block"
+    //     document.getElementById("glassWorkers-").style.display = "block"
+    // }
+    // if (StockpillData.steel > 0) {
+    //     document.getElementById("steelDisplay").style.display = "block"
+    //     document.getElementById("steelDisplay").style.color = "Azure"
+    //     document.getElementById("steelWorkers").style.display = "block"
+    //     document.getElementById("steelWorkers").style.color = "Azure"
+    //     document.getElementById("steelWorkers+").style.display = "block"
+    //     document.getElementById("steelWorkers-").style.display = "block"
+    // }
 }
 
 function updateText(update) {
-    if (update == "Power") {
-        displayMaterial("energy", DisplayData.energyDisplayNixiePart)
-        //document.getElementById("energyDisplayNumber").innerHTML = formatNumber(PowerData.currentPower)
-        // document.getElementById("RPM").innerHTML = formatNumber(TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) + " RPM"
-        // document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(PowerData.currentPower) + "W/" + formatNumber(PowerStorageData.totalPowerStorage) + "W"
-        // document.getElementById("RPMTipText").innerHTML = formatNumber(TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) * MiscellaneousData.gameSpeed) + "W per sec"
-    } else if (update == "Buildings") {
-        document.getElementById("getPump").innerHTML = "Buy pump (Currently Ownd " + BuildingData.pumps + ") Cost: " + formatNumber(BuildingCostData.pumpCost) + " Steel"
-        document.getElementById("getDril").innerHTML = "Buy dril (Currently Ownd " + BuildingData.drils + ") Cost: " + formatNumber(BuildingCostData.drilCost) + " Iron"
-        document.getElementById("getMine").innerHTML = "Buy mine (Currently Ownd " + BuildingData.mines + ") Cost: " + formatNumber(BuildingCostData.mineCost) + " Wood"
-        document.getElementById("getDigger").innerHTML = "Buy digger (Currently Ownd " + BuildingData.diggers + ") Cost: " + formatNumber(BuildingCostData.diggerCost) + " Wood"
-    } else if (update == "Upgrades") {
-        document.getElementById("perClickUpgrade").innerHTML = "Upgrade Turbine (Currently Level " + PowerData.powerPerTick + ") Cost: " + formatNumber(PowerData.powerPerTickCost) + "W"
-        document.getElementById("buyBatteryButton").innerHTML = "Buy Battery (Currently Ownd " + PowerStorageData.batteries + ") Cost: " + formatNumber(PowerStorageData.batteryCost) + "W"
-        document.getElementById("buyCapasitorButton").innerHTML = "Buy Capasitor (Currently Ownd " + PowerStorageData.capasitors + ") Cost: " + formatNumber(PowerStorageData.capasitorCost) + "W"
-    } else if (update == "Materials") {
-        document.getElementById("oilDisplay").innerHTML = "oil: " + formatNumber(StockpillData.oil)
-        document.getElementById("coalDisplay").innerHTML = "coal: " + formatNumber(StockpillData.coal)
-        document.getElementById("ironDisplay").innerHTML = "iron: " + formatNumber(StockpillData.iron)
-        document.getElementById("sandDisplay").innerHTML = "sand: " + formatNumber(StockpillData.sand)
-        document.getElementById("plasticDisplay").innerHTML = "plastic: " + formatNumber(StockpillData.plastic)
-        document.getElementById("glassDisplay").innerHTML = "glass: " + formatNumber(StockpillData.glass)
-        document.getElementById("steelDisplay").innerHTML = "steel: " + formatNumber(StockpillData.steel)
-        document.getElementById("woodDisplay").innerHTML = "wood: " + formatNumber(StockpillData.wood)
-    } else if (update == "Space") {
-        document.getElementById("buyTelescopeButton").innerHTML = "Upgrade telescope (Currently Level " + TelescopeData.telescopeLevel + ") Cost: " + formatNumber(TelescopeData.telescopeCost) + "W"
-        document.getElementById("turnTelescope_On_Off").innerHTML = "Telescope " + TelescopeData.telescopeStatus + " (energy cost " + TelescopeData.telescopeEnergyCost * 4 + "W/s)"
-        if (TelescopeData.area == 1) {
-            document.getElementById("changeSpaceArea").innerHTML = "Looking out at 0LY to 1LY (" + formatNumber(100 - SerchAreaData.freeSpaceArea1 / 10) + "% compleat)"
-        } else if (TelescopeData.area == 2) {
-            document.getElementById("changeSpaceArea").innerHTML = "Looking out at 1LY to 10LY (" + formatNumber(100 - SerchAreaData.freeSpaceArea2 / 100) + "% compleat)"
-        } else if (TelescopeData.area == 3) {
-            document.getElementById("changeSpaceArea").innerHTML = "Looking out at 10LY to 100LY (" + formatNumber(100 - SerchAreaData.freeSpaceArea3 / 1000) + "% compleat)"
-        }
-    } else if (update == "Workers") {
-        document.getElementById("buyWorker").innerHTML = "Buy worker (" + WorkerStatusData.workers + ") Cost: " + formatNumber(WorkerStatusData.workerCost) + "W"
-        document.getElementById("freeWorkers").innerHTML = "Free workers " + WorkerStatusData.freeWorkers
-        document.getElementById("energyWorkers").innerHTML = "Energy workers " + JobData.energyWorker
-        document.getElementById("woodWorkers").innerHTML = "Wood workers " + JobData.woodWorker
-        document.getElementById("sandWorkers").innerHTML = "Sand workers " + JobData.sandWorker
-        document.getElementById("glassWorkers").innerHTML = "Glass workers " + JobData.glassWorker
-        document.getElementById("ironWorkers").innerHTML = "Iron workers " + JobData.ironWorker
-        document.getElementById("coalWorkers").innerHTML = "Coal workers " + JobData.coalWorker
-        document.getElementById("steelWorkers").innerHTML = "Steel workers " + JobData.steelWorker
-        document.getElementById("oilWorkers").innerHTML = "Oil workers " + JobData.oilWorker
-        document.getElementById("plasticWorkers").innerHTML = "Plastic workers " + JobData.plasticWorker
+    switch (update) {
+        case "Power":
+            displayMaterial("energy", DisplayData.energyDisplayNixiePart)
+            break;
+        case "Buildings":
+            document.getElementById("getPump").innerHTML = "Buy pump (Currently Ownd " + BuildingData.pumps + ") Cost: " + formatNumber(BuildingCostData.pumpCost) + " Steel"
+            document.getElementById("getDril").innerHTML = "Buy dril (Currently Ownd " + BuildingData.drils + ") Cost: " + formatNumber(BuildingCostData.drilCost) + " Iron"
+            document.getElementById("getMine").innerHTML = "Buy mine (Currently Ownd " + BuildingData.mines + ") Cost: " + formatNumber(BuildingCostData.mineCost) + " Wood"
+            document.getElementById("getDigger").innerHTML = "Buy digger (Currently Ownd " + BuildingData.diggers + ") Cost: " + formatNumber(BuildingCostData.diggerCost) + " Wood"
+            break;
+        case "Upgrades":
+            document.getElementById("perClickUpgrade").innerHTML = "Upgrade Turbine (Currently Level " + PowerData.powerPerTick + ") Cost: " + formatNumber(PowerData.powerPerTickCost) + "W"
+            document.getElementById("buyBatteryButton").innerHTML = "Buy Battery (Currently Ownd " + PowerStorageData.batteries + ") Cost: " + formatNumber(PowerStorageData.batteryCost) + "W"
+            document.getElementById("buyCapasitorButton").innerHTML = "Buy Capasitor (Currently Ownd " + PowerStorageData.capasitors + ") Cost: " + formatNumber(PowerStorageData.capasitorCost) + "W"
+            break;
+        case "Materials":
+            document.getElementById("oilDisplay").innerHTML = "oil: " + formatNumber(StockpillData.oil)
+            document.getElementById("coalDisplay").innerHTML = "coal: " + formatNumber(StockpillData.coal)
+            document.getElementById("ironDisplay").innerHTML = "iron: " + formatNumber(StockpillData.iron)
+            document.getElementById("sandDisplay").innerHTML = "sand: " + formatNumber(StockpillData.sand)
+            document.getElementById("plasticDisplay").innerHTML = "plastic: " + formatNumber(StockpillData.plastic)
+            document.getElementById("glassDisplay").innerHTML = "glass: " + formatNumber(StockpillData.glass)
+            document.getElementById("steelDisplay").innerHTML = "steel: " + formatNumber(StockpillData.steel)
+            document.getElementById("woodDisplay").innerHTML = "wood: " + formatNumber(StockpillData.wood)
+            break;
+        case "Space":
+            document.getElementById("buyTelescopeButton").innerHTML = "Upgrade telescope (Currently Level " + TelescopeData.telescopeLevel + ") Cost: " + formatNumber(TelescopeData.telescopeCost) + "W"
+            document.getElementById("turnTelescope_On_Off").innerHTML = "Telescope " + TelescopeData.telescopeStatus + " (energy cost " + TelescopeData.telescopeEnergyCost * 4 + "W/s)"
+            switch (TelescopeData.area) {
+                case 1:
+                    document.getElementById("changeSpaceArea").innerHTML = "Looking out at 0LY to 1LY (" + formatNumber(100 - SerchAreaData.freeSpaceArea1 / 10) + "% compleat)"
+                    break;
+                case 2:
+                    document.getElementById("changeSpaceArea").innerHTML = "Looking out at 1LY to 10LY (" + formatNumber(100 - SerchAreaData.freeSpaceArea2 / 100) + "% compleat)"
+                    break;
+                case 3:
+                    document.getElementById("changeSpaceArea").innerHTML = "Looking out at 10LY to 100LY (" + formatNumber(100 - SerchAreaData.freeSpaceArea3 / 1000) + "% compleat)"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "Workers":
+            document.getElementById("buyWorker").innerHTML = "Buy worker (" + WorkerStatusData.workers + ") Cost: " + formatNumber(WorkerStatusData.workerCost) + "W"
+            document.getElementById("freeWorkers").innerHTML = "Free workers " + WorkerStatusData.freeWorkers
+            document.getElementById("energyWorkers").innerHTML = "Energy workers " + JobData.energyWorker
+            document.getElementById("woodWorkers").innerHTML = "Wood workers " + JobData.woodWorker
+            document.getElementById("sandWorkers").innerHTML = "Sand workers " + JobData.sandWorker
+            document.getElementById("glassWorkers").innerHTML = "Glass workers " + JobData.glassWorker
+            document.getElementById("ironWorkers").innerHTML = "Iron workers " + JobData.ironWorker
+            document.getElementById("coalWorkers").innerHTML = "Coal workers " + JobData.coalWorker
+            document.getElementById("steelWorkers").innerHTML = "Steel workers " + JobData.steelWorker
+            document.getElementById("oilWorkers").innerHTML = "Oil workers " + JobData.oilWorker
+            document.getElementById("plasticWorkers").innerHTML = "Plastic workers " + JobData.plasticWorker
+            break;
+        default:
+            break;
     }
 }
 
@@ -857,7 +949,7 @@ function mainLoopFast() {
 function mainLoopMediam() {
     slowTurbine()
     makePower(TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000))
-    //revealTabs()
+    revealTabs()
     //updateGraph()
 }
 
