@@ -222,3 +222,12 @@ body {
     top: 450px;
     left: -24px;
 }
+
+#Tabs_locks {
+    display: grid;
+    grid-template-columns: 24px 80px 80px 80px 80px 80px 80px 80px 80px 80px 24px;
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 218px;
+}
