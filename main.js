@@ -81,7 +81,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_1_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_1_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_1").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_1_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_1_hover").style.visibility = "hidden"
@@ -97,7 +98,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_2_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_2_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_2").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_2_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_2_hover").style.visibility = "hidden"
@@ -113,7 +115,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_3_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_3_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_3").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_3_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_3_hover").style.visibility = "hidden"
@@ -129,7 +132,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_4_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_4_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_4").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_4_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_4_hover").style.visibility = "hidden"
@@ -145,7 +149,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_5_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_5_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_5").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_5_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_5_hover").style.visibility = "hidden"
@@ -161,7 +166,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_6_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_6_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_6").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_6_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_6_hover").style.visibility = "hidden"
@@ -177,7 +183,8 @@ function buttonStat(stat, button) {
                     document.getElementById("energy_stats_button_7_pressed").style.visibility = "visible"
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_7_hover").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_7").scr = "Assets/stats_button_hover.png"
+                    //document.getElementById("energy_stats_button_7_hover").style.visibility = "visible"
                     break;
                 case "out":
                     document.getElementById("energy_stats_button_7_hover").style.visibility = "hidden"
