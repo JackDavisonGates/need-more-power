@@ -249,7 +249,18 @@ function nixieBanner(string) {
         document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
     }
     for (x in string.toUpperCase()) {
-        document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+        switch (x) {
+            case ".":
+                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_007.png";
+                break;
+            case "/":
+                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_006.png";
+                break;
+            default:
+                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+                break;
+        }
+
     }
 }
 
