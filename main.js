@@ -58,6 +58,90 @@ var TabData = {
     setingsTabAccess: 0,
 }
 
+var NixieDictionary = {
+  "a" : "Nixie_001",
+  "A" : "Nixie_001",
+  "b" : "Nixie_002",
+  "B" : "Nixie_002",
+  "c" : "Nixie_003",
+  "C" : "Nixie_003",
+  "d" : "Nixie_004",
+  "D" : "Nixie_004",
+  "e" : "Nixie_005",
+  "E" : "Nixie_005",
+  "f" : "Nixie_006",
+  "F" : "Nixie_006",
+  "g" : "Nixie_007",
+  "G" : "Nixie_007",
+  "h" : "Nixie_008",
+  "H" : "Nixie_008",
+  "i" : "Nixie_009",
+  "I" : "Nixie_009",
+  "j" : "Nixie_010",
+  "J" : "Nixie_010",
+  "k" : "Nixie_011",
+  "K" : "Nixie_011",
+  "l" : "Nixie_012",
+  "L" : "Nixie_012",
+  "m" : "Nixie_013",
+  "M" : "Nixie_013",
+  "n" : "Nixie_014",
+  "N" : "Nixie_014",
+  "o" : "Nixie_015",
+  "O" : "Nixie_015",
+  "p" : "Nixie_016",
+  "P" : "Nixie_016",
+  "q" : "Nixie_017",
+  "Q" : "Nixie_017",
+  "r" : "Nixie_018",
+  "R" : "Nixie_018",
+  "s" : "Nixie_019",
+  "S" : "Nixie_019",
+  "t" : "Nixie_020",
+  "T" : "Nixie_020",
+  "u" : "Nixie_021",
+  "U" : "Nixie_021",
+  "v" : "Nixie_022",
+  "V" : "Nixie_022",
+  "w" : "Nixie_023",
+  "W" : "Nixie_023",
+  "x" : "Nixie_024",
+  "X" : "Nixie_024",
+  "y" : "Nixie_025",
+  "Y" : "Nixie_025",
+  "z" : "Nixie_026",
+  "Z" : "Nixie_026",
+  " " : "Nixie_027",
+  "-" : "Nixie_028",
+  "+" : "Nixie_029",
+  "/" : "Nixie_030",
+  "*" : "Nixie_031",
+  "." : "Nixie_032",
+  "(" : "Nixie_033",
+  ")" : "Nixie_034",
+  "[" : "Nixie_035",
+  "]" : "Nixie_036",
+  ":" : "Nixie_037",
+  "?" : "Nixie_038",
+  "|" : "Nixie_039",
+  "!" : "Nixie_040",
+  "0" : "Nixie_041",
+  "1" : "Nixie_042",
+  "2" : "Nixie_043",
+  "3" : "Nixie_044",
+  "4" : "Nixie_045",
+  "5" : "Nixie_046",
+  "6" : "Nixie_047",
+  "7" : "Nixie_048",
+  "8" : "Nixie_049",
+  "9" : "Nixie_050",
+  "%" : "Nixie_051",
+  "~" : "Nixie_052",
+  "μ" : "Nixie_053",
+  "Δ" : "Nixie_054",
+  "∇" : "Nixie_055"
+}
+
 function buttonStat(stat, button) {
     console.log("buttonStat")
     switch (button) {
@@ -337,22 +421,27 @@ function tabEvent(id, evt, tabName) {
 
 function nixieBanner(string) {
     for (i = string.length; i < 27; i++) {
-        document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_ .png";
+        document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_027.png";
     }
-    for (x in string.toUpperCase()) {
-        switch (x) {
-            case ".":
-                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_007.png";
-                break;
-            case "/":
-                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_006.png";
-                break;
-            default:
-                document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
-                break;
-        }
+    for (x in string) {
+      document.getElementById("Nixie_".concat(String(x))).src = "Assets/".concat(NixieDictionary[string[x]], ".png");
+    }
 
-    }
+
+    //for (x in string.toUpperCase()) {
+      //  switch (x) {
+        //    case ".":
+          //      document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_007.png";
+            //    break;
+            //case "/":
+            //    document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_006.png";
+            //    break;
+            //default:
+            //    document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
+            //    break;
+        //}
+
+    //}
 }
 
 function updateDisplay(id = "") {
