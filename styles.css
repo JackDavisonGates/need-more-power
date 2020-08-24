@@ -205,29 +205,33 @@ body {
     left: -24px;
 }
 
-#energy_stats_buttons_pressed {
-    display: grid;
-    grid-template-columns: 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px;
+#loading_bars {
     position: absolute;
-    z-index: 3;
-    top: 450px;
-    left: -24px;
+    top: 35px;
+    left: 390px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
 }
 
-#energy_stats_buttons_hover {
-    display: grid;
-    grid-template-columns: 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px;
+#workers_tags {
     position: absolute;
-    z-index: 2;
-    top: 450px;
-    left: -24px;
+    top: 50px;
+    left: 10px;
+    width: 261px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
 }
 
-#Tabs_locks {
-    display: grid;
-    grid-template-columns: 24px 80px 80px 80px 80px 80px 80px 80px 80px 80px 24px;
+#worker_numbers {
     position: absolute;
-    z-index: 2;
-    top: 15px;
-    left: 218px;
+    top: 50px;
+    left: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
 }

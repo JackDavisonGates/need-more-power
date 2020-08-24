@@ -44,6 +44,8 @@ var MiscellaneousData = {
 var DisplayData = {
     energyDisplayNixiePart: 0,
     nixieDisplayRunning: 0,
+    energyStatsButton: [1, 0, 0, 0, 0, 0, 0],
+    energyWorkerNumber: 0,
 }
 
 var TabData = {
@@ -59,91 +61,103 @@ var TabData = {
 }
 
 var NixieDictionary = {
-  "a" : "Nixie_001",
-  "A" : "Nixie_001",
-  "b" : "Nixie_002",
-  "B" : "Nixie_002",
-  "c" : "Nixie_003",
-  "C" : "Nixie_003",
-  "d" : "Nixie_004",
-  "D" : "Nixie_004",
-  "e" : "Nixie_005",
-  "E" : "Nixie_005",
-  "f" : "Nixie_006",
-  "F" : "Nixie_006",
-  "g" : "Nixie_007",
-  "G" : "Nixie_007",
-  "h" : "Nixie_008",
-  "H" : "Nixie_008",
-  "i" : "Nixie_009",
-  "I" : "Nixie_009",
-  "j" : "Nixie_010",
-  "J" : "Nixie_010",
-  "k" : "Nixie_011",
-  "K" : "Nixie_011",
-  "l" : "Nixie_012",
-  "L" : "Nixie_012",
-  "m" : "Nixie_013",
-  "M" : "Nixie_013",
-  "n" : "Nixie_014",
-  "N" : "Nixie_014",
-  "o" : "Nixie_015",
-  "O" : "Nixie_015",
-  "p" : "Nixie_016",
-  "P" : "Nixie_016",
-  "q" : "Nixie_017",
-  "Q" : "Nixie_017",
-  "r" : "Nixie_018",
-  "R" : "Nixie_018",
-  "s" : "Nixie_019",
-  "S" : "Nixie_019",
-  "t" : "Nixie_020",
-  "T" : "Nixie_020",
-  "u" : "Nixie_021",
-  "U" : "Nixie_021",
-  "v" : "Nixie_022",
-  "V" : "Nixie_022",
-  "w" : "Nixie_023",
-  "W" : "Nixie_023",
-  "x" : "Nixie_024",
-  "X" : "Nixie_024",
-  "y" : "Nixie_025",
-  "Y" : "Nixie_025",
-  "z" : "Nixie_026",
-  "Z" : "Nixie_026",
-  " " : "Nixie_027",
-  "-" : "Nixie_028",
-  "+" : "Nixie_029",
-  "/" : "Nixie_030",
-  "*" : "Nixie_031",
-  "." : "Nixie_032",
-  "(" : "Nixie_033",
-  ")" : "Nixie_034",
-  "[" : "Nixie_035",
-  "]" : "Nixie_036",
-  ":" : "Nixie_037",
-  "?" : "Nixie_038",
-  "|" : "Nixie_039",
-  "!" : "Nixie_040",
-  "0" : "Nixie_041",
-  "1" : "Nixie_042",
-  "2" : "Nixie_043",
-  "3" : "Nixie_044",
-  "4" : "Nixie_045",
-  "5" : "Nixie_046",
-  "6" : "Nixie_047",
-  "7" : "Nixie_048",
-  "8" : "Nixie_049",
-  "9" : "Nixie_050",
-  "%" : "Nixie_051",
-  "~" : "Nixie_052",
-  "μ" : "Nixie_053",
-  "Δ" : "Nixie_054",
-  "∇" : "Nixie_055"
+    "a": "Nixie_001",
+    "A": "Nixie_001",
+    "b": "Nixie_002",
+    "B": "Nixie_002",
+    "c": "Nixie_003",
+    "C": "Nixie_003",
+    "d": "Nixie_004",
+    "D": "Nixie_004",
+    "e": "Nixie_005",
+    "E": "Nixie_005",
+    "f": "Nixie_006",
+    "F": "Nixie_006",
+    "g": "Nixie_007",
+    "G": "Nixie_007",
+    "h": "Nixie_008",
+    "H": "Nixie_008",
+    "i": "Nixie_009",
+    "I": "Nixie_009",
+    "j": "Nixie_010",
+    "J": "Nixie_010",
+    "k": "Nixie_011",
+    "K": "Nixie_011",
+    "l": "Nixie_012",
+    "L": "Nixie_012",
+    "m": "Nixie_013",
+    "M": "Nixie_013",
+    "n": "Nixie_014",
+    "N": "Nixie_014",
+    "o": "Nixie_015",
+    "O": "Nixie_015",
+    "p": "Nixie_016",
+    "P": "Nixie_016",
+    "q": "Nixie_017",
+    "Q": "Nixie_017",
+    "r": "Nixie_018",
+    "R": "Nixie_018",
+    "s": "Nixie_019",
+    "S": "Nixie_019",
+    "t": "Nixie_020",
+    "T": "Nixie_020",
+    "u": "Nixie_021",
+    "U": "Nixie_021",
+    "v": "Nixie_022",
+    "V": "Nixie_022",
+    "w": "Nixie_023",
+    "W": "Nixie_023",
+    "x": "Nixie_024",
+    "X": "Nixie_024",
+    "y": "Nixie_025",
+    "Y": "Nixie_025",
+    "z": "Nixie_026",
+    "Z": "Nixie_026",
+    " ": "Nixie_027",
+    "-": "Nixie_028",
+    "+": "Nixie_029",
+    "/": "Nixie_030",
+    "*": "Nixie_031",
+    ".": "Nixie_032",
+    "(": "Nixie_033",
+    ")": "Nixie_034",
+    "[": "Nixie_035",
+    "]": "Nixie_036",
+    ":": "Nixie_037",
+    "?": "Nixie_038",
+    "|": "Nixie_039",
+    "!": "Nixie_040",
+    "0": "Nixie_041",
+    "1": "Nixie_042",
+    "2": "Nixie_043",
+    "3": "Nixie_044",
+    "4": "Nixie_045",
+    "5": "Nixie_046",
+    "6": "Nixie_047",
+    "7": "Nixie_048",
+    "8": "Nixie_049",
+    "9": "Nixie_050",
+    "%": "Nixie_051",
+    "~": "Nixie_052",
+    "μ": "Nixie_053",
+    "Δ": "Nixie_054",
+    "∇": "Nixie_055"
+}
+
+function workerNumber(move) {
+    switch (move) {
+        case "up":
+            DisplayData.energyWorkerNumber += 1
+            break;
+        case "down":
+            DisplayData.energyWorkerNumber -= 1
+            break;
+        default:
+    }
+    document.getElementById("energy_worker_number").innerHTML = formatNumber(DisplayData.energyWorkerNumber, 0)
 }
 
 function buttonStat(stat, button) {
-    console.log("buttonStat")
     switch (button) {
         case "turbine":
             switch (stat) {
@@ -162,14 +176,18 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_1')
-                    document.getElementById("energy_stats_button_1_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_1").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[0] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_1").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_1_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[0] == 0) {
+                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_1_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[0] == 0) {
+                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover.png"
+                    }
                     break;
                 default:
                     break;
@@ -179,14 +197,18 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_2')
-                    document.getElementById("energy_stats_button_2_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_2").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[1] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_2").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_2_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[1] == 0) {
+                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_2_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[1] == 0) {
+                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover.png"
+                    }
                     break;
                 default:
                     break;
@@ -196,14 +218,18 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_3')
-                    document.getElementById("energy_stats_button_3_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_3").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[2] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_3").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_3_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[2] == 0) {
+                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_3_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[2] == 0) {
+                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover.png"
+                    }
                     break;
                 default:
                     break;
@@ -213,14 +239,18 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_4')
-                    document.getElementById("energy_stats_button_4_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_4").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[3] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_4").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_4_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[3] == 0) {
+                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_4_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[3] == 0) {
+                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover.png"
+                    }
                     break;
                 default:
                     break;
@@ -230,14 +260,18 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_5')
-                    document.getElementById("energy_stats_button_5_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_5").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[4] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_5").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_5_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[4] == 0) {
+                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_5_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[4] == 0) {
+                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover.png"
+                    }
                     break;
                 default:
                     break;
@@ -247,14 +281,18 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_6')
-                    document.getElementById("energy_stats_button_6_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_6").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[5] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_6").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_6_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[5] == 0) {
+                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_6_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[5] == 0) {
+                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover.png"
+                    }
                     break;
                 default:
                     break;
@@ -264,14 +302,44 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     energyStatsButtons('energy_stats_button_7')
-                    document.getElementById("energy_stats_button_7_pressed").style.visibility = "visible"
+                    document.getElementById("energy_stats_button_7").src = "Assets/stats_button_pressed.png"
+                    DisplayData.energyStatsButton[6] = 1
                     break;
                 case "hover":
-                    document.getElementById("energy_stats_button_7").scr = "Assets/stats_button_hover.png"
-                    //document.getElementById("energy_stats_button_7_hover").style.visibility = "visible"
+                    if (DisplayData.energyStatsButton[6] == 0) {
+                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_hover.png"
+                    }
                     break;
                 case "out":
-                    document.getElementById("energy_stats_button_7_hover").style.visibility = "hidden"
+                    if (DisplayData.energyStatsButton[6] == 0) {
+                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover.png"
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "energy_worker_+_button":
+            switch (stat) {
+                case "down":
+                    workerNumber("up")
+                    document.getElementById("energy_worker_+_button").src = "Assets/+_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("energy_worker_+_button").src = "Assets/+_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "energy_worker_-_button":
+            switch (stat) {
+                case "down":
+                    workerNumber("down")
+                    document.getElementById("energy_worker_-_button").src = "Assets/-_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("energy_worker_-_button").src = "Assets/-_button_unpressed.png"
                     break;
                 default:
                     break;
@@ -283,13 +351,20 @@ function buttonStat(stat, button) {
 }
 
 function energyStatsButtons(button) {
-    document.getElementById("energy_stats_button_1_pressed").style.visibility = "hidden"
-    document.getElementById("energy_stats_button_2_pressed").style.visibility = "hidden"
-    document.getElementById("energy_stats_button_3_pressed").style.visibility = "hidden"
-    document.getElementById("energy_stats_button_4_pressed").style.visibility = "hidden"
-    document.getElementById("energy_stats_button_5_pressed").style.visibility = "hidden"
-    document.getElementById("energy_stats_button_6_pressed").style.visibility = "hidden"
-    document.getElementById("energy_stats_button_7_pressed").style.visibility = "hidden"
+    document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover.png"
+    document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover.png"
+    document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover.png"
+    document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover.png"
+    document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover.png"
+    document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover.png"
+    document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover.png"
+    DisplayData.energyStatsButton[0] = 0
+    DisplayData.energyStatsButton[1] = 0
+    DisplayData.energyStatsButton[2] = 0
+    DisplayData.energyStatsButton[3] = 0
+    DisplayData.energyStatsButton[4] = 0
+    DisplayData.energyStatsButton[5] = 0
+    DisplayData.energyStatsButton[6] = 0
     switch (button) {
         default:
             break;
@@ -424,24 +499,8 @@ function nixieBanner(string) {
         document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_027.png";
     }
     for (x in string) {
-      document.getElementById("Nixie_".concat(String(x))).src = "Assets/".concat(NixieDictionary[string[x]], ".png");
+        document.getElementById("Nixie_".concat(String(x))).src = "Assets/".concat(NixieDictionary[string[x]], ".png");
     }
-
-
-    //for (x in string.toUpperCase()) {
-      //  switch (x) {
-        //    case ".":
-          //      document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_007.png";
-            //    break;
-            //case "/":
-            //    document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_006.png";
-            //    break;
-            //default:
-            //    document.getElementById("Nixie_".concat(String(x))).src = "Assets/Nixie_".concat(string[x].concat(".png"));
-            //    break;
-        //}
-
-    //}
 }
 
 function updateDisplay(id = "") {
