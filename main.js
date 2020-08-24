@@ -46,6 +46,8 @@ var DisplayData = {
     nixieDisplayRunning: 0,
     energyStatsButton: [1, 0, 0, 0, 0, 0, 0],
     energyWorkerNumber: 0,
+    woodWorkerNumber: 0,
+    oilWorkerNumber: 0,
 }
 
 var TabData = {
@@ -144,17 +146,66 @@ var NixieDictionary = {
     "∇": "Nixie_055"
 }
 
-function workerNumber(move) {
-    switch (move) {
-        case "up":
-            DisplayData.energyWorkerNumber += 1
+var barSize = [0, 0, 0]
+
+function barMove() {
+    barSize[0] += DisplayData.energyWorkerNumber
+    barSize[1] += DisplayData.woodWorkerNumber
+    barSize[2] += DisplayData.oilWorkerNumber
+    if (barSize[0] > 270) {
+        barSize[0] = 0
+    }
+    if (barSize[1] > 270) {
+        barSize[1] = 0
+    }
+    if (barSize[2] > 270) {
+        barSize[2] = 0
+    }
+    document.getElementById("energy_worker_loading_bar_fill").style.left = barSize[0] - 270 + "px"
+    document.getElementById("wood_worker_loading_bar_fill").style.left = barSize[1] - 270 + "px"
+    document.getElementById("oil_worker_loading_bar_fill").style.left = barSize[2] - 270 + "px"
+}
+
+function workerNumber(move, worker) {
+    switch (worker) {
+        case "energy":
+            switch (move) {
+                case "up":
+                    DisplayData.energyWorkerNumber += 1
+                    break;
+                case "down":
+                    DisplayData.energyWorkerNumber -= 1
+                    break;
+                default:
+            }
             break;
-        case "down":
-            DisplayData.energyWorkerNumber -= 1
+        case "wood":
+            switch (move) {
+                case "up":
+                    DisplayData.woodWorkerNumber += 1
+                    break;
+                case "down":
+                    DisplayData.woodWorkerNumber -= 1
+                    break;
+                default:
+            }
             break;
-        default:
+        case "oil":
+            switch (move) {
+                case "up":
+                    DisplayData.oilWorkerNumber += 1
+                    break;
+                case "down":
+                    DisplayData.oilWorkerNumber -= 1
+                    break;
+                default:
+                    break;
+            }
+            default:
     }
     document.getElementById("energy_worker_number").innerHTML = formatNumber(DisplayData.energyWorkerNumber, 0)
+    document.getElementById("wood_worker_number").innerHTML = formatNumber(DisplayData.woodWorkerNumber, 0)
+    document.getElementById("oil_worker_number").innerHTML = formatNumber(DisplayData.oilWorkerNumber, 0)
 }
 
 function buttonStat(stat, button) {
@@ -173,156 +224,142 @@ function buttonStat(stat, button) {
             }
             break;
         case "energy_stats_button_1":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_1')
-                    document.getElementById("energy_stats_button_1").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[0] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[0] == 0) {
+            if (DisplayData.energyStatsButton[0] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_1')
+                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[0] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_1").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[0] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_stats_button_2":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_2')
-                    document.getElementById("energy_stats_button_2").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[1] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[1] == 0) {
+            if (DisplayData.energyStatsButton[1] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_2')
+                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[1] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_2").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[1] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_stats_button_3":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_3')
-                    document.getElementById("energy_stats_button_3").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[2] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[2] == 0) {
+            if (DisplayData.energyStatsButton[2] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_3')
+                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[2] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_3").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[2] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_stats_button_4":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_4')
-                    document.getElementById("energy_stats_button_4").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[3] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[3] == 0) {
+            if (DisplayData.energyStatsButton[3] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_4')
+                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[3] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_4").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[3] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_stats_button_5":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_5')
-                    document.getElementById("energy_stats_button_5").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[4] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[4] == 0) {
+            if (DisplayData.energyStatsButton[4] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_5')
+                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[4] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_5").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[4] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_stats_button_6":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_6')
-                    document.getElementById("energy_stats_button_6").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[5] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[5] == 0) {
+            if (DisplayData.energyStatsButton[5] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_6')
+                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[5] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_6").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[5] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_stats_button_7":
-            switch (stat) {
-                case "down":
-                    energyStatsButtons('energy_stats_button_7')
-                    document.getElementById("energy_stats_button_7").src = "Assets/stats_button_pressed.png"
-                    DisplayData.energyStatsButton[6] = 1
-                    break;
-                case "hover":
-                    if (DisplayData.energyStatsButton[6] == 0) {
+            if (DisplayData.energyStatsButton[6] == 0) {
+                switch (stat) {
+                    case "down":
+                        energyStatsButtons('energy_stats_button_7')
+                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_pressed.png"
+                        DisplayData.energyStatsButton[6] = 1
+                        break;
+                    case "hover":
                         document.getElementById("energy_stats_button_7").src = "Assets/stats_button_hover.png"
-                    }
-                    break;
-                case "out":
-                    if (DisplayData.energyStatsButton[6] == 0) {
+                        break;
+                    case "out":
                         document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover.png"
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_worker_+_button":
             switch (stat) {
                 case "down":
-                    workerNumber("up")
+                    workerNumber("up", "energy")
                     document.getElementById("energy_worker_+_button").src = "Assets/+_button_pressed.png"
                     break;
                 case "up":
@@ -335,11 +372,63 @@ function buttonStat(stat, button) {
         case "energy_worker_-_button":
             switch (stat) {
                 case "down":
-                    workerNumber("down")
+                    workerNumber("down", "energy")
                     document.getElementById("energy_worker_-_button").src = "Assets/-_button_pressed.png"
                     break;
                 case "up":
                     document.getElementById("energy_worker_-_button").src = "Assets/-_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "wood_worker_+_button":
+            switch (stat) {
+                case "down":
+                    workerNumber("up", "wood")
+                    document.getElementById("wood_worker_+_button").src = "Assets/+_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("wood_worker_+_button").src = "Assets/+_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "wood_worker_-_button":
+            switch (stat) {
+                case "down":
+                    workerNumber("down", "wood")
+                    document.getElementById("wood_worker_-_button").src = "Assets/-_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("wood_worker_-_button").src = "Assets/-_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "oil_worker_+_button":
+            switch (stat) {
+                case "down":
+                    workerNumber("up", "oil")
+                    document.getElementById("oil_worker_+_button").src = "Assets/+_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("oil_worker_+_button").src = "Assets/+_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "oil_worker_-_button":
+            switch (stat) {
+                case "down":
+                    workerNumber("down", "oil")
+                    document.getElementById("oil_worker_-_button").src = "Assets/-_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("oil_worker_-_button").src = "Assets/-_button_unpressed.png"
                     break;
                 default:
                     break;
@@ -1092,6 +1181,7 @@ setUpToolTip()
 function mainLoopFast() {
     //workers()
     updateDisplay(MiscellaneousData.displayID)
+    barMove()
 }
 
 function mainLoopMediam() {

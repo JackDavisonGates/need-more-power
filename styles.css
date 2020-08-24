@@ -215,6 +215,16 @@ body {
     grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
 }
 
+#loading_bars_fill {
+    position: absolute;
+    top: 35px;
+    left: 417px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+}
+
 #workers_tags {
     position: absolute;
     top: 50px;
