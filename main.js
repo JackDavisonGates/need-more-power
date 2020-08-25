@@ -33,6 +33,8 @@ var MiscellaneousData = {
     numberFormat: 2,
     gameTicks: 0,
     gameSpeed: 50,
+    mediamLoopTime: 10,
+    slowLoopTime: 25,
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
@@ -674,7 +676,7 @@ function PerSecond(material) {
         default:
             break;
         case "energy":
-            return TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) * MiscellaneousData.gameSpeed
+            return TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) / (MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime 
         case "wood":
             Pass
             break;
@@ -1171,10 +1173,10 @@ function mainLoopSlow() {
 
 var mainGameLoop = window.setInterval(function() {
     mainLoopFast()
-    if (MiscellaneousData.gameTicks % 10 == 0) {
+    if (MiscellaneousData.gameTicks % MiscellaneousData.mediamLoopTime == 0) {
         mainLoopMediam()
     }
-    if (MiscellaneousData.gameTicks % 25 == 0) {
+    if (MiscellaneousData.gameTicks % MiscellaneousData.slowLoopTime == 0) {
         //mainLoopSlow()
     }
     startMessage()
