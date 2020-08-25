@@ -20,8 +20,6 @@ function chopWood(number){
       document.getElementById("getMine").style.display = "block"
       updateText("Materials")
       updateText("Power")
-      //document.getElementById("woodDisplay").innerHTML = "wood: " + formatNumber(gameData.wood)
-      //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
     }
 }
 
@@ -33,8 +31,6 @@ function makeSteel(number) {
     document.getElementById("getPump").style.display = "block"
     document.getElementById("steelDisplay").style.display = "block"
     updateText("Materials")
-    //document.getElementById("steelDisplay").innerHTML = "steel: " + formatNumber(gameData.steel)
-    //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
   }
 }
 
@@ -44,8 +40,6 @@ function makeGlass(number) {
     StockpillData.sand -= 10*number
     document.getElementById("glassDisplay").style.display = "block"
     updateText("Materials")
-    //document.getElementById("glassDisplay").innerHTML = "glass: " + formatNumber(gameData.glass)
-    //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
   }
 }
 
@@ -55,7 +49,5 @@ function makePlastic(number) {
     StockpillData.oil -= 10*number
     document.getElementById("plasticDisplay").style.display = "block"
     updateText("Materials")
-    //document.getElementById("plasticDisplay").innerHTML = "plastic: " + formatNumber(gameData.plastic)
-    //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
   }
 }

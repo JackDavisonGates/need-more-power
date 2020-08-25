@@ -6,8 +6,6 @@ function buyCapasitor() {
         updatePowerStorage()
         updateText("Power")
         updateText("Upgrades")
-        //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
-        //document.getElementById("buyCapasitorButton").innerHTML = "Buy Capasitor (Currently Ownd " + gameData.capasitors + ") Cost: " + formatNumber(gameData.capasitorCost) + "W"
     }
 }
 
@@ -19,8 +17,6 @@ function buyBattery() {
         updatePowerStorage()
         updateText("Power")
         updateText("Upgrades")
-        //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
-        //document.getElementById("buyBatteryButton").innerHTML = "Buy Battery (Currently Ownd " + gameData.batteries + ") Cost: " + formatNumber(gameData.batteryCost) + "W"
     }
 }
 
@@ -32,8 +28,6 @@ function buyPowerPerTick() {
         PowerData.powerPerTick += 1
         updateText("Power")
         updateText("Upgrades")
-        //document.getElementById("currentPower").innerHTML = 'Stored power: ' + formatNumber(gameData.currentPower) + "W/" + formatNumber(gameData.totalPowerStorage) + "W"
-        //document.getElementById("perClickUpgrade").innerHTML = "Upgrade Turbine (Currently Level " + gameData.powerPerTick + ") Cost: " + formatNumber(gameData.powerPerTickCost) + "W"
     }
 }
 

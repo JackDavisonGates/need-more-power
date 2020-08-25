@@ -166,48 +166,6 @@ function barMove() {
     document.getElementById("oil_worker_loading_bar_fill").style.left = barSize[2] - 270 + "px"
 }
 
-function workerNumber(move, worker) {
-    switch (worker) {
-        case "energy":
-            switch (move) {
-                case "up":
-                    DisplayData.energyWorkerNumber += 1
-                    break;
-                case "down":
-                    DisplayData.energyWorkerNumber -= 1
-                    break;
-                default:
-            }
-            break;
-        case "wood":
-            switch (move) {
-                case "up":
-                    DisplayData.woodWorkerNumber += 1
-                    break;
-                case "down":
-                    DisplayData.woodWorkerNumber -= 1
-                    break;
-                default:
-            }
-            break;
-        case "oil":
-            switch (move) {
-                case "up":
-                    DisplayData.oilWorkerNumber += 1
-                    break;
-                case "down":
-                    DisplayData.oilWorkerNumber -= 1
-                    break;
-                default:
-                    break;
-            }
-            default:
-    }
-    document.getElementById("energy_worker_number").innerHTML = formatNumber(DisplayData.energyWorkerNumber, 0)
-    document.getElementById("wood_worker_number").innerHTML = formatNumber(DisplayData.woodWorkerNumber, 0)
-    document.getElementById("oil_worker_number").innerHTML = formatNumber(DisplayData.oilWorkerNumber, 0)
-}
-
 function buttonStat(stat, button) {
     switch (button) {
         case "turbine":
@@ -356,10 +314,33 @@ function buttonStat(stat, button) {
                 }
             }
             break;
+        case "energy_worker_stats_button":
+            switch (stat) {
+                case "down":
+                    WorkerStatusData.freeWorkers = WorkerStatusData.workers
+                    JobData.energyWorker = 0
+                    JobData.woodWorker = 0
+                    JobData.oilWorker = 0
+                    updateText("Workers")
+                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_pressed.png"
+                    break;
+                case "up":
+                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+                    break;
+                case "hover":
+                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_hover.png"
+                    break;
+                case "out":
+                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
         case "energy_worker_+_button":
             switch (stat) {
                 case "down":
-                    workerNumber("up", "energy")
+                    setWorkerJob("energy", 1)
                     document.getElementById("energy_worker_+_button").src = "Assets/+_button_pressed.png"
                     break;
                 case "up":
@@ -372,7 +353,7 @@ function buttonStat(stat, button) {
         case "energy_worker_-_button":
             switch (stat) {
                 case "down":
-                    workerNumber("down", "energy")
+                    setWorkerJob("energy", -1)
                     document.getElementById("energy_worker_-_button").src = "Assets/-_button_pressed.png"
                     break;
                 case "up":
@@ -385,7 +366,7 @@ function buttonStat(stat, button) {
         case "wood_worker_+_button":
             switch (stat) {
                 case "down":
-                    workerNumber("up", "wood")
+                    setWorkerJob("wood", 1)
                     document.getElementById("wood_worker_+_button").src = "Assets/+_button_pressed.png"
                     break;
                 case "up":
@@ -398,7 +379,7 @@ function buttonStat(stat, button) {
         case "wood_worker_-_button":
             switch (stat) {
                 case "down":
-                    workerNumber("down", "wood")
+                    setWorkerJob("wood", -1)
                     document.getElementById("wood_worker_-_button").src = "Assets/-_button_pressed.png"
                     break;
                 case "up":
@@ -411,7 +392,7 @@ function buttonStat(stat, button) {
         case "oil_worker_+_button":
             switch (stat) {
                 case "down":
-                    workerNumber("up", "oil")
+                    setWorkerJob("oil", 1)
                     document.getElementById("oil_worker_+_button").src = "Assets/+_button_pressed.png"
                     break;
                 case "up":
@@ -424,7 +405,7 @@ function buttonStat(stat, button) {
         case "oil_worker_-_button":
             switch (stat) {
                 case "down":
-                    workerNumber("down", "oil")
+                    setWorkerJob("oil", -1)
                     document.getElementById("oil_worker_-_button").src = "Assets/-_button_pressed.png"
                     break;
                 case "up":
@@ -1139,17 +1120,9 @@ function updateText(update) {
             }
             break;
         case "Workers":
-            document.getElementById("buyWorker").innerHTML = "Buy worker (" + WorkerStatusData.workers + ") Cost: " + formatNumber(WorkerStatusData.workerCost) + "W"
-            document.getElementById("freeWorkers").innerHTML = "Free workers " + WorkerStatusData.freeWorkers
-            document.getElementById("energyWorkers").innerHTML = "Energy workers " + JobData.energyWorker
-            document.getElementById("woodWorkers").innerHTML = "Wood workers " + JobData.woodWorker
-            document.getElementById("sandWorkers").innerHTML = "Sand workers " + JobData.sandWorker
-            document.getElementById("glassWorkers").innerHTML = "Glass workers " + JobData.glassWorker
-            document.getElementById("ironWorkers").innerHTML = "Iron workers " + JobData.ironWorker
-            document.getElementById("coalWorkers").innerHTML = "Coal workers " + JobData.coalWorker
-            document.getElementById("steelWorkers").innerHTML = "Steel workers " + JobData.steelWorker
-            document.getElementById("oilWorkers").innerHTML = "Oil workers " + JobData.oilWorker
-            document.getElementById("plasticWorkers").innerHTML = "Plastic workers " + JobData.plasticWorker
+            document.getElementById("energy_worker_number").innerHTML = JobData.energyWorker
+            document.getElementById("wood_worker_number").innerHTML = JobData.woodWorker
+            document.getElementById("oil_worker_number").innerHTML = JobData.oilWorker
             break;
         default:
             break;
@@ -1179,9 +1152,8 @@ let setUpToolTip = function() {
 setUpToolTip()
 
 function mainLoopFast() {
-    //workers()
+    workers()
     updateDisplay(MiscellaneousData.displayID)
-    barMove()
 }
 
 function mainLoopMediam() {

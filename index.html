@@ -10,6 +10,8 @@
 
 <body>
     <script src="main.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/upgrades.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/workers.js" charset="utf-8" type="text/javascript"></script>
     <div id="Page_Layout">
         <div></div>
         <div>
@@ -171,6 +173,16 @@
 
                         <div id="Workers" class="tabcontent">
                             <h3>Workers</h3>
+                            <img id="buy_worker" src="Assets/name_tag.png" style="top: 39px; left: 20px" onclick="buyWorker()">
+                            <div id="worker_cost" style="position:relative; text-align:center; top: -32px; left: 5px; color: Azure" onclick="buyWorker()">10</div>
+                            <div id="energy_workers_stats">
+                                <img id="energy_worker_stats_back" src="Assets/worker_stats.png" style="position: relative">
+                                <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; top:-55px; left: 351px"
+                                    onmousedown="buttonStat('down', 'energy_worker_stats_button')"
+                                    onmouseup="buttonStat('up', 'energy_worker_stats_button')"
+                                    onmouseover="buttonStat('hover', 'energy_worker_stats_button')"
+                                    onmouseout="buttonStat('up', 'energy_worker_stats_button')">
+                            </div>
                             <div id="workers_tags">
                                 <div id="energy_workers" style="position: relative">
                                     <img id="energy_worker_name_tag" src="Assets/name_tag.png" style="position: relative">

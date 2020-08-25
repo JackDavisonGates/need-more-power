@@ -1,7 +1,7 @@
 var WorkerStatusData = {
     workers: 0,
     freeWorkers: 0,
-    workerCost: 10000,
+    workerCost: 10,
 }
 
 var JobData = {
@@ -72,72 +72,59 @@ function buyWorker() {
         PowerData.currentPower -= WorkerStatusData.workerCost
         WorkerStatusData.workerCost *= 1.5
         updateText("Workers")
-        document.getElementById("energyWorkers").style.display = "block"
-        document.getElementById("energyWorkers").style.color = "Azure"
-        document.getElementById("energyWorkers+").style.display = "block"
-        document.getElementById("energyWorkers-").style.display = "block"
-        document.getElementById("energyWorkersProgressFrame").style.display = "block"
-        document.getElementById("energyWorkersBar").style.display = "block"
-        document.getElementById("energyWorkersProgressBackground").style.display = "block"
-        document.getElementById("energyWorkersProgress%").style.display = "block"
+        document.getElementById("worker_cost").innerHTML = formatNumber(WorkerStatusData.workerCost)
+        document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
     }
 }
 
 function setWorkerJob(job, workers) {
-    if (WorkerStatusData.freeWorkers >= workers) {
-        if (job == "energy") {
-            JobData.energyWorker += workers
-        } else if (job == "wood") {
-            JobData.woodWorker += workers
-        } else if (job == "sand") {
-            JobData.sandWorker += workers
-        } else if (job == "glass") {
-            JobData.glassWorker += workers
-        } else if (job == "iron") {
-            JobData.ironWorker += workers
-        } else if (job == "coal") {
-            JobData.coalWorker += workers
-        } else if (job == "steel") {
-            JobData.steelWorker += workers
-        } else if (job == "oil") {
-            JobData.oilWorker += workers
-        } else if (job == "plastic") {
-            JobData.plasticWorker += workers
+    if (((JobData.energyWorker + workers) < 0 && job == "energy") ||
+        ((JobData.woodWorker + workers) < 0 && job == "wood") ||
+        ((JobData.sandWorker + workers) < 0 && job == "sand") ||
+        ((JobData.glassWorker + workers) < 0 && job == "glass") ||
+        ((JobData.ironWorker + workers) < 0 && job == "iron") ||
+        ((JobData.coalWorker + workers) < 0 && job == "coal") ||
+        ((JobData.steelWorker + workers) < 0 && job == "steel") ||
+        ((JobData.oilWorker + workers) < 0 && job == "oil") ||
+        ((JobData.plasticWorker + workers) < 0 && job == "plastic")) {
+            return
         }
-        WorkerStatusData.freeWorkers -= workers
-        updateText("Workers")
+    if ((WorkerStatusData.freeWorkers - workers) < 0) {
+        workers = WorkerStatusData.freeWorkers
+    } else if ((WorkerStatusData.freeWorkers - workers) > WorkerStatusData.workers) {
+        workers = WorkerStatusData.freeWorkers - WorkerStatusData.workers
     }
-}
-
-function stopWorkerJob(job, workers) {
-    if (job == "energy" && JobData.energyWorker >= workers) {
-        JobData.energyWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "wood" && JobData.woodWorker >= workers) {
-        JobData.woodWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "sand" && JobData.sandWorker >= workers) {
-        JobData.sandWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "glass" && JobData.glassWorker >= workers) {
-        JobData.glassWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "iron" && JobData.ironWorker >= workers) {
-        JobData.ironWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "coal" && JobData.coalWorker >= workers) {
-        JobData.coalWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "steel" && JobData.steelWorker >= workers) {
-        JobData.steelWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "oil" && JobData.oilWorker >= workers) {
-        JobData.oilWorker -= workers
-        WorkerStatusData.freeWorkers += workers
-    } else if (job == "plastic" && JobData.plasticWorker >= workers) {
-        JobData.plasticWorker -= workers
-        WorkerStatusData.freeWorkers += workers
+    switch (job) {
+        case "energy":
+            JobData.energyWorker += workers
+            break;
+        case "wood":
+            JobData.woodWorker += workers
+            break;
+        case "sand":
+            JobData.sandWorker += workers
+            break;
+        case "glass":
+            JobData.glassWorker += workers
+            break;
+        case "iron":
+            JobData.ironWorker += workers
+            break;
+        case "coal":
+            JobData.coalWorker += workers
+            break;
+        case "steel":
+            JobData.steelWorker += workers
+            break;
+        case "oil":
+            JobData.oilWorker += workers
+            break;
+        case "plastic":
+            JobData.plasticWorker += workers
+            break;
+        default:
     }
+    WorkerStatusData.freeWorkers -= workers
     updateText("Workers")
 }
 
@@ -153,15 +140,30 @@ function workers() {
         JobTimeData.oilJobTimeCurrent -= JobData.oilWorker * JobEfficiencyData.oilWorkerEfficiency
         JobTimeData.plasticJobTimeCurrent -= JobData.plasticWorker * JobEfficiencyData.plasticWorkerEfficiency
         if (JobTimeData.energyJobTimeCurrent <= 0) {
-            JobTimeData.energyJobTimeCurrent = JobTimeData.energyJobTime
-            spinTurbine(JobProductionData.energyJobProduction)
-            document.getElementById("energyWorkersBar").style.width = 0
-            document.getElementById("energyWorkersProgress%").innerHTML = "0%"
-            JobProgressBarData.energyBarWidth = 0
+            if (JobTimeData.energyJobTimeCurrent * -1 > JobTimeData.energyJobTime) {
+                spinTurbine(((JobTimeData.energyJobTimeCurrent % JobTimeData.energyJobTime) + 1) * JobProductionData.energyJobProduction)
+                JobTimeData.energyJobTimeCurrent = (JobTimeData.energyJobTime * (JobTimeData.energyJobTimeCurrent % JobTimeData.energyJobTime)) - JobTimeData.energyJobTimeCurrent
+            } else {
+                spinTurbine(JobProductionData.energyJobProduction)
+                JobTimeData.energyJobTimeCurrent = JobTimeData.energyJobTime - JobTimeData.energyJobTimeCurrent
+            }
+            if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < 1 / (MiscellaneousData.gameSpeed / 1000)) {
+                document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill-green.png"
+                document.getElementById("energy_worker_loading_bar_fill").style.left = 0 + "px"
+            } else {
+                JobProgressBarData.energyBarWidth = 100 - ((JobTimeData.energyJobTimeCurrent / JobTimeData.energyJobTime) * 100)
+                document.getElementById("energy_worker_loading_bar_fill").style.left = (JobProgressBarData.energyBarWidth * 2.7) - 270 + "px"
+                document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill.png"
+            }
         } else {
-            JobProgressBarData.energyBarWidth = 100-((JobTimeData.energyJobTimeCurrent/JobTimeData.energyJobTime)*100)
-            document.getElementById("energyWorkersBar").style.width = JobProgressBarData.energyBarWidth/0.92 + "px"
-            document.getElementById("energyWorkersProgress%").innerHTML = formatNumber(JobProgressBarData.energyBarWidth, 0) + "%"
+            if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < 1 / (MiscellaneousData.gameSpeed / 1000)) {
+                document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill-green.png"
+                document.getElementById("energy_worker_loading_bar_fill").style.left = 0 + "px"
+            } else {
+                JobProgressBarData.energyBarWidth = 100 - ((JobTimeData.energyJobTimeCurrent / JobTimeData.energyJobTime) * 100)
+                document.getElementById("energy_worker_loading_bar_fill").style.left = (JobProgressBarData.energyBarWidth * 2.7) - 270 + "px"
+                document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill.png"
+            }
         }
         if (JobTimeData.woodJobTimeCurrent <= 0) {
             JobTimeData.woodJobTimeCurrent = JobTimeData.woodJobTime

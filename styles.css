@@ -207,7 +207,7 @@ body {
 
 #loading_bars {
     position: absolute;
-    top: 35px;
+    top: 185px;
     left: 390px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -217,7 +217,7 @@ body {
 
 #loading_bars_fill {
     position: absolute;
-    top: 35px;
+    top: 185px;
     left: 417px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -227,7 +227,7 @@ body {
 
 #workers_tags {
     position: absolute;
-    top: 50px;
+    top: 200px;
     left: 10px;
     width: 261px;
     overflow-x: hidden;
@@ -238,10 +238,16 @@ body {
 
 #worker_numbers {
     position: absolute;
-    top: 50px;
+    top: 200px;
     left: 300px;
     overflow-x: hidden;
     overflow-y: auto;
     display: grid;
     grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+}
+
+#energy_workers_stats {
+    position: absolute;
+    left: 314px;
+    top: 80px;
 }
