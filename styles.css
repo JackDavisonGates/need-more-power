@@ -1,5 +1,6 @@
 body {
-  background-color:black
+  background: url('Assets/Brick2.png');
+  background-repeat: repeat;
 }
 
 #Page_Layout {
