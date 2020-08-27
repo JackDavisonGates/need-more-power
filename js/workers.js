@@ -72,7 +72,7 @@ function buyWorker() {
         PowerData.currentPower -= WorkerStatusData.workerCost
         WorkerStatusData.workerCost *= 1.5
         updateText("Workers")
-        document.getElementById("worker_cost").innerHTML = formatNumber(WorkerStatusData.workerCost)
+        document.getElementById("worker_cost").innerHTML = formatNumber(WorkerStatusData.workerCost) + "W"
         document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
     }
 }

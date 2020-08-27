@@ -38,7 +38,9 @@ var MiscellaneousData = {
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
-    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+                " ", "-", "+", "/", ".", "(", ")", "[", "]", ":", "?", "!", "%", "~", "μ", "Δ", "∇"],
     randomDigitsLen: 8,
     displayID: "",
 }
@@ -50,6 +52,8 @@ var DisplayData = {
     energyWorkerNumber: 0,
     woodWorkerNumber: 0,
     oilWorkerNumber: 0,
+    errorsPerSec: 0.5,
+    errorsPerSecCount: 0,
 }
 
 var TabData = {
@@ -146,26 +150,6 @@ var NixieDictionary = {
     "μ": "Nixie_053",
     "Δ": "Nixie_054",
     "∇": "Nixie_055"
-}
-
-var barSize = [0, 0, 0]
-
-function barMove() {
-    barSize[0] += DisplayData.energyWorkerNumber
-    barSize[1] += DisplayData.woodWorkerNumber
-    barSize[2] += DisplayData.oilWorkerNumber
-    if (barSize[0] > 270) {
-        barSize[0] = 0
-    }
-    if (barSize[1] > 270) {
-        barSize[1] = 0
-    }
-    if (barSize[2] > 270) {
-        barSize[2] = 0
-    }
-    document.getElementById("energy_worker_loading_bar_fill").style.left = barSize[0] - 270 + "px"
-    document.getElementById("wood_worker_loading_bar_fill").style.left = barSize[1] - 270 + "px"
-    document.getElementById("oil_worker_loading_bar_fill").style.left = barSize[2] - 270 + "px"
 }
 
 function buttonStat(stat, button) {
@@ -565,7 +549,6 @@ function tabEvent(id, evt, tabName) {
     }
 }
 
-
 function nixieBanner(string) {
     for (i = string.length; i < 27; i++) {
         document.getElementById("Nixie_".concat(String(i))).src = "Assets/Nixie_027.png";
@@ -676,7 +659,7 @@ function PerSecond(material) {
         default:
             break;
         case "energy":
-            return TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) / (MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime 
+            return TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) / (MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime
         case "wood":
             Pass
             break;

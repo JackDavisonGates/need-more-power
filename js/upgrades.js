@@ -31,10 +31,6 @@ function buyPowerPerTick() {
     }
 }
 
-function increasPowerPerTick(amount) {
-    PowerData.powerPerTick += amount
-}
-
 function updatePowerStorage() {
     PowerStorageData.totalPowerStorage = (PowerStorageData.capasitors * PowerStorageData.capasitorsStorage) + (PowerStorageData.batteries * PowerStorageData.batteriesStorage)
 }
