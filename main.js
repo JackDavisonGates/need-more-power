@@ -20,7 +20,6 @@ var PowerStorageData = {
 
 var TurbineData = {
     turbineSpeed: 0,
-    turbineMinSpeed: 0,
     turbineMass: 3,
     turbineMaxSpeed: 500000,
     turbineFriction: 0.005,
@@ -39,8 +38,9 @@ var MiscellaneousData = {
     displayNumber: 0,
     display: "",
     stringCHR: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-                " ", "-", "+", "/", ".", "(", ")", "[", "]", ":", "?", "!", "%", "~", "μ", "Δ", "∇"],
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+        " ", "-", "+", "/", ".", "(", ")", "[", "]", ":", "?", "!", "%", "~", "μ", "Δ", "∇"
+    ],
     randomDigitsLen: 8,
     displayID: "",
 }
@@ -407,20 +407,10 @@ function buttonStat(stat, button) {
 }
 
 function energyStatsButtons(button) {
-    document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover.png"
-    document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover.png"
-    document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover.png"
-    document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover.png"
-    document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover.png"
-    document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover.png"
-    document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover.png"
-    DisplayData.energyStatsButton[0] = 0
-    DisplayData.energyStatsButton[1] = 0
-    DisplayData.energyStatsButton[2] = 0
-    DisplayData.energyStatsButton[3] = 0
-    DisplayData.energyStatsButton[4] = 0
-    DisplayData.energyStatsButton[5] = 0
-    DisplayData.energyStatsButton[6] = 0
+    for (i = 0; i < 7; i++) {
+        DisplayData.energyStatsButton[i] = 0
+        document.getElementById("energy_stats_button_".concat(String(i+1))).src = "Assets/stats_button_no_hover.png"
+    }
     switch (button) {
         default:
             break;
@@ -650,16 +640,12 @@ function startMessage() {
     }
 }
 
-function rpm() {
-    return TurbineData.turbineSpeed + TurbineData.turbineMinSpeed
-}
-
 function PerSecond(material) {
     switch (material) {
         default:
             break;
         case "energy":
-            return TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000) / (MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime
+            return TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000) / (MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime
         case "wood":
             Pass
             break;
@@ -676,7 +662,7 @@ function displayMaterial(material, active) {
                     break;
                 case "energy":
                     MiscellaneousData.toBeDisplayed =
-                        formatNumber(rpm(), 1) + "RPM " +
+                        formatNumber(TurbineData.turbineSpeed, 1) + "RPM " +
                         formatNumber(PowerData.currentPower, 1) + "/" +
                         formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)), 1) + "W"
                     DisplayData.energyDisplayNixiePart = 2
@@ -693,7 +679,7 @@ function displayMaterial(material, active) {
                         break;
                     case "energy":
                         MiscellaneousData.display =
-                            formatNumber(rpm(), 1) + "RPM " +
+                            formatNumber(TurbineData.turbineSpeed, 1) + "RPM " +
                             formatNumber(PowerData.currentPower, 1) + "/" +
                             formatNumber(((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) + (PowerStorageData.batteryStorage * PowerStorageData.batteries)), 1) + "W"
                         break;
@@ -911,7 +897,23 @@ function displayMaterial(material, active) {
 //};
 
 function formatNumber(number, numberLength = MiscellaneousData.numberFormat) {
-    if (number > 5000000000000000000) {
+    if (number > 5000000000000000000000000000000) {
+        number /= 1000000000000000000000000000000
+        number = number.toFixed(numberLength)
+        number = number + "Q"
+    } else if (number > 5000000000000000000000000000) {
+        number /= 1000000000000000000000000000
+        number = number.toFixed(numberLength)
+        number = number + "R"
+    } else if (number > 5000000000000000000000000) {
+        number /= 1000000000000000000000000
+        number = number.toFixed(numberLength)
+        number = number + "Y"
+    } else if (number > 5000000000000000000000) {
+        number /= 1000000000000000000000
+        number = number.toFixed(numberLength)
+        number = number + "Z"
+    } else if (number > 5000000000000000000) {
         number /= 1000000000000000000
         number = number.toFixed(numberLength)
         number = number + "E"
@@ -1114,28 +1116,6 @@ function updateText(update) {
     }
 }
 
-let setUpToolTip = function() {
-    let toolTip = "",
-        toolTipDiv = document.querySelector(".dev-tooltip"),
-        toolTipElements = Array.from(document.querySelectorAll(".hover-reveal"))
-
-    let displayToolTip = function(e, obj) {
-        tooltip = obj.dataset.tooltip
-        toolTipDiv.innerHTML = tooltip
-        toolTipDiv.style.top = e.pageY + "px"
-        toolTipDiv.style.left = e.pageX + "px"
-        toolTipDiv.style.opacity = 1
-    }
-
-    toolTipElements.forEach(function(elem) {
-        elem.addEventListener("mouseenter", function(e) {
-            displayToolTip(e, this)
-        })
-    })
-}
-
-setUpToolTip()
-
 function mainLoopFast() {
     workers()
     updateDisplay(MiscellaneousData.displayID)
@@ -1143,7 +1123,7 @@ function mainLoopFast() {
 
 function mainLoopMediam() {
     slowTurbine()
-    makePower(TurbineData.generatorEfficency * ((TurbineData.turbineSpeed + TurbineData.turbineMinSpeed) / 1000))
+    makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
     revealTabs()
     //updateGraph()
 }
