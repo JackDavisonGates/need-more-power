@@ -2,6 +2,10 @@ var WorkerStatusData = {
     workers: 0,
     freeWorkers: 0,
     workerCost: 10,
+    costRatio: 0.5,
+    workerBaseCost: 10,
+    buyNumber: 1,
+    buyX: 1,
 }
 
 var JobData = {
@@ -62,19 +66,77 @@ var JobProductionData = {
 }
 
 var JobProgressBarData = {
+    greenBarTime: 0.5,
     energyBarWidth: 0,
 }
 
 function buyWorker() {
-    if (PowerData.currentPower >= WorkerStatusData.workerCost) {
-        WorkerStatusData.workers += 1
-        WorkerStatusData.freeWorkers += 1
-        PowerData.currentPower -= WorkerStatusData.workerCost
-        WorkerStatusData.workerCost *= 1.5
+    if (PowerData.currentPower >= workerTotalCost(WorkerStatusData.buyNumber)) {
+        WorkerStatusData.workers += WorkerStatusData.buyNumber
+        WorkerStatusData.freeWorkers += WorkerStatusData.buyNumber
+        PowerData.currentPower -= workerTotalCost(WorkerStatusData.buyNumber)
+        WorkerStatusData.workerCost = WorkerStatusData.workerBaseCost * Math.pow(WorkerStatusData.costRatio + 1, WorkerStatusData.workers)
         updateText("Workers")
-        document.getElementById("worker_cost").innerHTML = formatNumber(WorkerStatusData.workerCost) + "W"
         document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
     }
+}
+
+function workerTotalCost(number) {
+    var totalCost = WorkerStatusData.workerCost
+    var currentCost = WorkerStatusData.workerCost
+    var x = 1
+    if (number == -1) {
+        var powerUsed = WorkerStatusData.workerCost
+        number = 0
+        while (x == 1) {
+            powerUsed += currentCost * (WorkerStatusData.costRatio + 1)
+            currentCost *= WorkerStatusData.costRatio + 1
+            if (powerUsed > PowerData.currentPower) {
+                x = 0
+                powerUsed -= currentCost
+            }
+            number += 1
+        }
+        if (number == 0) {
+            number = 1
+        }
+        WorkerStatusData.buyNumber = number
+        totalCost = powerUsed
+    } else {
+        for (i = 1; i < number; i++) {
+            totalCost += currentCost * (WorkerStatusData.costRatio + 1)
+            currentCost *= WorkerStatusData.costRatio + 1
+        }
+    }
+    return totalCost
+}
+
+function buyNumber() {
+    switch (WorkerStatusData.buyX) {
+        case 1:
+            WorkerStatusData.buyNumber = 10
+            WorkerStatusData.buyX = 2
+            document.getElementById("worker_number").src = "Assets/10_button_unpressed.png"
+            break;
+        case 2:
+            WorkerStatusData.buyNumber = 100
+            WorkerStatusData.buyX = 3
+            document.getElementById("worker_number").src = "Assets/100_button_unpressed.png"
+            break;
+        case 3:
+            WorkerStatusData.buyNumber = -1
+            WorkerStatusData.buyX = 4
+            document.getElementById("worker_number").src = "Assets/all_button_unpressed.png"
+            break;
+        case 4:
+            WorkerStatusData.buyNumber = 1
+            WorkerStatusData.buyX = 1
+            document.getElementById("worker_number").src = "Assets/1_button_unpressed.png"
+            break;
+        default:
+
+    }
+    updateText("Workers")
 }
 
 function setWorkerJob(job, workers) {
@@ -87,12 +149,12 @@ function setWorkerJob(job, workers) {
         ((JobData.steelWorker + workers) < 0 && job == "steel") ||
         ((JobData.oilWorker + workers) < 0 && job == "oil") ||
         ((JobData.plasticWorker + workers) < 0 && job == "plastic")) {
-            return
+        if ((WorkerStatusData.freeWorkers - workers) > WorkerStatusData.workers) {
+            workers = WorkerStatusData.freeWorkers - WorkerStatusData.workers
         }
+    }
     if ((WorkerStatusData.freeWorkers - workers) < 0) {
         workers = WorkerStatusData.freeWorkers
-    } else if ((WorkerStatusData.freeWorkers - workers) > WorkerStatusData.workers) {
-        workers = WorkerStatusData.freeWorkers - WorkerStatusData.workers
     }
     switch (job) {
         case "energy":
@@ -147,7 +209,7 @@ function workers() {
                 spinTurbine(JobProductionData.energyJobProduction)
                 JobTimeData.energyJobTimeCurrent = JobTimeData.energyJobTime - JobTimeData.energyJobTimeCurrent
             }
-            if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < 1 / (MiscellaneousData.gameSpeed / 1000)) {
+            if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < JobProgressBarData.greenBarTime / (MiscellaneousData.gameSpeed / 1000)) {
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill-green.png"
                 document.getElementById("energy_worker_loading_bar_fill").style.left = 0 + "px"
             } else {
@@ -156,7 +218,7 @@ function workers() {
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill.png"
             }
         } else {
-            if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < 1 / (MiscellaneousData.gameSpeed / 1000)) {
+            if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < JobProgressBarData.greenBarTime / (MiscellaneousData.gameSpeed / 1000)) {
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill-green.png"
                 document.getElementById("energy_worker_loading_bar_fill").style.left = 0 + "px"
             } else {
@@ -197,6 +259,8 @@ function workers() {
             JobTimeData.plasticJobTimeCurrent = JobTimeData.plasticJobTime
             StockpillData.plastic += JobProductionData.plasticJobProduction
         }
-
+    }
+    if (WorkerStatusData.buyX == 4) {
+        document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(-1)) + "W"
     }
 }

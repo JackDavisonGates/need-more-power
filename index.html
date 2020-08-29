@@ -172,9 +172,12 @@
                         </div>
 
                         <div id="Workers" class="tabcontent">
-                            <h3>Workers</h3>
-                            <img id="buy_worker" src="Assets/name_tag.png" style="top: 39px; left: 20px" onclick="buyWorker()">
-                            <div id="worker_cost" style="position:relative; text-align:center; top: -32px; left: 5px; color: Azure" onclick="buyWorker()">10W</div>
+                            <img id="buy_worker" src="Assets/name_tag.png" style="position:relative; top: 91px; left: 9px" onmouseup="buyWorker()">
+                            <div id="worker_cost" style="position:relative; text-align:center; top: 59px; left: 10px; color: Azure" onmouseup="buyWorker()">10W</div>
+                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 29px; left: 196px"
+                                onmousedown="buttonStat('down', 'worker_number_button')"
+                                onmouseup="buttonStat('up', 'worker_number_button')"
+                                onmouseout="buttonStat('out', 'worker_number_button')">
                             <div id="energy_workers_stats">
                                 <img id="energy_worker_stats_back" src="Assets/worker_stats.png" style="position: relative">
                                 <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; top:-55px; left: 351px"
@@ -182,6 +185,8 @@
                                     onmouseup="buttonStat('up', 'energy_worker_stats_button')"
                                     onmouseover="buttonStat('hover', 'energy_worker_stats_button')"
                                     onmouseout="buttonStat('up', 'energy_worker_stats_button')">
+                                <div id="free_workers" style="position:relative; top: -89px; left: 29px; width: 160px; color: Azure">FREE: 0</div>
+                                <div id="active_workers" style="position:relative; top: -111px; left: 178px; width: 160px; color: Azure">ACTIVE: 0</div>
                             </div>
                             <div id="workers_tags">
                                 <div id="energy_workers" style="position: relative">
@@ -195,7 +200,7 @@
                                         onmouseup="buttonStat('up', 'energy_worker_-_button')"
                                         onmouseout="buttonStat('up', 'energy_worker_-_button')">
                                 </div>
-                                <div id="wood_workers" style="position: relative">
+                                <!-- <div id="wood_workers" style="position: relative">
                                     <img id="wood_worker_name_tag" src="Assets/name_tag.png" style="position: relative">
                                     <img id="wood_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px"
                                         onmousedown="buttonStat('down', 'wood_worker_+_button')"
@@ -216,46 +221,46 @@
                                         onmousedown="buttonStat('down', 'oil_worker_-_button')"
                                         onmouseup="buttonStat('up', 'oil_worker_-_button')"
                                         onmouseout="buttonStat('up', 'oil_worker_-_button')">
-                                </div>
+                                </div> -->
                             </div>
                             <div id="worker_numbers">
                                 <div style="position: relative">
                                     <img id="energy_worker_number_background" src="Assets/number_plate.png">
                                     <div id="energy_worker_number" style="position:relative; text-align:center; top: -32px; color: Azure">0</div>
                                 </div>
-                                <div style="position: relative">
+                                <!-- <div style="position: relative">
                                     <img id="wood_worker_number_background" src="Assets/number_plate.png">
                                     <div id="wood_worker_number" style="position:relative; text-align:center; top: -32px; color: Azure">0</div>
                                 </div>
                                 <div style="position: relative">
                                     <img id="oil_worker_number_background" src="Assets/number_plate.png">
                                     <div id="oil_worker_number" style="position:relative; text-align:center; top: -32px; color: Azure">0</div>
-                                </div>
+                                </div> -->
                             </div>
                             <div id="loading_bars_fill">
                                 <div id="loading_bar_1_fill" style="position: relative">
                                     <img id="energy_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; top: 22px">
                                     <img id="energy_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left: -270px">
                                 </div>
-                                <div id="loading_bar_2_fill" style="position: relative">
+                                <!-- <div id="loading_bar_2_fill" style="position: relative">
                                     <img id="wood_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; top: 22px">
                                     <img id="wood_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left: -270px">
                                 </div>
                                 <div id="loading_bar_3_fill" style="position: relative">
                                     <img id="oil_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; top: 22px">
                                     <img id="oil_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left: -270px">
-                                </div>
+                                </div> -->
                             </div>
                             <div id="loading_bars">
                                 <div id="loading_bar_1" style="position: relative">
                                     <img id="energy_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" style="position: relative; top: 22px">
                                 </div>
-                                <div id="loading_bar_2" style="position: relative">
+                                <!-- <div id="loading_bar_2" style="position: relative">
                                     <img id="wood_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" style="position: relative; top: 22px">
                                 </div>
                                 <div id="loading_bar_3" style="position: relative">
                                     <img id="oil_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" style="position: relative; top: 22px">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 

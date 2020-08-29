@@ -300,27 +300,72 @@ function buttonStat(stat, button) {
                 }
             }
             break;
-        case "energy_worker_stats_button":
+        case "worker_number_button":
             switch (stat) {
                 case "down":
-                    WorkerStatusData.freeWorkers = WorkerStatusData.workers
-                    JobData.energyWorker = 0
-                    JobData.woodWorker = 0
-                    JobData.oilWorker = 0
-                    updateText("Workers")
-                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_pressed.png"
+                    switch (WorkerStatusData.buyX) {
+                        case 1:
+                            document.getElementById("worker_number").src = "Assets/1_button_pressed.png"
+                            break;
+                        case 2:
+                            document.getElementById("worker_number").src = "Assets/10_button_pressed.png"
+                            break;
+                        case 3:
+                            document.getElementById("worker_number").src = "Assets/100_button_pressed.png"
+                            break;
+                        case 4:
+                            document.getElementById("worker_number").src = "Assets/all_button_pressed.png"
+                            break;
+                        default:
+                    }
                     break;
                 case "up":
-                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
-                    break;
-                case "hover":
-                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_hover.png"
+                    buyNumber()
                     break;
                 case "out":
-                    document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+                    switch (WorkerStatusData.buyX) {
+                        case 1:
+                            document.getElementById("worker_number").src = "Assets/1_button_unpressed.png"
+                            break;
+                        case 2:
+                            document.getElementById("worker_number").src = "Assets/10_button_unpressed.png"
+                            break;
+                        case 3:
+                            document.getElementById("worker_number").src = "Assets/100_button_unpressed.png"
+                            break;
+                        case 4:
+                            document.getElementById("worker_number").src = "Assets/all_button_unpressed.png"
+                            break;
+                        default:
+                    }
                     break;
                 default:
                     break;
+            }
+            break;
+        case "energy_worker_stats_button":
+            if (WorkerStatusData.workers > 0) {
+                switch (stat) {
+                    case "down":
+                        WorkerStatusData.freeWorkers = WorkerStatusData.workers
+                        JobData.energyWorker = 0
+                        JobData.woodWorker = 0
+                        JobData.oilWorker = 0
+                        updateText("Workers")
+                        document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_pressed.png"
+                        break;
+                    case "up":
+                        document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+                        break;
+                    case "hover":
+                        document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_hover.png"
+                        break;
+                    case "out":
+                        document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+                        break;
+                    default:
+                        break;
+                }
             }
             break;
         case "energy_worker_+_button":
@@ -409,7 +454,7 @@ function buttonStat(stat, button) {
 function energyStatsButtons(button) {
     for (i = 0; i < 7; i++) {
         DisplayData.energyStatsButton[i] = 0
-        document.getElementById("energy_stats_button_".concat(String(i+1))).src = "Assets/stats_button_no_hover.png"
+        document.getElementById("energy_stats_button_".concat(String(i + 1))).src = "Assets/stats_button_no_hover.png"
     }
     switch (button) {
         default:
@@ -1107,9 +1152,12 @@ function updateText(update) {
             }
             break;
         case "Workers":
+            document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W"
+            document.getElementById("free_workers").innerHTML = "FREE: " + WorkerStatusData.freeWorkers
+            document.getElementById("active_workers").innerHTML = "ACTIVE: " + (WorkerStatusData.workers - WorkerStatusData.freeWorkers)
             document.getElementById("energy_worker_number").innerHTML = JobData.energyWorker
-            document.getElementById("wood_worker_number").innerHTML = JobData.woodWorker
-            document.getElementById("oil_worker_number").innerHTML = JobData.oilWorker
+            // document.getElementById("wood_worker_number").innerHTML = JobData.woodWorker
+            // document.getElementById("oil_worker_number").innerHTML = JobData.oilWorker
             break;
         default:
             break;
