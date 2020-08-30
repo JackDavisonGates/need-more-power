@@ -6,6 +6,9 @@ var WorkerStatusData = {
     workerBaseCost: 10,
     buyNumber: 1,
     buyX: 1,
+    workerDiscountCost: [50, 500, 5000, 50000],
+    workerDiscountLevel: [0, 0, 0, 0],
+    workerSpeedCost: 100,
 }
 
 var JobData = {

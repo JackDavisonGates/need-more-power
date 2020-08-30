@@ -31,6 +31,58 @@ function buyPowerPerTick() {
     }
 }
 
+function buyWorkerSpeed() {
+    if (PowerData.currentPower >= WorkerStatusData.workerSpeedCost) {
+        PowerData.currentPower -= WorkerStatusData.workerSpeedCost
+        JobEfficiencyData.energyWorkerEfficiency *= 2
+        JobEfficiencyData.woodWorkerEfficiency *= 2
+        JobEfficiencyData.sandWorkerEfficiency *= 2
+        JobEfficiencyData.glassWorkerEfficiency *= 2
+        JobEfficiencyData.ironWorkerEfficiency *= 2
+        JobEfficiencyData.coalWorkerEfficiency *= 2
+        JobEfficiencyData.steelWorkerEfficiency *= 2
+        JobEfficiencyData.oilWorkerEfficiency *= 2
+        JobEfficiencyData.plasticWorkerEfficiency *= 2
+        WorkerStatusData.workerSpeedCost *= 5
+        updateText("workers")
+        updateText("Upgrades")
+    }
+}
+
+function buyWorkerDiscount(level) {
+    switch (level) {
+        case 1:
+            if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[0] && WorkerStatusData.workerDiscountLevel[0] == 0) {
+                PowerData.currentPower -= WorkerStatusData.workerDiscountCost[0]
+                costRecalculation("workers", -10)
+            }
+            break;
+        case 2:
+            if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[1] && WorkerStatusData.workerDiscountLevel[1] == 0) {
+                PowerData.currentPower -= WorkerStatusData.workerDiscountCost[1]
+                costRecalculation("workers", -10)
+            }
+            break;
+        case 3:
+            if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[2] && WorkerStatusData.workerDiscountLevel[2] == 0) {
+                PowerData.currentPower -= WorkerStatusData.workerDiscountCost[2]
+                costRecalculation("workers", -10)
+            }
+            break;
+        case 4:
+            if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[3] && WorkerStatusData.workerDiscountLevel[3] == 0) {
+                PowerData.currentPower -= WorkerStatusData.workerDiscountCost[3]
+                costRecalculation("workers", -10)
+            }
+            break;
+        default:
+
+    }
+    updateText("Upgrades")
+}
+
+
+
 function updatePowerStorage() {
     PowerStorageData.totalPowerStorage = (PowerStorageData.capasitors * PowerStorageData.capasitorsStorage) + (PowerStorageData.batteries * PowerStorageData.batteriesStorage)
 }
