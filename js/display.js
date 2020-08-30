@@ -478,10 +478,12 @@ function revealTabs() {
     if (PowerData.currentPower >= 50 && TabData.upgradesTabAccess == 0) {
         TabData.upgradesTabAccess = 1
         document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png"
+        document.getElementById("tab_text_2").style.visibility = "visible"
     }
     if (PowerData.currentPower >= 100 && TabData.workersTabAccess == 0) {
         TabData.workersTabAccess = 1
         document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png"
+        document.getElementById("tab_text_3").style.visibility = "visible"
     }
     // if (StockpillData.wood >= 5) {
     //     document.getElementById("BuildingsTab").style.display = "block"

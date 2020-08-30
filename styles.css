@@ -140,7 +140,20 @@ body {
     left: 218px;
 }
 
-#tab_button_1:hover {
+#Tabs_text {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px;
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    left: 242px;
+}
+
+/* #tab_button_1:hover {
+    background: url('Assets/Button_Tabs_Center_Hover.png')
+}
+
+#tab_text_1:hover {
     background: url('Assets/Button_Tabs_Center_Hover.png')
 }
 
@@ -174,7 +187,7 @@ body {
 
 #tab_button_9:hover {
     background: url('Assets/Button_Tabs_Center_Hover.png')
-}
+} */
 
 .tabcontent {
     display: grid;
