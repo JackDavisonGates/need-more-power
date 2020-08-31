@@ -22,26 +22,26 @@ function startMessage() {
         case 0:
             MiscellaneousData.toBeDisplayed = "wellcom comander"
             break;
-        case 100:
+        case 50:
             MiscellaneousData.toBeDisplayed = "error power failing"
             break;
-        case 200:
+        case 100:
             MiscellaneousData.toBeDisplayed = "rebooting system"
             break;
-        case 300:
+        case 150:
             MiscellaneousData.toBeDisplayed = "rebooting failed"
             break;
-        case 400:
+        case 200:
             MiscellaneousData.toBeDisplayed = "manual restart needed"
             break;
-        case 500:
+        case 250:
             MiscellaneousData.toBeDisplayed = "spin generator"
             break;
-        case 600:
+        case 300:
             DisplayData.energyDisplayNixiePart = 1
             displayMaterial("energy", DisplayData.energyDisplayNixiePart)
             break;
-        case 630:
+        case 330:
             TabData.energyTabAccess = 1
             document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png"
             document.getElementById("tab_text_1").style.visibility = "visible"
