@@ -94,7 +94,7 @@ body {
   background-size: 40px 40px;
 }
 
-#Banner > #Banner_L {
+/* #Banner > #Banner_L {
   background: url('Assets/Banner_L.png');
   background-repeat: no-repeat;
   background-size: 32px 64px;
@@ -110,7 +110,7 @@ body {
   background: url('Assets/Banner_R.png');
   background-repeat: no-repeat;
   background-size: 32px 64px;
-}
+} */
 
 #Connector_Link > #Connector {
   background: url('Assets/connector.png');
