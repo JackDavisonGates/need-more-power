@@ -95,19 +95,19 @@ body {
 }
 
 #Banner > #Banner_L {
-  background: url('Assets/Banner_L.png');
+  background: url('Assets/banner_L.png');
   background-repeat: no-repeat;
   background-size: 32px 64px;
 }
 
 #Banner > #Banner_M {
-  background: url('Assets/Banner_M.png');
+  background: url('Assets/banner_M.png');
   background-repeat: repeat-x;
   background-size: 101% 64px;
 }
 
 #Banner > #Banner_R {
-  background: url('Assets/Banner_R.png');
+  background: url('Assets/banner_R.png');
   background-repeat: no-repeat;
   background-size: 32px 64px;
 }
