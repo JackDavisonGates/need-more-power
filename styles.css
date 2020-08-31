@@ -74,7 +74,6 @@ body {
   background: url('Assets/Background_LM.png');
   background-repeat: no-repeat;
   background-size: 101% 101%;
-  top: -1px;
 }
 
 #Block > #Background_UR {
@@ -87,7 +86,6 @@ body {
   background: url('Assets/Background_MR.png');
   background-repeat: no-repeat;
   background-size: 101% 101%;
-  left: -1px;
 }
 
 #Block > #Background_LR {
