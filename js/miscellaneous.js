@@ -35,7 +35,7 @@ function startMessage() {
             MiscellaneousData.toBeDisplayed = "manual restart needed"
             break;
         case 500:
-            MiscellaneousData.toBeDisplayed = "spin turbine"
+            MiscellaneousData.toBeDisplayed = "spin generator"
             break;
         case 600:
             DisplayData.energyDisplayNixiePart = 1
