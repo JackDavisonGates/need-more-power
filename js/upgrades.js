@@ -1,3 +1,12 @@
+function buyWorkersTab() {
+    if (PowerData.currentPower >= 200) {
+        PowerData.currentPower -= 200
+        TabData.workersTabAccess = 1
+        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png"
+        document.getElementById("tab_text_3").style.visibility = "visible"
+    }
+}
+
 function buyCapasitor() {
     if (PowerData.currentPower >= PowerStorageData.capasitorCost) {
         PowerStorageData.capasitors += 1
