@@ -13,7 +13,7 @@
     <script src="js/upgrades.js" charset="utf-8" type="text/javascript"></script>
     <script src="js/workers.js" charset="utf-8" type="text/javascript"></script>
     <script src="js/display.js" charset="utf-8" type="text/javascript"></script>
-    <script src="js/toolTips.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/tooltips.js" charset="utf-8" type="text/javascript"></script>
     <script src="main.js" charset="utf-8" type="text/javascript"></script>
     <div id="Page_Layout">
         <div></div>
@@ -141,8 +141,8 @@
                         </div>
 
                         <div id="Turbine" class="tabcontent">
-                            <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="tollTips('generator')" onmouseout="tollTips('noTip')" src="Assets/Turbine_button_unpressed.png" style="position: absolute;top: 180px;left: 250px">
-                            <img id="Turbine-spin-button-pressed" onmouseup="buttonStat('up', 'turbine')" onmouseout="buttonStat('up', 'turbine'); tollTips('noTip')" src="Assets/Turbine_button_pressed.png"
+                            <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="toolTips('generator')" onmouseout="toolTips('noTip')" src="Assets/Turbine_button_unpressed.png" style="position: absolute;top: 180px;left: 250px">
+                            <img id="Turbine-spin-button-pressed" onmouseup="buttonStat('up', 'turbine')" onmouseout="buttonStat('up', 'turbine'); toolTips('noTip')" src="Assets/Turbine_button_pressed.png"
                                 style="position: absolute;top: 180px;left: 250px;z-index:2;visibility: hidden">
                             <div id="energy_stats_buttons">
                                 <img id="energy_stats_button_1" src="Assets/stats_button_pressed.png"

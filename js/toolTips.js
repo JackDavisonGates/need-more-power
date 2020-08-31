@@ -1,4 +1,4 @@
-function tollTips(id) {
+function toolTips(id) {
     switch (id) {
         case "noTip":
             document.getElementById("Background_MM").innerHTML = ""
