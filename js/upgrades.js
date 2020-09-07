@@ -2,7 +2,7 @@ var RepeatSlots = {
     1: "Capasitor",
     2: "Battery",
     3: "Power Per Tick",
-    4: "Worker Speed",
+    4: "",
     5: "",
     6: "",
     7: "",
@@ -40,17 +40,17 @@ var OneTimeUpgradesNotCompleat = {
 
 var SlotsDtat = {
     OneTimeSlotsFilled: 2,
-    RepeatSlotsFilled: 4,
+    RepeatSlotsFilled: 3,
 }
 
 function addTooEnd(id, slots) {
     switch (slots) {
         case "RepeatSlots":
-            RepeatSlots[SlotsDtat.RepeatSlotsFilled] = id
+            RepeatSlots[SlotsDtat.RepeatSlotsFilled + 1] = id
             SlotsDtat.RepeatSlotsFilled += 1
             break;
         case "OneTimeSlots":
-            OneTimeSlots[SlotsDtat.OneTimeSlotsFilled] = id
+            OneTimeSlots[SlotsDtat.OneTimeSlotsFilled + 1] = id
             SlotsDtat.OneTimeSlotsFilled += 1
             break;
         default:
@@ -122,6 +122,7 @@ function slotToFunction(slot, name) {
                 case "Buy Workers Tab":
                     buyWorkersTab()
                     removeSlot("Buy Workers Tab", "OneTimeSlots")
+                    addTooEnd("Worker Speed", "RepeatSlots")
                     break;
                 case "Worker Discount Level 1":
                     buyWorkerDiscount(1)
