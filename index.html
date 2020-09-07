@@ -129,90 +129,138 @@
                         </div>
 
                         <div id="Tabs_text">
-                            <div id="tab_text_1" onclick="tabEvent('tab_button_1', event, 'Turbine')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Generator</div>
-                            <div id="tab_text_2" onclick="tabEvent('tab_button_2', event, 'Upgrades')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Upgrades</div>
-                            <div id="tab_text_3" onclick="tabEvent('tab_button_3', event, 'Workers')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Workers</div>
-                            <div id="tab_text_4" onclick="tabEvent('tab_button_4', event, 'Materials')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Materials</div>
-                            <div id="tab_text_5" onclick="tabEvent('tab_button_5', event, 'Space')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Space</div>
-                            <div id="tab_text_6" onclick="tabEvent('tab_button_6', event, 'Buildings')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Buildings</div>
-                            <div id="tab_text_7" onclick="tabEvent('tab_button_7', event, 'Reaserch')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Reaserch</div>
-                            <div id="tab_text_8" onclick="tabEvent('tab_button_8', event, 'Reset')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Reset</div>
-                            <div id="tab_text_9" onclick="tabEvent('tab_button_9', event, 'Setings')" style="position:relative; text-align:center; color: Azure; visibility: hidden" >Setings</div>
+                            <div id="tab_text_1" onclick="tabEvent('tab_button_1', event, 'Turbine')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Generator</div>
+                            <div id="tab_text_2" onclick="tabEvent('tab_button_2', event, 'Upgrades')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Upgrades</div>
+                            <div id="tab_text_3" onclick="tabEvent('tab_button_3', event, 'Workers')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Workers</div>
+                            <div id="tab_text_4" onclick="tabEvent('tab_button_4', event, 'Materials')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Materials</div>
+                            <div id="tab_text_5" onclick="tabEvent('tab_button_5', event, 'Space')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Space</div>
+                            <div id="tab_text_6" onclick="tabEvent('tab_button_6', event, 'Buildings')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Buildings</div>
+                            <div id="tab_text_7" onclick="tabEvent('tab_button_7', event, 'Reaserch')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Reaserch</div>
+                            <div id="tab_text_8" onclick="tabEvent('tab_button_8', event, 'Reset')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Reset</div>
+                            <div id="tab_text_9" onclick="tabEvent('tab_button_9', event, 'Setings')" style="position:relative; text-align:center; color: Azure; visibility: hidden">Setings</div>
                         </div>
 
                         <div id="Turbine" class="tabcontent">
-                            <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="toolTips('generator')" onmouseout="toolTips('noTip')" src="Assets/Turbine_button_unpressed.png" style="position: absolute;top: 180px;left: 250px">
+                            <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="toolTips('generator')" onmouseout="toolTips('noTip')" src="Assets/Turbine_button_unpressed.png"
+                                style="position: absolute;top: 180px;left: 250px">
                             <img id="Turbine-spin-button-pressed" onmouseup="buttonStat('up', 'turbine')" onmouseout="buttonStat('up', 'turbine'); toolTips('noTip')" src="Assets/Turbine_button_pressed.png"
                                 style="position: absolute;top: 180px;left: 250px;z-index:2;visibility: hidden">
                             <div id="energy_stats_buttons">
-                                <img id="energy_stats_button_1" src="Assets/stats_button_pressed.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_1')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_1')"
+                                <img id="energy_stats_button_1" src="Assets/stats_button_pressed.png" onmouseover="buttonStat('hover', 'energy_stats_button_1')" onmousedown="buttonStat('down', 'energy_stats_button_1')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_1')">
                                 <img id="energy_stats_connector_1" src="Assets/stats_button_connector.png" style="position: relative; top: 10px">
-                                <img id="energy_stats_button_2" src="Assets/stats_button_no_hover.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_2')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_2')"
+                                <img id="energy_stats_button_2" src="Assets/stats_button_no_hover.png" onmouseover="buttonStat('hover', 'energy_stats_button_2')" onmousedown="buttonStat('down', 'energy_stats_button_2')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_2')">
                                 <img id="energy_stats_connector_2" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
-                                <img id="energy_stats_button_3" src="Assets/stats_button_no_hover.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_3')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_3')"
+                                <img id="energy_stats_button_3" src="Assets/stats_button_no_hover.png" onmouseover="buttonStat('hover', 'energy_stats_button_3')" onmousedown="buttonStat('down', 'energy_stats_button_3')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_3')">
                                 <img id="energy_stats_connector_3" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
-                                <img id="energy_stats_button_4" src="Assets/stats_button_no_hover.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_4')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_4')"
+                                <img id="energy_stats_button_4" src="Assets/stats_button_no_hover.png" onmouseover="buttonStat('hover', 'energy_stats_button_4')" onmousedown="buttonStat('down', 'energy_stats_button_4')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_4')">
                                 <img id="energy_stats_connector_4" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
-                                <img id="energy_stats_button_5" src="Assets/stats_button_no_hover.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_5')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_5')"
+                                <img id="energy_stats_button_5" src="Assets/stats_button_no_hover.png" onmouseover="buttonStat('hover', 'energy_stats_button_5')" onmousedown="buttonStat('down', 'energy_stats_button_5')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_5')">
                                 <img id="energy_stats_connector_5" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
-                                <img id="energy_stats_button_6" src="Assets/stats_button_no_hover.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_6')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_6')"
+                                <img id="energy_stats_button_6" src="Assets/stats_button_no_hover.png" onmouseover="buttonStat('hover', 'energy_stats_button_6')" onmousedown="buttonStat('down', 'energy_stats_button_6')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_6')">
                                 <img id="energy_stats_connector_6" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
-                                <img id="energy_stats_button_7" src="Assets/stats_button_no_hover.png"
-                                    onmouseover="buttonStat('hover', 'energy_stats_button_7')"
-                                    onmousedown="buttonStat('down', 'energy_stats_button_7')"
+                                <img id="energy_stats_button_7" src="Assets/stats_button_no_hover.png" onmouseover="buttonStat('hover', 'energy_stats_button_7')" onmousedown="buttonStat('down', 'energy_stats_button_7')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_7')">
                             </div>
                         </div>
 
                         <div id="Upgrades" class="tabcontent">
+                            <div id="Upgrades_layout">
+                                <img id="repeat_slot_1" src="Assets/upgrade_button_unpressed.png">
+                                <img id="side_connector_1" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; height: 30px;  width: 10px">
+                                <img id="one_time_slot_1" src="Assets/upgrade_button_unpressed.png">
+                                <img id="flat_connector_L1" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <div></div>
+                                <img id="flat_connector_R1" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <img id="repeat_slot_2" src="Assets/upgrade_button_unpressed.png">
+                                <img id="side_connector_2" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; height: 30px;  width: 10px">
+                                <img id="one_time_slot_2" src="Assets/upgrade_button_unpressed.png">
+                                <img id="flat_connector_L2" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <div></div>
+                                <img id="flat_connector_R2" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <img id="repeat_slot_3" src="Assets/upgrade_button_unpressed.png">
+                                <img id="side_connector_3" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; height: 30px;  width: 10px">
+                                <img id="one_time_slot_3" src="Assets/upgrade_button_unpressed.png">
+                                <img id="flat_connector_L3" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <div></div>
+                                <img id="flat_connector_R3" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <img id="repeat_slot_4" src="Assets/upgrade_button_unpressed.png">
+                                <img id="side_connector_4" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; height: 30px;  width: 10px">
+                                <img id="one_time_slot_4" src="Assets/upgrade_button_unpressed.png">
+                                <img id="flat_connector_L4" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <div></div>
+                                <img id="flat_connector_R4" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <img id="repeat_slot_5" src="Assets/upgrade_button_unpressed.png">
+                                <img id="side_connector_5" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; height: 30px;  width: 10px">
+                                <img id="one_time_slot_5" src="Assets/upgrade_button_unpressed.png">
+                                <img id="flat_connector_L5" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <div></div>
+                                <img id="flat_connector_R5" src="Assets/upgrade_button_connector.png" style="position: relative; left: 10px; height: 10px;  width: 330px">
+                                <img id="repeat_slot_6" src="Assets/upgrade_button_unpressed.png">
+                                <img id="side_connector_6" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; height: 30px;  width: 10px">
+                                <img id="one_time_slot_6" src="Assets/upgrade_button_unpressed.png">
+                            </div>
+                            <div id="Upgrades_layout_text">
+                                <div id="repeat_slot_1_text" style="margin: 15px" onclick="buttonStat('down', 'repeat_slot_1')">1</div>
+                                <div></div>
+                                <div id="one_time_slot_1_text" style="margin: 15px" onclick="buttonStat('down', 'one_time_slot_1')">2</div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div id="repeat_slot_2_text" style="margin: 15px" onclick="buttonStat('down', 'repeat_slot_2')">3</div>
+                                <div></div>
+                                <div id="one_time_slot_2_text" style="margin: 15px" onclick="buttonStat('down', 'one_time_slot_2')">4</div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div id="repeat_slot_3_text" style="margin: 15px" onclick="buttonStat('down', 'repeat_slot_3')">5</div>
+                                <div></div>
+                                <div id="one_time_slot_3_text" style="margin: 15px" onclick="buttonStat('down', 'one_time_slot_3')">6</div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div id="repeat_slot_4_text" style="margin: 15px" onclick="buttonStat('down', 'repeat_slot_4')">7</div>
+                                <div></div>
+                                <div id="one_time_slot_4_text" style="margin: 15px" onclick="buttonStat('down', 'one_time_slot_4')">8</div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div id="repeat_slot_5_text" style="margin: 15px" onclick="buttonStat('down', 'repeat_slot_5')">9</div>
+                                <div></div>
+                                <div id="one_time_slot_5_text" style="margin: 15px" onclick="buttonStat('down', 'one_time_slot_5')">10</div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div id="repeat_slot_6_text" style="margin: 15px" onclick="buttonStat('down', 'repeat_slot_6')">11</div>
+                                <div></div>
+                                <div id="one_time_slot_6_text" style="margin: 15px" onclick="buttonStat('down', 'one_time_slot_6')">12</div>
+                            </div>
                         </div>
 
                         <div id="Workers" class="tabcontent">
                             <img id="buy_worker" src="Assets/name_tag.png" style="position:relative; top: 91px; left: 9px" onmouseup="buyWorker()">
                             <div id="worker_cost" style="position:relative; text-align:center; top: 59px; left: 10px; color: Azure" onmouseup="buyWorker()">10W</div>
-                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 29px; left: 196px"
-                                onmousedown="buttonStat('down', 'worker_number_button')"
-                                onmouseup="buttonStat('up', 'worker_number_button')"
+                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 29px; left: 196px" onmousedown="buttonStat('down', 'worker_number_button')" onmouseup="buttonStat('up', 'worker_number_button')"
                                 onmouseout="buttonStat('out', 'worker_number_button')">
                             <div id="energy_workers_stats">
                                 <img id="energy_worker_stats_back" src="Assets/worker_stats.png" style="position: relative">
-                                <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; top:-55px; left: 351px"
-                                    onmousedown="buttonStat('down', 'energy_worker_stats_button')"
-                                    onmouseup="buttonStat('up', 'energy_worker_stats_button')"
-                                    onmouseover="buttonStat('hover', 'energy_worker_stats_button')"
-                                    onmouseout="buttonStat('up', 'energy_worker_stats_button')">
+                                <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; top:-55px; left: 351px" onmousedown="buttonStat('down', 'energy_worker_stats_button')"
+                                    onmouseup="buttonStat('up', 'energy_worker_stats_button')" onmouseover="buttonStat('hover', 'energy_worker_stats_button')" onmouseout="buttonStat('up', 'energy_worker_stats_button')">
                                 <div id="free_workers" style="position:relative; top: -89px; left: 29px; width: 160px; color: Azure">FREE: 0</div>
                                 <div id="active_workers" style="position:relative; top: -111px; left: 178px; width: 160px; color: Azure">ACTIVE: 0</div>
                             </div>
                             <div id="workers_tags">
                                 <div id="energy_workers" style="position: relative">
                                     <img id="energy_worker_name_tag" src="Assets/name_tag.png" style="position: relative">
-                                    <img id="energy_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px"
-                                        onmousedown="buttonStat('down', 'energy_worker_+_button')"
-                                        onmouseup="buttonStat('up', 'energy_worker_+_button')"
-                                        onmouseout="buttonStat('up', 'energy_worker_+_button')">
-                                    <img id="energy_worker_-_button" src="Assets/-_button_unpressed.png" style="position: relative; top: -40px; left: 223px"
-                                        onmousedown="buttonStat('down', 'energy_worker_-_button')"
-                                        onmouseup="buttonStat('up', 'energy_worker_-_button')"
-                                        onmouseout="buttonStat('up', 'energy_worker_-_button')">
+                                    <img id="energy_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px" onmousedown="buttonStat('down', 'energy_worker_+_button')"
+                                        onmouseup="buttonStat('up', 'energy_worker_+_button')" onmouseout="buttonStat('up', 'energy_worker_+_button')">
+                                    <img id="energy_worker_-_button" src="Assets/-_button_unpressed.png" style="position: relative; top: -40px; left: 223px" onmousedown="buttonStat('down', 'energy_worker_-_button')"
+                                        onmouseup="buttonStat('up', 'energy_worker_-_button')" onmouseout="buttonStat('up', 'energy_worker_-_button')">
                                 </div>
                                 <!-- <div id="wood_workers" style="position: relative">
                                     <img id="wood_worker_name_tag" src="Assets/name_tag.png" style="position: relative">

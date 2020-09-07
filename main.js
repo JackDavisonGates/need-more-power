@@ -176,6 +176,114 @@ function buttonStat(stat, button) {
                 }
             }
             break;
+        case "repeat_slot_1":
+            switch (stat) {
+                case "down":
+                    slotToFunction("repeat", RepeatSlots[1])
+                    break;
+                default:
+
+            }
+            break;
+        case "repeat_slot_2":
+            switch (stat) {
+                case "down":
+                    slotToFunction("repeat", RepeatSlots[2])
+                    break;
+                default:
+
+            }
+            break;
+        case "repeat_slot_3":
+            switch (stat) {
+                case "down":
+                    slotToFunction("repeat", RepeatSlots[3])
+                    break;
+                default:
+
+            }
+            break;
+        case "repeat_slot_4":
+            switch (stat) {
+                case "down":
+                    slotToFunction("repeat", RepeatSlots[4])
+                    break;
+                default:
+
+            }
+            break;
+        case "repeat_slot_5":
+            switch (stat) {
+                case "down":
+                    slotToFunction("repeat", RepeatSlots[5])
+                    break;
+                default:
+
+            }
+            break;
+        case "repeat_slot_6":
+            switch (stat) {
+                case "down":
+                    slotToFunction("repeat", RepeatSlots[6])
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time_slot_1":
+            switch (stat) {
+                case "down":
+                    slotToFunction("one_time", OneTimeSlots[1])
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time_slot_2":
+            switch (stat) {
+                case "down":
+                    slotToFunction("one_time", OneTimeSlots[2])
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time_slot_3":
+            switch (stat) {
+                case "down":
+                    slotToFunction("one_time", OneTimeSlots[3])
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time_slot_4":
+            switch (stat) {
+                case "down":
+                    slotToFunction("one_time", OneTimeSlots[4])
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time_slot_5":
+            switch (stat) {
+                case "down":
+                    slotToFunction("one_time", OneTimeSlots[5])
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time_slot_6":
+            switch (stat) {
+                case "down":
+                    slotToFunction("one_time", OneTimeSlots[6])
+                    break;
+                default:
+
+            }
+            break;
         case "worker_number_button":
             switch (stat) {
                 case "down":
@@ -328,18 +436,12 @@ function buttonStat(stat, button) {
 }
 
 function spinTurbine(amount = TurbineData.turbineSpinForce) {
-    var speedAddition = amount / TurbineData.turbineMass
-    if (TurbineData.turbineSpeed + speedAddition <= TurbineData.turbineMaxSpeed) {
-        TurbineData.turbineSpeed += speedAddition
-    } else if (TurbineData.turbineSpeed + speedAddition > TurbineData.turbineMaxSpeed) {
-        TurbineData.turbineSpeed = TurbineData.turbineMaxSpeed
-    }
+    TurbineData.turbineSpeed += amount / TurbineData.turbineMass
     updateText("Power")
 }
 
 function slowTurbine() {
-    var speedLoss = TurbineData.turbineSpeed * (TurbineData.turbineFriction + TurbineData.generatorFriction)
-    TurbineData.turbineSpeed -= speedLoss
+    TurbineData.turbineSpeed -= TurbineData.turbineSpeed * (TurbineData.turbineFriction + TurbineData.generatorFriction)
     updateText("Power")
 }
 

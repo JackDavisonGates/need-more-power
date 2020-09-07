@@ -1,134 +1,135 @@
 body {
-  background: url('Assets/Brick2.png');
-  background-repeat: repeat;
+    background: url('Assets/Brick2.png');
+    background-repeat: repeat;
 }
 
 #Page_Layout {
-  display: grid;
-  grid-template-columns: auto 1000px auto;
-  grid-template-rows: auto;
+    display: grid;
+    grid-template-columns: auto 1000px auto;
+    grid-template-rows: auto;
 }
 
 #Banner {
-  display: grid;
-  grid-template-columns: 32px auto 32px;
-  grid-template-rows: 64px;
+    display: grid;
+    grid-template-columns: 32px auto 32px;
+    grid-template-rows: 64px;
 }
 
 #Connector_Link {
-  display: grid;
-  grid-template-columns: 32px auto 32px;
-  grid-template-rows: 4px;
+    display: grid;
+    grid-template-columns: 32px auto 32px;
+    grid-template-rows: 4px;
 }
 
 #Block {
-  display: grid;
-  grid-template-columns: 40px auto 40px;
-  grid-template-rows: 40px auto 40px;
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: 40px auto 40px;
 }
 
 #Structure {
-  display: grid;
-  grid-template-columns: 20% 4px auto;
-  grid-template-rows: auto;
-  position: relative;
+    display: grid;
+    grid-template-columns: 20% 4px auto;
+    grid-template-rows: auto;
+    position: relative;
 }
 
 #Structure2 {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
 }
 
-#Block > #Background_UL {
-  background: url('Assets/Background_UL.png');
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
+#Block>#Background_UL {
+    background: url('Assets/Background_UL.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 
-#Block > #Background_ML {
-  background: url('Assets/Background_ML.png');
-  background-repeat: no-repeat;
-  background-size: 101% 101%;
+#Block>#Background_ML {
+    background: url('Assets/Background_ML.png');
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
 }
 
-#Block > #Background_LL {
-  background: url('Assets/Background_LL.png');
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
+#Block>#Background_LL {
+    background: url('Assets/Background_LL.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 
-#Block > #Background_UM {
-  background: url('Assets/Background_UM.png');
-  background-repeat: no-repeat;
-  background-size: 101% 101%;
+#Block>#Background_UM {
+    background: url('Assets/Background_UM.png');
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
 }
 
-#Block > #Background_MM {
-  background: url('Assets/Background_MM.png');
-  background-repeat: no-repeat;
-  background-size: 101% 101%;
+#Block>#Background_MM {
+    background: url('Assets/Background_MM.png');
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
 }
 
-#Block > #Background_LM {
-  background: url('Assets/Background_LM.png');
-  background-repeat: no-repeat;
-  background-size: 101% 101%;
+#Block>#Background_LM {
+    background: url('Assets/Background_LM.png');
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
 }
 
-#Block > #Background_UR {
-  background: url('Assets/Background_UR.png');
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
+#Block>#Background_UR {
+    background: url('Assets/Background_UR.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 
-#Block > #Background_MR {
-  background: url('Assets/Background_MR.png');
-  background-repeat: no-repeat;
-  background-size: 101% 101%;
+#Block>#Background_MR {
+    background: url('Assets/Background_MR.png');
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
 }
 
-#Block > #Background_LR {
-  background: url('Assets/Background_LR.png');
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
+#Block>#Background_LR {
+    background: url('Assets/Background_LR.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 
-#Banner > #Banner_L {
-  background: url('Assets/banner_L.png');
-  background-repeat: no-repeat;
-  background-size: 32px 64px;
+#Banner>#Banner_L {
+    background: url('Assets/banner_L.png');
+    background-repeat: no-repeat;
+    background-size: 32px 64px;
 }
 
-#Banner > #Banner_M {
-  background: url('Assets/banner_M.png');
-  background-repeat: repeat-x;
-  background-size: 101% 64px;
+#Banner>#Banner_M {
+    background: url('Assets/banner_M.png');
+    background-repeat: repeat-x;
+    background-size: 101% 64px;
 }
 
-#Banner > #Banner_R {
-  background: url('Assets/banner_R.png');
-  background-repeat: no-repeat;
-  background-size: 32px 64px;
+#Banner>#Banner_R {
+    background: url('Assets/banner_R.png');
+    background-repeat: no-repeat;
+    background-size: 32px 64px;
 }
 
-#Connector_Link > #Connector {
-  background: url('Assets/connector.png');
-  background-repeat: repeat-x;
+#Connector_Link>#Connector {
+    background: url('Assets/connector.png');
+    background-repeat: repeat-x;
 }
 
-#Connector_Link > #empty {
-  background-color: black;
-  background-size: 32px 4px;
+#Connector_Link>#empty {
+    background-color: black;
+    background-size: 32px 4px;
 }
 
 /* major-mono-display-regular - latin */
 @font-face {
-  font-family: 'Major_Mono_Display';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Major Mono Display Regular'), local('MajorMonoDisplay-Regular'),
-       url('Assets/fonts/major-mono-display-v4-latin-regular.woff') format('woff') /* Modern Browsers */
+    font-family: 'Major_Mono_Display';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Major Mono Display Regular'), local('MajorMonoDisplay-Regular'),
+        url('Assets/fonts/major-mono-display-v4-latin-regular.woff') format('woff')
+        /* Modern Browsers */
 }
 
 #Tabs {
@@ -148,46 +149,6 @@ body {
     top: 17px;
     left: 242px;
 }
-
-/* #tab_button_1:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_text_1:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_2:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_3:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_4:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_5:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_6:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_7:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_8:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-}
-
-#tab_button_9:hover {
-    background: url('Assets/Button_Tabs_Center_Hover.png')
-} */
 
 .tabcontent {
     display: grid;
@@ -264,4 +225,28 @@ body {
     position: absolute;
     left: 314px;
     top: 80px;
+}
+
+#Upgrades_layout {
+    position: relative;
+    top: 80px;
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px;
+    grid-template-columns: 350px 10px 350px;
+}
+
+#Upgrades_layout_text {
+    position: inherit;
+    top: 80px;
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    color: Azure;
+    display: grid;
+    grid-template-rows: 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px;
+    grid-template-columns: 350px 10px 350px;
 }

@@ -1,3 +1,157 @@
+var RepeatSlots = {
+    1: "Capasitor",
+    2: "Battery",
+    3: "Power Per Tick",
+    4: "Worker Speed",
+    5: "",
+    6: "",
+    7: "",
+}
+
+var OneTimeSlots = {
+    1: "Buy Workers Tab",
+    2: "Worker Discount Level 1",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
+}
+
+var OneTimeUpgradesCompleat = {
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
+}
+
+var OneTimeUpgradesNotCompleat = {
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
+}
+
+var SlotsDtat = {
+    OneTimeSlotsFilled: 2,
+    RepeatSlotsFilled: 4,
+}
+
+function addTooEnd(id, slots) {
+    switch (slots) {
+        case "RepeatSlots":
+            RepeatSlots[SlotsDtat.RepeatSlotsFilled] = id
+            SlotsDtat.RepeatSlotsFilled += 1
+            break;
+        case "OneTimeSlots":
+            OneTimeSlots[SlotsDtat.OneTimeSlotsFilled] = id
+            SlotsDtat.OneTimeSlotsFilled += 1
+            break;
+        default:
+
+    }
+}
+
+function removeSlot(id, slots) {
+    var foundID = 0
+    switch (slots) {
+        case "RepeatSlots":
+            for (i = 1; i <= SlotsDtat.RepeatSlotsFilled; i++) {
+                if (foundID == 1) {
+                    RepeatSlots[i - 1] = RepeatSlots[i]
+                    RepeatSlots[i] = ""
+                }
+                if (RepeatSlots[i] == id) {
+                    RepeatSlots[i] = ""
+                    foundID = 1
+                }
+            }
+            SlotsDtat.RepeatSlotsFilled -= 1
+            break;
+        case "OneTimeSlots":
+            for (i = 1; i <= SlotsDtat.OneTimeSlotsFilled; i++) {
+                if (foundID == 1) {
+                    OneTimeSlots[i - 1] = OneTimeSlots[i]
+                    OneTimeSlots[i] = ""
+                }
+                if (OneTimeSlots[i] == id) {
+                    OneTimeSlots[i] = ""
+                    foundID = 1
+                }
+            }
+            SlotsDtat.OneTimeSlotsFilled -= 1
+            break;
+        default:
+
+    }
+    updateText("Upgrades")
+}
+
+function displayCompleatUpgrades() {
+
+}
+
+function slotToFunction(slot, name) {
+    switch (slot) {
+        case "repeat":
+            switch (name) {
+                case "Capasitor":
+                    buyCapasitor()
+                    break;
+                case "Battery":
+                    buyBattery()
+                    break;
+                case "Power Per Tick":
+                    buyPowerPerTick()
+                    break;
+                case "Worker Speed":
+                    buyWorkerSpeed()
+                    break;
+                default:
+
+            }
+            break;
+        case "one_time":
+            removeSlot(name, OneTimeSlots)
+            switch (name) {
+                case "Buy Workers Tab":
+                    buyWorkersTab()
+                    removeSlot("Buy Workers Tab", "OneTimeSlots")
+                    break;
+                case "Worker Discount Level 1":
+                    buyWorkerDiscount(1)
+                    addTooEnd("Worker Discount Level 2", "OneTimeSlots")
+                    removeSlot("Worker Discount Level 1", "OneTimeSlots")
+                    break;
+                case "Worker Discount Level 2":
+                    buyWorkerDiscount(2)
+                    addTooEnd("Worker Discount Level 3", "OneTimeSlots")
+                    removeSlot("Worker Discount Level 2", "OneTimeSlots")
+                    break;
+                case "Worker Discount Level 3":
+                    buyWorkerDiscount(3)
+                    addTooEnd("Worker Discount Level 4", "OneTimeSlots")
+                    removeSlot("Worker Discount Level 3", "OneTimeSlots")
+                    break;
+                case "Worker Discount Level 4":
+                    buyWorkerDiscount(4)
+                    removeSlot("Worker Discount Level 4", "OneTimeSlots")
+                    break;
+                default:
+
+            }
+            break;
+        default:
+
+    }
+}
+
 function buyWorkersTab() {
     if (PowerData.currentPower >= 200) {
         PowerData.currentPower -= 200

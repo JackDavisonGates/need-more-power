@@ -479,6 +479,7 @@ function revealTabs() {
         TabData.upgradesTabAccess = 1
         document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png"
         document.getElementById("tab_text_2").style.visibility = "visible"
+        updateText("Upgrades")
     }
     // if (StockpillData.wood >= 5) {
     //     document.getElementById("BuildingsTab").style.display = "block"
@@ -561,16 +562,71 @@ function updateText(update) {
         case "Power":
             displayMaterial("energy", DisplayData.energyDisplayNixiePart)
             break;
+        case "Upgrades":
+            for (i = 1; i <= 6; i++) {
+                if (RepeatSlots[i] != "") {
+                    document.getElementById("repeat_slot_".concat(String(i))).style.visibility = "visible"
+                    document.getElementById("repeat_slot_".concat(String(i)) + "_text").innerHTML = RepeatSlots[i]
+                } else {
+                    document.getElementById("repeat_slot_".concat(String(i))).style.visibility = "hidden"
+                    document.getElementById("repeat_slot_".concat(String(i)) + "_text").innerHTML = ""
+                }
+            }
+            for (i = 1; i <= 6; i++) {
+                if (OneTimeSlots[i] != "") {
+                    document.getElementById("one_time_slot_".concat(String(i))).style.visibility = "visible"
+                    document.getElementById("one_time_slot_".concat(String(i)) + "_text").innerHTML = OneTimeSlots[i]
+                } else {
+                    document.getElementById("one_time_slot_".concat(String(i))).style.visibility = "hidden"
+                    document.getElementById("one_time_slot_".concat(String(i)) + "_text").innerHTML = ""
+                }
+            }
+            if (SlotsDtat.OneTimeSlotsFilled >= SlotsDtat.RepeatSlotsFilled) {
+                for (i = 1; i <= SlotsDtat.RepeatSlotsFilled; i++) {
+                    document.getElementById("side_connector_".concat(String(i))).style.visibility = "visible"
+
+                }
+                for (i = 6; i > SlotsDtat.RepeatSlotsFilled; i--) {
+                    document.getElementById("side_connector_".concat(String(i))).style.visibility = "hidden"
+                }
+            } else {
+                for (i = 1; i <= SlotsDtat.OneTimeSlotsFilled; i++) {
+                    document.getElementById("side_connector_".concat(String(i))).style.visibility = "visible"
+                }
+                for (i = 6; i > SlotsDtat.OneTimeSlotsFilled; i--) {
+                    document.getElementById("side_connector_".concat(String(i))).style.visibility = "hidden"
+                }
+            }
+            if (SlotsDtat.OneTimeSlotsFilled != 0) {
+                for (i = 1; i < SlotsDtat.RepeatSlotsFilled; i++) {
+                    document.getElementById("flat_connector_L".concat(String(i))).style.visibility = "visible"
+                }
+                for (i = 5; i >= SlotsDtat.RepeatSlotsFilled; i--) {
+                    document.getElementById("flat_connector_L".concat(String(i))).style.visibility = "hidden"
+                }
+            }
+            if (SlotsDtat.OneTimeSlotsFilled != 0) {
+                for (i = 1; i < SlotsDtat.OneTimeSlotsFilled; i++) {
+                    document.getElementById("flat_connector_R".concat(String(i))).style.visibility = "visible"
+                }
+                for (i = 5; i >= SlotsDtat.OneTimeSlotsFilled; i--) {
+                    document.getElementById("flat_connector_R".concat(String(i))).style.visibility = "hidden"
+                }
+            }
+            break;
+        case "Workers":
+            document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W"
+            document.getElementById("free_workers").innerHTML = "FREE: " + WorkerStatusData.freeWorkers
+            document.getElementById("active_workers").innerHTML = "ACTIVE: " + (WorkerStatusData.workers - WorkerStatusData.freeWorkers)
+            document.getElementById("energy_worker_number").innerHTML = JobData.energyWorker
+            // document.getElementById("wood_worker_number").innerHTML = JobData.woodWorker
+            // document.getElementById("oil_worker_number").innerHTML = JobData.oilWorker
+            break;
         case "Buildings":
             document.getElementById("getPump").innerHTML = "Buy pump (Currently Ownd " + BuildingData.pumps + ") Cost: " + formatNumber(BuildingCostData.pumpCost) + " Steel"
             document.getElementById("getDril").innerHTML = "Buy dril (Currently Ownd " + BuildingData.drils + ") Cost: " + formatNumber(BuildingCostData.drilCost) + " Iron"
             document.getElementById("getMine").innerHTML = "Buy mine (Currently Ownd " + BuildingData.mines + ") Cost: " + formatNumber(BuildingCostData.mineCost) + " Wood"
             document.getElementById("getDigger").innerHTML = "Buy digger (Currently Ownd " + BuildingData.diggers + ") Cost: " + formatNumber(BuildingCostData.diggerCost) + " Wood"
-            break;
-        case "Upgrades":
-            document.getElementById("perClickUpgrade").innerHTML = "Upgrade Turbine (Currently Level " + PowerData.powerPerTick + ") Cost: " + formatNumber(PowerData.powerPerTickCost) + "W"
-            document.getElementById("buyBatteryButton").innerHTML = "Buy Battery (Currently Ownd " + PowerStorageData.batteries + ") Cost: " + formatNumber(PowerStorageData.batteryCost) + "W"
-            document.getElementById("buyCapasitorButton").innerHTML = "Buy Capasitor (Currently Ownd " + PowerStorageData.capasitors + ") Cost: " + formatNumber(PowerStorageData.capasitorCost) + "W"
             break;
         case "Materials":
             document.getElementById("oilDisplay").innerHTML = "oil: " + formatNumber(StockpillData.oil)
@@ -598,14 +654,6 @@ function updateText(update) {
                 default:
                     break;
             }
-            break;
-        case "Workers":
-            document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W"
-            document.getElementById("free_workers").innerHTML = "FREE: " + WorkerStatusData.freeWorkers
-            document.getElementById("active_workers").innerHTML = "ACTIVE: " + (WorkerStatusData.workers - WorkerStatusData.freeWorkers)
-            document.getElementById("energy_worker_number").innerHTML = JobData.energyWorker
-            // document.getElementById("wood_worker_number").innerHTML = JobData.woodWorker
-            // document.getElementById("oil_worker_number").innerHTML = JobData.oilWorker
             break;
         default:
             break;
