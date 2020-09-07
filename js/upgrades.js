@@ -90,7 +90,6 @@ function removeSlot(id, slots) {
         default:
 
     }
-    updateText("Upgrades")
 }
 
 function displayCompleatUpgrades() {
@@ -150,6 +149,7 @@ function slotToFunction(slot, name) {
         default:
 
     }
+    updateText("Upgrades")
 }
 
 function buyWorkersTab() {
