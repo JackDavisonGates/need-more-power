@@ -61,16 +61,8 @@
                         <div></div>
                     </div>
 
-                    <div id="Block" style="width:100%;height:600px;">
-                        <div id="Background_UL"></div>
-                        <div id="Background_UM"></div>
-                        <div id="Background_UR"></div>
-                        <div id="Background_ML"></div>
-                        <div id="Background_MM"></div>
-                        <div id="Background_MR"></div>
-                        <div id="Background_LL"></div>
-                        <div id="Background_LM"></div>
-                        <div id="Background_LR"></div>
+                    <div id="Block_1">
+
                     </div>
 
                     <div id="resources">
@@ -90,20 +82,10 @@
                         <div></div>
                     </div>
 
-                    <div id="Block" style="width:100%;height:300px;">
-                        <div id="Background_UL"></div>
-                        <div id="Background_UM"></div>
-                        <div id="Background_UR"></div>
-                        <div id="Background_ML"></div>
-                        <div id="Background_MM" style="font-family:Major_Mono_Display;color:white">
-                            <!-- <b>HELLO</b>
-                            <button id="button_test" onclick="testButton()">test</button> -->
-                        </div>
-                        <div id="Background_MR"></div>
-                        <div id="Background_LL"></div>
-                        <div id="Background_LM"></div>
-                        <div id="Background_LR"></div>
+                    <div id="Block_2">
+
                     </div>
+
                 </div>
                 <div></div>
                 <div id="Structure2" style="width:100%;height:100%;">
@@ -113,7 +95,7 @@
                         <div></div>
                     </div>
 
-                    <div id="Block" style="width:100%;height:600px;">
+                    <div id="Block_3">
                         <div id="Tabs">
                             <img src="Assets/Button_Tabs_Left.png" style="width:12px;height:28px;margin:0px 12px">
                             <img class="tablinks" id="tab_button_1" onclick="tabEvent('tab_button_1', event, 'Turbine')" src="Assets/Button_Tabs_Center_lock.png" style="width:80px;height:28px;">
@@ -141,10 +123,8 @@
                         </div>
 
                         <div id="Turbine" class="tabcontent">
-                            <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="toolTips('generator')" onmouseout="toolTips('noTip')" src="Assets/Turbine_button_unpressed.png"
+                            <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="toolTips('generator')" onmouseup="buttonStat('up', 'turbine')" onmouseout="buttonStat('up', 'turbine'); toolTips('noTip')" src="Assets/Turbine_button_unpressed.png"
                                 style="position: absolute;top: 180px;left: 250px">
-                            <img id="Turbine-spin-button-pressed" onmouseup="buttonStat('up', 'turbine')" onmouseout="buttonStat('up', 'turbine'); toolTips('noTip')" src="Assets/Turbine_button_pressed.png"
-                                style="position: absolute;top: 180px;left: 250px;z-index:2;visibility: hidden">
                             <div id="energy_stats_buttons">
                                 <img id="energy_stats_button_1" src="Assets/stats_button_pressed.png" onmouseover="buttonStat('hover', 'energy_stats_button_1')" onmousedown="buttonStat('down', 'energy_stats_button_1')"
                                     onmouseout="buttonStat('out', 'energy_stats_button_1')">
@@ -365,16 +345,9 @@
                         <div></div>
                     </div>
 
-                    <div id="Block" style="width:100%;height:300px;">
-                        <div id="Background_UL"></div>
-                        <div id="Background_UM"></div>
-                        <div id="Background_UR"></div>
-                        <div id="Background_ML"></div>
-                        <div id="Background_MM"></div>
-                        <div id="Background_MR"></div>
-                        <div id="Background_LL"></div>
-                        <div id="Background_LM"></div>
-                        <div id="Background_LR"></div>
+                    <div id="Block_4">
+                        <div id="tool_tip"></div>
+                        <div id="flavour_text"></div>
                     </div>
                 </div>
             </div>

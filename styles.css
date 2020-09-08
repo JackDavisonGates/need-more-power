@@ -40,6 +40,30 @@ body {
     grid-template-rows: auto;
 }
 
+#Block_1 {
+    background: url('Assets/Block_1.png');
+    width:200px;
+    height:600px;
+}
+
+#Block_2 {
+    background: url('Assets/Block_2.png');
+    width:200px;
+    height:300px;
+}
+
+#Block_3 {
+    background: url('Assets/Block_3.png');
+    width:795px;
+    height:600px;
+}
+
+#Block_4 {
+    background: url('Assets/Block_4.png');
+    width:795px;
+    height:300px;
+}
+
 #Block>#Background_UL {
     background: url('Assets/Background_UL.png');
     background-repeat: no-repeat;
@@ -249,4 +273,25 @@ body {
     display: grid;
     grid-template-rows: 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px 50px 10px;
     grid-template-columns: 350px 10px 350px;
+}
+
+#tool_tip {
+    width: 775px;
+    height: 130px;
+    color: Azure;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#flavour_text {
+    position: relative;
+    top: 10px;
+    width: 775px;
+    height: 130px;
+    color: Azure;
+    margin: 10px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
 }

@@ -121,27 +121,18 @@ function slotToFunction(slot, name) {
             switch (name) {
                 case "Buy Workers Tab":
                     buyWorkersTab()
-                    removeSlot("Buy Workers Tab", "OneTimeSlots")
-                    addTooEnd("Worker Speed", "RepeatSlots")
                     break;
                 case "Worker Discount Level 1":
                     buyWorkerDiscount(1)
-                    addTooEnd("Worker Discount Level 2", "OneTimeSlots")
-                    removeSlot("Worker Discount Level 1", "OneTimeSlots")
                     break;
                 case "Worker Discount Level 2":
                     buyWorkerDiscount(2)
-                    addTooEnd("Worker Discount Level 3", "OneTimeSlots")
-                    removeSlot("Worker Discount Level 2", "OneTimeSlots")
                     break;
                 case "Worker Discount Level 3":
                     buyWorkerDiscount(3)
-                    addTooEnd("Worker Discount Level 4", "OneTimeSlots")
-                    removeSlot("Worker Discount Level 3", "OneTimeSlots")
                     break;
                 case "Worker Discount Level 4":
                     buyWorkerDiscount(4)
-                    removeSlot("Worker Discount Level 4", "OneTimeSlots")
                     break;
                 default:
 
@@ -150,7 +141,6 @@ function slotToFunction(slot, name) {
         default:
 
     }
-    updateText("Upgrades")
 }
 
 function buyWorkersTab() {
@@ -159,6 +149,9 @@ function buyWorkersTab() {
         TabData.workersTabAccess = 1
         document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png"
         document.getElementById("tab_text_3").style.visibility = "visible"
+        removeSlot("Buy Workers Tab", "OneTimeSlots")
+        addTooEnd("Worker Speed", "RepeatSlots")
+        updateText("Upgrades")
     }
 }
 
@@ -219,24 +212,31 @@ function buyWorkerDiscount(level) {
             if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[0] && WorkerStatusData.workerDiscountLevel[0] == 0) {
                 PowerData.currentPower -= WorkerStatusData.workerDiscountCost[0]
                 costRecalculation("workers", -10)
+                addTooEnd("Worker Discount Level 2", "OneTimeSlots")
+                removeSlot("Worker Discount Level 1", "OneTimeSlots")
             }
             break;
         case 2:
             if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[1] && WorkerStatusData.workerDiscountLevel[1] == 0) {
                 PowerData.currentPower -= WorkerStatusData.workerDiscountCost[1]
                 costRecalculation("workers", -10)
+                addTooEnd("Worker Discount Level 3", "OneTimeSlots")
+                removeSlot("Worker Discount Level 2", "OneTimeSlots")
             }
             break;
         case 3:
             if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[2] && WorkerStatusData.workerDiscountLevel[2] == 0) {
                 PowerData.currentPower -= WorkerStatusData.workerDiscountCost[2]
                 costRecalculation("workers", -10)
+                addTooEnd("Worker Discount Level 4", "OneTimeSlots")
+                removeSlot("Worker Discount Level 3", "OneTimeSlots")
             }
             break;
         case 4:
             if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[3] && WorkerStatusData.workerDiscountLevel[3] == 0) {
                 PowerData.currentPower -= WorkerStatusData.workerDiscountCost[3]
                 costRecalculation("workers", -10)
+                removeSlot("Worker Discount Level 4", "OneTimeSlots")
             }
             break;
         default:

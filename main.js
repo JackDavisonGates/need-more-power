@@ -34,10 +34,10 @@ function buttonStat(stat, button) {
             switch (stat) {
                 case "down":
                     spinTurbine()
-                    document.getElementById("Turbine-spin-button-pressed").style.visibility = "visible"
+                    document.getElementById("Turbine-spin-button").src = "Assets/Turbine_button_pressed.png"
                     break;
                 case "up":
-                    document.getElementById("Turbine-spin-button-pressed").style.visibility = "hidden"
+                    document.getElementById("Turbine-spin-button").src = "Assets/Turbine_button_unpressed.png"
                     break;
                 default:
                     break;
