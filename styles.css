@@ -35,25 +35,25 @@ body {
 }
 
 #Block_1 {
-    background: url('Assets/Block_1.png');
+    background: url('Assets/block_1.png');
     width:200px;
     height:600px;
 }
 
 #Block_2 {
-    background: url('Assets/Block_2.png');
+    background: url('Assets/block_2.png');
     width:200px;
     height:300px;
 }
 
 #Block_3 {
-    background: url('Assets/Block_3.png');
+    background: url('Assets/block_3.png');
     width:795px;
     height:600px;
 }
 
 #Block_4 {
-    background: url('Assets/Block_4.png');
+    background: url('Assets/block_4.png');
     width:795px;
     height:300px;
 }
