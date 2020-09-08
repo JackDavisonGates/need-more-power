@@ -14,6 +14,55 @@ function toolTips(id) {
                 "Electricity is one of man's greatest inventions it is up there with fire, computers and twerking."
             MouseLocation = "generator"
             break;
+        case "RPM":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current RPM."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "persec"
+            break;
+        case "persec":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current per second power production."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "persec"
+            break;
+        case "permin":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current per minute power production."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "permin"
+            break;
+        case "perhour":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current per hour power production."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "perhour"
+            break;
+        case "perday":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current per day power production."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "perday"
+            break;
+        case "perweek":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current per week power production."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "perweek"
+            break;
+        case "peryear":
+            document.getElementById("tool_tip").innerHTML =
+                "This will set the top display to show you current per year power production."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "peryear"
+            break;
         case "buy_workers":
             if (WorkerStatusData.buyNumber == 1) {
                 document.getElementById("tool_tip").innerHTML =
@@ -25,6 +74,13 @@ function toolTips(id) {
             document.getElementById("flavour_text").innerHTML =
                 "Don't think of them as slaves, think of them as unpaid interns."
             MouseLocation = "buy_workers"
+            break;
+        case "stop_workers":
+            document.getElementById("tool_tip").innerHTML =
+                "This stops all active workers and any job progress will remain when all workers are removed."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "stop_workers"
             break;
         case "energy_workers":
             document.getElementById("tool_tip").innerHTML =
