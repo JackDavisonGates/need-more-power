@@ -109,3 +109,10 @@ function PerSecond(material) {
             break;
     }
 }
+
+function offLineTime(time) {
+    console.log("offLineTime active")
+    console.log("workers() missed: " + Math.floor(time / MiscellaneousData.gameSpeed))
+    console.log("slowTurbine() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime))
+    console.log("makePower() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime))
+}

@@ -486,6 +486,8 @@ window.onload = function() {
     loadGame()
 };
 
+var startedAt = Date.now()
+
 var mainGameLoop = window.setInterval(function() {
     mainLoopFast()
     if (MiscellaneousData.gameTicks % MiscellaneousData.mediamLoopTime == 0) {
@@ -493,6 +495,12 @@ var mainGameLoop = window.setInterval(function() {
     }
     if (MiscellaneousData.gameTicks % MiscellaneousData.slowLoopTime == 0) {
         //mainLoopSlow()
+        let elapsedTime = Date.now() - startedAt
+        if (elapsedTime > MiscellaneousData.slowLoopTime * MiscellaneousData.gameSpeed + 1000) {
+            offLineTime(elapsedTime)
+        }
+        startedAt = Date.now()
+
     }
     if (MiscellaneousData.gameTicks % MiscellaneousData.saveGameTime == 0) {
         saveGame()
