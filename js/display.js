@@ -418,7 +418,7 @@ function tabEvent(id, evt, tabName) {
             }
             break;
         case "tab_button_9":
-            if (TabData.setingsTabAccess == 1) {
+            if (TabData.settingsTabAccess == 1) {
                 access = 1
             }
             break;
@@ -450,7 +450,7 @@ function tabEvent(id, evt, tabName) {
     if (TabData.resetTabAccess == 1 && access == 1) {
         document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
     }
-    if (TabData.setingsTabAccess == 1 && access == 1) {
+    if (TabData.settingsTabAccess == 1 && access == 1) {
         document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center_settings.png";
     }
 
