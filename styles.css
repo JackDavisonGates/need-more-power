@@ -23,15 +23,13 @@ body {
 
 #Structure {
     display: grid;
-    grid-template-columns: 20% 4px auto;
-    grid-template-rows: auto;
+    grid-template-columns: 200px 4px 795px;
     position: relative;
 }
 
 #Structure2 {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
+    grid-template-rows: 4px 600px 4px 300px;
 }
 
 #Block_1 {
