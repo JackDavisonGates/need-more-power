@@ -15,11 +15,23 @@ function toolTips(id) {
             MouseLocation = "generator"
             break;
         case "buy_workers":
-            document.getElementById("tool_tip").innerHTML =
-                "cost: " + formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W \neach worker can be set to do one job at a time"
+            if (WorkerStatusData.buyNumber == 1) {
+                document.getElementById("tool_tip").innerHTML =
+                    "cost: " + formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W for " + WorkerStatusData.buyNumber + " worker each worker can be set to do one job at a time"
+            } else {
+                document.getElementById("tool_tip").innerHTML =
+                    "cost: " + formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W for " + WorkerStatusData.buyNumber + " workers each worker can be set to do one job at a time"
+            }
             document.getElementById("flavour_text").innerHTML =
                 "Don't think of them as slaves, think of them as unpaid interns."
             MouseLocation = "buy_workers"
+            break;
+        case "energy_workers":
+            document.getElementById("tool_tip").innerHTML =
+                "Each time the workers compleat a job the generator will spin, any job progress will remain if all workers are removed."
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "energy_workers"
             break;
         case "energy_workers_bar":
             if (JobProgressBarData.energyBarWidth < 0) {

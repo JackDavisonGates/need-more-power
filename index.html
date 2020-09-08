@@ -223,11 +223,11 @@
                             </div>
                             <div id="workers_tags">
                                 <div id="energy_workers" style="position: relative">
-                                    <img id="energy_worker_name_tag" src="Assets/name_tag_energy_workers.png" style="position: relative">
-                                    <img id="energy_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px" onmousedown="buttonStat('down', 'energy_worker_+_button')"
-                                        onmouseup="buttonStat('up', 'energy_worker_+_button')" onmouseout="buttonStat('up', 'energy_worker_+_button')">
-                                    <img id="energy_worker_-_button" src="Assets/-_button_unpressed.png" style="position: relative; top: -40px; left: 223px" onmousedown="buttonStat('down', 'energy_worker_-_button')"
-                                        onmouseup="buttonStat('up', 'energy_worker_-_button')" onmouseout="buttonStat('up', 'energy_worker_-_button')">
+                                    <img id="energy_worker_name_tag" src="Assets/name_tag_energy_workers.png" onmouseover="toolTips('energy_workers')" onmouseout="toolTips('noTip')" style="position: relative">
+                                    <img id="energy_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px"  onmouseover="toolTips('energy_workers')" onmousedown="buttonStat('down', 'energy_worker_+_button')"
+                                        onmouseup="buttonStat('up', 'energy_worker_+_button')" onmouseout="buttonStat('up', 'energy_worker_+_button'); toolTips('noTip')">
+                                    <img id="energy_worker_-_button" src="Assets/-_button_unpressed.png" style="position: relative; top: -40px; left: 223px"  onmouseover="toolTips('energy_workers')" onmousedown="buttonStat('down', 'energy_worker_-_button')"
+                                        onmouseup="buttonStat('up', 'energy_worker_-_button')" onmouseout="buttonStat('up', 'energy_worker_-_button'); toolTips('noTip')">
                                 </div>
                                 <!-- <div id="wood_workers" style="position: relative">
                                     <img id="wood_worker_name_tag" src="Assets/name_tag.png" style="position: relative">
