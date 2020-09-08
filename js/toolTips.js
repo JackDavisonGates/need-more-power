@@ -64,7 +64,7 @@ function toolTips(id) {
             MouseLocation = "peryear"
             break;
         case "buy_workers":
-            if (WorkerStatusData.buyNumber == 1) {
+            if (WorkerStatusData.buyNumber == 1 || WorkerStatusData.buyNumber == -1) {
                 document.getElementById("tool_tip").innerHTML =
                     "cost: " + formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W for " + WorkerStatusData.buyNumber + " worker each worker can be set to do one job at a time"
             } else {
