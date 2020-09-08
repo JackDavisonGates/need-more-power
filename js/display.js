@@ -18,7 +18,7 @@ var TabData = {
     buildingsTabAccess: 0,
     reaserchTabAccess: 0,
     resetTabAccess: 0,
-    setingsTabAccess: 0,
+    settingsTabAccess: 1,
 }
 
 var NixieDictionary = {

@@ -108,6 +108,13 @@ function toolTips(id) {
                 "There getting faster."
             MouseLocation = "energy_workers_bar"
             break;
+            case "hard_reset":
+            document.getElementById("tool_tip").innerHTML =
+                "This clear all of your game data and you will have to start again for scratch."
+            document.getElementById("flavour_text").innerHTML =
+                "There is no coming back."
+            MouseLocation = "hard_reset"
+                break;
         default:
 
     }

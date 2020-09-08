@@ -4,6 +4,7 @@ var MiscellaneousData = {
     gameSpeed: 50,
     mediamLoopTime: 10,
     slowLoopTime: 25,
+    saveGameTime: 60000,
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
@@ -20,6 +21,7 @@ function startMessage() {
         default:
             break;
         case 0:
+            document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center_settings.png"
             MiscellaneousData.toBeDisplayed = "wellcom comander"
             break;
         case 50:
@@ -44,8 +46,7 @@ function startMessage() {
         case 330:
             TabData.energyTabAccess = 1
             document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center_generator.png"
-            TabData.setingsTabAccess = 1
-            document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center_settings.png"
+
             break;
     }
 }

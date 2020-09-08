@@ -482,6 +482,10 @@ function mainLoopSlow() {
     useTelescope()
 }
 
+window.onload = function() {
+    loadGame()
+};
+
 var mainGameLoop = window.setInterval(function() {
     mainLoopFast()
     if (MiscellaneousData.gameTicks % MiscellaneousData.mediamLoopTime == 0) {
@@ -489,6 +493,9 @@ var mainGameLoop = window.setInterval(function() {
     }
     if (MiscellaneousData.gameTicks % MiscellaneousData.slowLoopTime == 0) {
         //mainLoopSlow()
+    }
+    if (MiscellaneousData.gameTicks % MiscellaneousData.saveGameTime == 0) {
+        saveGame()
     }
     startMessage()
     MiscellaneousData.gameTicks += 1
