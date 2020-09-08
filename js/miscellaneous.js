@@ -111,9 +111,13 @@ function PerSecond(material) {
 }
 
 function offLineTime(time) {
-    console.log("offLineTime active")
-    console.log("workers() missed: " + Math.floor(time / MiscellaneousData.gameSpeed))
-    console.log("slowTurbine() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime))
-    console.log("makePower() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime))
-    console.log("mainLoopSlow() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.slowLoopTime))
+    for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
+        mainLoopFast()
+    }
+    for (var i = 0; i < Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime); i++) {
+        mainLoopMediam()
+    }
+    // for (var i = 0; i < Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.slowLoopTime); i++) {
+    //     mainLoopSlow()
+    // }
 }

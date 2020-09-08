@@ -496,7 +496,7 @@ var mainGameLoop = window.setInterval(function() {
     if (MiscellaneousData.gameTicks % MiscellaneousData.slowLoopTime == 0) {
         //mainLoopSlow()
         let elapsedTime = Date.now() - startedAt
-        if (elapsedTime > MiscellaneousData.slowLoopTime * MiscellaneousData.gameSpeed + 1000) {
+        if (elapsedTime > MiscellaneousData.slowLoopTime * MiscellaneousData.gameSpeed + 10000) {
             offLineTime(elapsedTime)
         }
         startedAt = Date.now()
