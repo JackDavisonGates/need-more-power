@@ -117,7 +117,6 @@ function slotToFunction(slot, name) {
             }
             break;
         case "one_time":
-            removeSlot(name, OneTimeSlots)
             switch (name) {
                 case "Buy Workers Tab":
                     buyWorkersTab()
@@ -147,8 +146,7 @@ function buyWorkersTab() {
     if (PowerData.currentPower >= 200) {
         PowerData.currentPower -= 200
         TabData.workersTabAccess = 1
-        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png"
-        document.getElementById("tab_text_3").style.visibility = "visible"
+        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center_workers.png"
         removeSlot("Buy Workers Tab", "OneTimeSlots")
         addTooEnd("Worker Speed", "RepeatSlots")
         updateText("Upgrades")

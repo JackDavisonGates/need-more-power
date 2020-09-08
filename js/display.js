@@ -427,13 +427,13 @@ function tabEvent(id, evt, tabName) {
     }
 
     if (TabData.energyTabAccess == 1 && access == 1) {
-        document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png";
+        document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center_generator.png";
     }
     if (TabData.upgradesTabAccess == 1 && access == 1) {
-        document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png";
+        document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center_upgrades.png";
     }
     if (TabData.workersTabAccess == 1 && access == 1) {
-        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center.png";
+        document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center_workers.png";
     }
     if (TabData.materialsTabAccess == 1 && access == 1) {
         document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center.png";
@@ -451,11 +451,41 @@ function tabEvent(id, evt, tabName) {
         document.getElementById("tab_button_8").src = "Assets/Button_Tabs_Center.png";
     }
     if (TabData.setingsTabAccess == 1 && access == 1) {
-        document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png";
+        document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center_settings.png";
     }
 
     if (access == 1) {
-        document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+        switch (id) {
+            case "tab_button_1":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked_generator.png";
+                break;
+            case "tab_button_2":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked_upgrades.png";
+                break;
+            case "tab_button_3":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked_workers.png";
+                break;
+            case "tab_button_4":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+                break;
+            case "tab_button_5":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+                break;
+            case "tab_button_6":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+                break;
+            case "tab_button_7":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+                break;
+            case "tab_button_8":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked.png";
+                break;
+            case "tab_button_9":
+                document.getElementById(id).src = "Assets/Button_Tabs_Center_Clicked_settings.png";
+                break;
+            default:
+
+        }
 
         var tabcontent, tablinks;
 
@@ -477,8 +507,7 @@ function tabEvent(id, evt, tabName) {
 function revealTabs() {
     if (PowerData.currentPower >= 50 && TabData.upgradesTabAccess == 0) {
         TabData.upgradesTabAccess = 1
-        document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center.png"
-        document.getElementById("tab_text_2").style.visibility = "visible"
+        document.getElementById("tab_button_2").src = "Assets/Button_Tabs_Center_upgrades.png"
         updateText("Upgrades")
     }
 }
@@ -541,7 +570,7 @@ function updateText(update) {
             }
             break;
         case "Workers":
-            document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W"
+            //document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(WorkerStatusData.buyNumber)) + "W"
             document.getElementById("free_workers").innerHTML = "FREE: " + WorkerStatusData.freeWorkers
             document.getElementById("active_workers").innerHTML = "ACTIVE: " + (WorkerStatusData.workers - WorkerStatusData.freeWorkers)
             document.getElementById("energy_worker_number").innerHTML = JobData.energyWorker
@@ -589,8 +618,14 @@ function updateText(update) {
 function energyStatsButtons(button) {
     for (i = 0; i < 7; i++) {
         DisplayData.energyStatsButton[i] = 0
-        document.getElementById("energy_stats_button_".concat(String(i + 1))).src = "Assets/stats_button_no_hover.png"
     }
+    document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover_rpm.png"
+    document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover_persec.png"
+    document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover_permin.png"
+    document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover_perhour.png"
+    document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover_perday.png"
+    document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover_perweek.png"
+    document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover_peryear.png"
     switch (button) {
         default:
             break;

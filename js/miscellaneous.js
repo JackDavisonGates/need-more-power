@@ -43,11 +43,9 @@ function startMessage() {
             break;
         case 330:
             TabData.energyTabAccess = 1
-            document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center.png"
-            document.getElementById("tab_text_1").style.visibility = "visible"
+            document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center_generator.png"
             TabData.setingsTabAccess = 1
-            document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center.png"
-            document.getElementById("tab_text_9").style.visibility = "visible"
+            document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center_settings.png"
             break;
     }
 }

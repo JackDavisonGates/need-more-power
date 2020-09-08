@@ -218,7 +218,6 @@ body {
     height: 130px;
     color: Azure;
     margin: 10px;
-    text-align: center;
     font-weight: bold;
 }
 
@@ -229,7 +228,6 @@ body {
     height: 130px;
     color: Azure;
     margin: 10px;
-    text-align: center;
     font-style: italic;
     font-weight: bold;
 }

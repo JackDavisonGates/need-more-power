@@ -48,14 +48,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_1')
-                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_pressed_rpm.png"
                         DisplayData.energyStatsButton[0] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_hover_rpm.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover_rpm.png"
                         break;
                     default:
                         break;
@@ -67,14 +67,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_2')
-                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_pressed_persec.png"
                         DisplayData.energyStatsButton[1] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_hover_persec.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_2").src = "Assets/stats_button_no_hover_persec.png"
                         break;
                     default:
                         break;
@@ -86,14 +86,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_3')
-                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_pressed_permin.png"
                         DisplayData.energyStatsButton[2] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_hover_permin.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_3").src = "Assets/stats_button_no_hover_permin.png"
                         break;
                     default:
                         break;
@@ -105,14 +105,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_4')
-                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_pressed_perhour.png"
                         DisplayData.energyStatsButton[3] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_hover_perhour.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_4").src = "Assets/stats_button_no_hover_perhour.png"
                         break;
                     default:
                         break;
@@ -124,14 +124,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_5')
-                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_pressed_perday.png"
                         DisplayData.energyStatsButton[4] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_hover_perday.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_5").src = "Assets/stats_button_no_hover_perday.png"
                         break;
                     default:
                         break;
@@ -143,14 +143,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_6')
-                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_pressed_perweek.png"
                         DisplayData.energyStatsButton[5] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_hover_perweek.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_6").src = "Assets/stats_button_no_hover_perweek.png"
                         break;
                     default:
                         break;
@@ -162,14 +162,14 @@ function buttonStat(stat, button) {
                 switch (stat) {
                     case "down":
                         energyStatsButtons('energy_stats_button_7')
-                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_pressed.png"
+                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_pressed_peryear.png"
                         DisplayData.energyStatsButton[6] = 1
                         break;
                     case "hover":
-                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_hover.png"
+                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_hover_peryear.png"
                         break;
                     case "out":
-                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover.png"
+                        document.getElementById("energy_stats_button_7").src = "Assets/stats_button_no_hover_peryear.png"
                         break;
                     default:
                         break;

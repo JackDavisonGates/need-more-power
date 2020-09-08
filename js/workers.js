@@ -81,6 +81,10 @@ function buyWorker() {
         WorkerStatusData.workerCost = WorkerStatusData.workerBaseCost * Math.pow(WorkerStatusData.costRatio + 1, WorkerStatusData.workers)
         updateText("Workers")
         document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+        if (WorkerStatusData.buyX == 4) {
+            WorkerStatusData.buyNumber = -1
+        }
+        toolTips("buy_workers")
     }
 }
 
@@ -215,19 +219,31 @@ function workers() {
             if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < JobProgressBarData.greenBarTime / (MiscellaneousData.gameSpeed / 1000)) {
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill-green.png"
                 document.getElementById("energy_worker_loading_bar_fill").style.left = 0 + "px"
+                if (MouseLocation == "energy_workers_bar") {
+                    toolTips("energy_workers_bar_green")
+                }
             } else {
                 JobProgressBarData.energyBarWidth = 100 - ((JobTimeData.energyJobTimeCurrent / JobTimeData.energyJobTime) * 100)
                 document.getElementById("energy_worker_loading_bar_fill").style.left = (JobProgressBarData.energyBarWidth * 2.7) - 270 + "px"
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill.png"
+                if (MouseLocation == "energy_workers_bar") {
+                    toolTips("energy_workers_bar")
+                }
             }
         } else {
             if ((JobTimeData.energyJobTime / (JobData.energyWorker * JobEfficiencyData.energyWorkerEfficiency)) < JobProgressBarData.greenBarTime / (MiscellaneousData.gameSpeed / 1000)) {
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill-green.png"
                 document.getElementById("energy_worker_loading_bar_fill").style.left = 0 + "px"
+                if (MouseLocation == "energy_workers_bar") {
+                    toolTips("energy_workers_bar_green")
+                }
             } else {
                 JobProgressBarData.energyBarWidth = 100 - ((JobTimeData.energyJobTimeCurrent / JobTimeData.energyJobTime) * 100)
                 document.getElementById("energy_worker_loading_bar_fill").style.left = (JobProgressBarData.energyBarWidth * 2.7) - 270 + "px"
                 document.getElementById("energy_worker_loading_bar_fill").src = "Assets/loading-bar-fill.png"
+                if (MouseLocation == "energy_workers_bar") {
+                    toolTips("energy_workers_bar")
+                }
             }
         }
         if (JobTimeData.woodJobTimeCurrent <= 0) {
@@ -262,8 +278,5 @@ function workers() {
             JobTimeData.plasticJobTimeCurrent = JobTimeData.plasticJobTime
             StockpillData.plastic += JobProductionData.plasticJobProduction
         }
-    }
-    if (WorkerStatusData.buyX == 4) {
-        document.getElementById("worker_cost").innerHTML = formatNumber(workerTotalCost(-1)) + "W"
     }
 }
