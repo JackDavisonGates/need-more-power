@@ -115,5 +115,5 @@ function offLineTime(time) {
     console.log("workers() missed: " + Math.floor(time / MiscellaneousData.gameSpeed))
     console.log("slowTurbine() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime))
     console.log("makePower() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime))
-    console.log("mainLoopSlow() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.slowLoopTime)))
+    console.log("mainLoopSlow() missed: " + Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.slowLoopTime))
 }
