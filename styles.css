@@ -21,12 +21,6 @@ body {
     grid-template-rows: 4px;
 }
 
-#Block {
-    display: grid;
-    grid-template-columns: 40px auto 40px;
-    grid-template-rows: 40px auto 40px;
-}
-
 #Structure {
     display: grid;
     grid-template-columns: 20% 4px auto;
@@ -62,60 +56,6 @@ body {
     background: url('Assets/Block_4.png');
     width:795px;
     height:300px;
-}
-
-#Block>#Background_UL {
-    background: url('Assets/Background_UL.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-}
-
-#Block>#Background_ML {
-    background: url('Assets/Background_ML.png');
-    background-repeat: no-repeat;
-    background-size: 101% 101%;
-}
-
-#Block>#Background_LL {
-    background: url('Assets/Background_LL.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-}
-
-#Block>#Background_UM {
-    background: url('Assets/Background_UM.png');
-    background-repeat: no-repeat;
-    background-size: 101% 101%;
-}
-
-#Block>#Background_MM {
-    background: url('Assets/Background_MM.png');
-    background-repeat: no-repeat;
-    background-size: 101% 101%;
-}
-
-#Block>#Background_LM {
-    background: url('Assets/Background_LM.png');
-    background-repeat: no-repeat;
-    background-size: 101% 101%;
-}
-
-#Block>#Background_UR {
-    background: url('Assets/Background_UR.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-}
-
-#Block>#Background_MR {
-    background: url('Assets/Background_MR.png');
-    background-repeat: no-repeat;
-    background-size: 101% 101%;
-}
-
-#Block>#Background_LR {
-    background: url('Assets/Background_LR.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
 }
 
 #Banner>#Banner_L {
