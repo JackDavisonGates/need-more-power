@@ -479,6 +479,8 @@ function powerBar() {
 
     if (yellowmove >= 0) {
         document.getElementById("power_bar_fill_yellow").style.left = yellowmove * 1.64 + -225 + "px"
+    } else {
+        document.getElementById("power_bar_fill_yellow").style.left = -225 + "px"
     }
 }
 
