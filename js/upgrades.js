@@ -41,6 +41,7 @@ var OneTimeUpgradesNotCompleat = {
 var SlotsDtat = {
     OneTimeSlotsFilled: 4,
     RepeatSlotsFilled: 3,
+    OneTimeSlotsCompleat: 0,
 }
 
 function addTooEnd(id, slots) {
@@ -81,6 +82,8 @@ function removeSlot(id, slots) {
                     OneTimeSlots[i] = ""
                 }
                 if (OneTimeSlots[i] == id) {
+                    OneTimeUpgradesCompleat[SlotsDtat.OneTimeSlotsCompleat] = id
+                    SlotsDtat.OneTimeSlotsCompleat += 1
                     OneTimeSlots[i] = ""
                     foundID = 1
                 }

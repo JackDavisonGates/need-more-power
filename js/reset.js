@@ -107,6 +107,35 @@ function loadGame() {
     }
     document.getElementById("tab_button_9").src = "Assets/Button_Tabs_Center_settings.png"
 
+    for (var i = 0; i < SlotsDtat.OneTimeSlotsCompleat; i++) {
+        switch (OneTimeUpgradesCompleat[i]) {
+            case "Power Per Time":
+                document.getElementById("energy_stats_button_1").style.visibility = "visible"
+                document.getElementById("energy_stats_button_2").style.visibility = "visible"
+                document.getElementById("energy_stats_button_3").style.visibility = "visible"
+                document.getElementById("energy_stats_button_4").style.visibility = "visible"
+                document.getElementById("energy_stats_button_5").style.visibility = "visible"
+                document.getElementById("energy_stats_button_6").style.visibility = "visible"
+                document.getElementById("energy_stats_button_7").style.visibility = "visible"
+                document.getElementById("energy_stats_connector_1").style.visibility = "visible"
+                document.getElementById("energy_stats_connector_2").style.visibility = "visible"
+                document.getElementById("energy_stats_connector_3").style.visibility = "visible"
+                document.getElementById("energy_stats_connector_4").style.visibility = "visible"
+                document.getElementById("energy_stats_connector_5").style.visibility = "visible"
+                document.getElementById("energy_stats_connector_6").style.visibility = "visible"
+                break;
+            case "Storage Bar":
+                document.getElementById("power_bar_back").style.visibility = "visible"
+                document.getElementById("power_bar_fill_red").style.visibility = "visible"
+                document.getElementById("power_bar_fill_yellow").style.visibility = "visible"
+                document.getElementById("cover_block").style.visibility = "visible"
+                document.getElementById("power_bar_fram").style.visibility = "visible"
+                break;
+            default:
+
+        }
+    }
+
     updateText("Power")
     updateText("Upgrades")
     updateText("Workers")
