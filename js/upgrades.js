@@ -11,8 +11,8 @@ var RepeatSlots = {
 var OneTimeSlots = {
     1: "Buy Workers Tab",
     2: "Worker Discount Level 1",
-    3: "",
-    4: "",
+    3: "Power Per Time",
+    4: "Storage Bar",
     5: "",
     6: "",
     7: "",
@@ -39,7 +39,7 @@ var OneTimeUpgradesNotCompleat = {
 }
 
 var SlotsDtat = {
-    OneTimeSlotsFilled: 2,
+    OneTimeSlotsFilled: 4,
     RepeatSlotsFilled: 3,
 }
 
@@ -132,6 +132,12 @@ function slotToFunction(slot, name) {
                     break;
                 case "Worker Discount Level 4":
                     buyWorkerDiscount(4)
+                    break;
+                case "Power Per Time":
+                    getPowerPerTime()
+                    break;
+                case "Storage Bar":
+                    getStorageBar()
                     break;
                 default:
 
@@ -243,7 +249,39 @@ function buyWorkerDiscount(level) {
     updateText("Upgrades")
 }
 
+function getPowerPerTime() {
+    if (PowerData.currentPower >= PowerData.perTimeCost) {
+        PowerData.currentPower -= PowerData.perTimeCost
+        document.getElementById("energy_stats_button_1").style.visibility = "visible"
+        document.getElementById("energy_stats_button_2").style.visibility = "visible"
+        document.getElementById("energy_stats_button_3").style.visibility = "visible"
+        document.getElementById("energy_stats_button_4").style.visibility = "visible"
+        document.getElementById("energy_stats_button_5").style.visibility = "visible"
+        document.getElementById("energy_stats_button_6").style.visibility = "visible"
+        document.getElementById("energy_stats_button_7").style.visibility = "visible"
+        document.getElementById("energy_stats_connector_1").style.visibility = "visible"
+        document.getElementById("energy_stats_connector_2").style.visibility = "visible"
+        document.getElementById("energy_stats_connector_3").style.visibility = "visible"
+        document.getElementById("energy_stats_connector_4").style.visibility = "visible"
+        document.getElementById("energy_stats_connector_5").style.visibility = "visible"
+        document.getElementById("energy_stats_connector_6").style.visibility = "visible"
+        removeSlot("Power Per Time", "OneTimeSlots")
+        updateText("Upgrades")
+    }
+}
 
+function getStorageBar() {
+    if (PowerData.currentPower >= PowerData.barCost) {
+        PowerData.currentPower -= PowerData.barCost
+        document.getElementById("power_bar_back").style.visibility = "visible"
+        document.getElementById("power_bar_fill_red").style.visibility = "visible"
+        document.getElementById("power_bar_fill_yellow").style.visibility = "visible"
+        document.getElementById("cover_block").style.visibility = "visible"
+        document.getElementById("power_bar_fram").style.visibility = "visible"
+        removeSlot("Storage Bar", "OneTimeSlots")
+        updateText("Upgrades")
+    }
+}
 
 function updatePowerStorage() {
     PowerStorageData.totalPowerStorage = (PowerStorageData.capasitors * PowerStorageData.capasitorsStorage) + (PowerStorageData.batteries * PowerStorageData.batteriesStorage)

@@ -6,6 +6,8 @@ var PowerData = {
     powerPerTickCost: 10,
     barRed: 0,
     barYellow: 0,
+    barCost: 50,
+    perTimeCost: 50,
 }
 
 var PowerStorageData = {
@@ -476,7 +478,6 @@ function powerBar() {
     if (redmove <= 100) {
         document.getElementById("power_bar_fill_red").style.left = redmove * 1.64 + -56 + "px"
     }
-
     if (yellowmove >= 0) {
         document.getElementById("power_bar_fill_yellow").style.left = yellowmove * 1.64 + -225 + "px"
     } else {

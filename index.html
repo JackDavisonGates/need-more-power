@@ -112,34 +112,34 @@
                         </div>
 
                         <div id="Turbine" class="tabcontent">
-                            <img id="power_bar_back" src="Assets/power_bar_back.png" style="position: relative;top: 100px;left: 277px">
-                            <img id="power_bar_fill_red" src="Assets/power_bar_fill_red.png" style="position: relative;top: 100px;left: -56px">
-                            <img id="power_bar_fill_yellow" src="Assets/power_bar_fill_yellow.png" style="position: relative;top: 100px;left: -225px">
-                            <img id="cover_block" src="Assets/cover_block.png" style="position: relative;top: 100px;left: -400px">
-                            <img id="power_bar_fram" onmouseover="toolTips('power_bar')" onmouseout="toolTips('noTip')" src="Assets/power_bar_frame.png" style="position: relative;top: 67px;left: 259px">
+                            <img id="power_bar_back" src="Assets/power_bar_back.png" style="position: relative;top: 100px;left: 277px;visibility:hidden">
+                            <img id="power_bar_fill_red" src="Assets/power_bar_fill_red.png" style="position: relative;top: 100px;left: -56px;visibility:hidden">
+                            <img id="power_bar_fill_yellow" src="Assets/power_bar_fill_yellow.png" style="position: relative;top: 100px;left: -225px;visibility:hidden">
+                            <img id="cover_block" src="Assets/cover_block.png" style="position: relative;top: 100px;left: -400px;visibility:hidden">
+                            <img id="power_bar_fram" onmouseover="toolTips('power_bar')" onmouseout="toolTips('noTip')" src="Assets/power_bar_frame.png" style="position: relative;top: 67px;left: 259px;visibility:hidden">
                             <img id="Turbine-spin-button" onmousedown="buttonStat('down', 'turbine')" onmouseover="toolTips('generator')" onmouseup="buttonStat('up', 'turbine')" onmouseout="buttonStat('up', 'turbine'); toolTips('noTip')"
                                 src="Assets/Turbine_button_unpressed.png" style="position: absolute;top: 180px;left: 250px">
                             <div id="energy_stats_buttons">
                                 <img id="energy_stats_button_1" src="Assets/stats_button_pressed_rpm.png" onmouseover="buttonStat('hover', 'energy_stats_button_1'); toolTips('RPM')" onmousedown="buttonStat('down', 'energy_stats_button_1')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_1'); toolTips('noTip')">
-                                <img id="energy_stats_connector_1" src="Assets/stats_button_connector.png" style="position: relative; top: 10px">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_1'); toolTips('noTip')" style="visibility:hidden">
+                                <img id="energy_stats_connector_1" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; visibility:hidden">
                                 <img id="energy_stats_button_2" src="Assets/stats_button_no_hover_persec.png" onmouseover="buttonStat('hover', 'energy_stats_button_2'); toolTips('persec')" onmousedown="buttonStat('down', 'energy_stats_button_2')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_2'); toolTips('noTip')">
-                                <img id="energy_stats_connector_2" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_2'); toolTips('noTip')" style="visibility:hidden">
+                                <img id="energy_stats_connector_2" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; visibility:hidden">
                                 <img id="energy_stats_button_3" src="Assets/stats_button_no_hover_permin.png" onmouseover="buttonStat('hover', 'energy_stats_button_3'); toolTips('permin')" onmousedown="buttonStat('down', 'energy_stats_button_3')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_3'); toolTips('noTip')">
-                                <img id="energy_stats_connector_3" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_3'); toolTips('noTip')" style="visibility:hidden">
+                                <img id="energy_stats_connector_3" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; visibility:hidden">
                                 <img id="energy_stats_button_4" src="Assets/stats_button_no_hover_perhour.png" onmouseover="buttonStat('hover', 'energy_stats_button_4'); toolTips('perhour')" onmousedown="buttonStat('down', 'energy_stats_button_4')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_4'); toolTips('noTip')">
-                                <img id="energy_stats_connector_4" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_4'); toolTips('noTip')" style="visibility:hidden">
+                                <img id="energy_stats_connector_4" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; visibility:hidden">
                                 <img id="energy_stats_button_5" src="Assets/stats_button_no_hover_perday.png" onmouseover="buttonStat('hover', 'energy_stats_button_5'); toolTips('perday')" onmousedown="buttonStat('down', 'energy_stats_button_5')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_5'); toolTips('noTip')">
-                                <img id="energy_stats_connector_5" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_5'); toolTips('noTip')" style="visibility:hidden">
+                                <img id="energy_stats_connector_5" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; visibility:hidden">
                                 <img id="energy_stats_button_6" src="Assets/stats_button_no_hover_perweek.png" onmouseover="buttonStat('hover', 'energy_stats_button_6'); toolTips('perweek')" onmousedown="buttonStat('down', 'energy_stats_button_6')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_6'); toolTips('noTip')">
-                                <img id="energy_stats_connector_6" src="Assets/stats_button_connector.png" style="position: relative; top: 10px;">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_6'); toolTips('noTip')" style="visibility:hidden">
+                                <img id="energy_stats_connector_6" src="Assets/stats_button_connector.png" style="position: relative; top: 10px; visibility:hidden">
                                 <img id="energy_stats_button_7" src="Assets/stats_button_no_hover_peryear.png" onmouseover="buttonStat('hover', 'energy_stats_button_7'); toolTips('peryear')" onmousedown="buttonStat('down', 'energy_stats_button_7')"
-                                    onmouseout="buttonStat('out', 'energy_stats_button_7'); toolTips('noTip')">
+                                    onmouseout="buttonStat('out', 'energy_stats_button_7'); toolTips('noTip')" style="visibility:hidden">
                             </div>
                         </div>
 
