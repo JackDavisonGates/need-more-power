@@ -103,7 +103,10 @@ function PerSecond(material) {
         default:
             break;
         case "energy":
-            return TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000) / (MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime
+            if (PowerData.currentPower - PowerStorageData.capasitorsStorage * PowerStorageData.capasitors > 0) {
+                return (TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000) * PowerStorageData.batteriesEfficency) / ((MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime)
+            }
+            return (TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000)) / ((MiscellaneousData.gameSpeed / 1000) * MiscellaneousData.mediamLoopTime)
         case "wood":
             Pass
             break;
@@ -111,13 +114,15 @@ function PerSecond(material) {
 }
 
 function offLineTime(time) {
+    var tic = 0
     for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
         mainLoopFast()
+        if (tic % MiscellaneousData.mediamLoopTime == 0) {
+            mainLoopMediam()
+        }
+        // if (tic % MiscellaneousData.slowLoopTime == 0) {
+        //     mainLoopSlow()
+        // }
+        tic += 1
     }
-    for (var i = 0; i < Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.mediamLoopTime); i++) {
-        mainLoopMediam()
-    }
-    // for (var i = 0; i < Math.floor((time / MiscellaneousData.gameSpeed) / MiscellaneousData.slowLoopTime); i++) {
-    //     mainLoopSlow()
-    // }
 }

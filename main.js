@@ -4,6 +4,8 @@ var PowerData = {
     powerPerClick: 1,
     powerPerTick: 1,
     powerPerTickCost: 10,
+    barRed: 0,
+    barYellow: 0,
 }
 
 var PowerStorageData = {
@@ -464,8 +466,25 @@ function makePower(amount) {
     updateText("Power")
 }
 
+function powerBar() {
+    var redmove = 0
+    var yellowmove = 0
+
+    redmove = PowerData.currentPower * 100 / (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors)
+    yellowmove = (PowerData.currentPower - PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) * 100 / (PowerStorageData.batteriesStorage * PowerStorageData.batteries)
+
+    if (redmove <= 100) {
+        document.getElementById("power_bar_fill_red").style.left = redmove * 1.64 + -56 + "px"
+    }
+
+    if (yellowmove >= 0) {
+        document.getElementById("power_bar_fill_yellow").style.left = yellowmove * 1.64 + -225 + "px"
+    }
+}
+
 function mainLoopFast() {
     workers()
+    powerBar()
     updateDisplay(MiscellaneousData.displayID)
 }
 

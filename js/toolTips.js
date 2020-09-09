@@ -7,6 +7,13 @@ function toolTips(id) {
             document.getElementById("flavour_text").innerHTML = ""
             MouseLocation = ""
             break;
+        case "power_bar":
+            document.getElementById("tool_tip").innerHTML =
+                "the red is your capasitors and the yellow is your batteries"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "power_bar"
+            break;
         case "generator":
             document.getElementById("tool_tip").innerHTML =
                 "This is a test of the tool tip by clicking the generator it will speed up."
