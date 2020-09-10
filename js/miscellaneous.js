@@ -117,17 +117,14 @@ function tillEnough(material, cost) {
     switch (material) {
         case "energy":
         if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) {
-            console.log("switch 1")
             if (cost - PowerData.currentPower <= 0) {
                 return 0
             } else {
                 return (cost - PowerData.currentPower) / PerSecond(material)
             }
-        } else if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower < PowerStorageData.capasitorsStorage * PowerStorageData.capasitors){
-            console.log("switch 2")
+        } else if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower < PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) {
             return (((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) - PowerData.currentPower) / PerSecond(material)) + ((cost - (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors)) / PerSecond(material) * PowerStorageData.batteriesEfficency)
         } else {
-            console.log("switch 3")
             if (cost - PowerData.currentPower <= 0) {
                 return 0
             } else {
