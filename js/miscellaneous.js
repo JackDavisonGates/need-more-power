@@ -113,6 +113,10 @@ function PerSecond(material) {
     }
 }
 
+function tillEnough(cost) {
+    
+}
+
 function offLineTime(time) {
     var tic = 0
     for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
