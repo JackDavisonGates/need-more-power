@@ -123,6 +123,28 @@ function loadGame() {
                 document.getElementById("energy_stats_connector_4").style.visibility = "visible"
                 document.getElementById("energy_stats_connector_5").style.visibility = "visible"
                 document.getElementById("energy_stats_connector_6").style.visibility = "visible"
+                document.getElementById("energy_stats_button_1").src = "Assets/stats_button_no_hover_rpm.png"
+                if (DisplayData.energyStatsButton[0] == 1) {
+                    document.getElementById("energy_stats_button_1").src = "Assets/stats_button_pressed_rpm.png"
+                }
+                if (DisplayData.energyStatsButton[1] == 1) {
+                    document.getElementById("energy_stats_button_2").src = "Assets/stats_button_pressed_persec.png"
+                }
+                if (DisplayData.energyStatsButton[2] == 1) {
+                    document.getElementById("energy_stats_button_3").src = "Assets/stats_button_pressed_permin.png"
+                }
+                if (DisplayData.energyStatsButton[3] == 1) {
+                    document.getElementById("energy_stats_button_4").src = "Assets/stats_button_pressed_perhour.png"
+                }
+                if (DisplayData.energyStatsButton[4] == 1) {
+                    document.getElementById("energy_stats_button_5").src = "Assets/stats_button_pressed_perday.png"
+                }
+                if (DisplayData.energyStatsButton[5] == 1) {
+                    document.getElementById("energy_stats_button_6").src = "Assets/stats_button_pressed_perweek.png"
+                }
+                if (DisplayData.energyStatsButton[6] == 1) {
+                    document.getElementById("energy_stats_button_7").src = "Assets/stats_button_pressed_peryear.png"
+                }
                 break;
             case "Storage Bar":
                 document.getElementById("power_bar_back").style.visibility = "visible"

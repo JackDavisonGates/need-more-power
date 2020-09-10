@@ -154,8 +154,8 @@ body {
     grid-template-columns: 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px 10px 100px;
     position: absolute;
     z-index: 1;
-    top: 450px;
-    left: -24px;
+    top: 436px;
+    left: 12px;
 }
 
 #loading_bars {
