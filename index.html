@@ -85,7 +85,21 @@
                     </div>
 
                     <div id="Block_2">
-
+                        <div id="loglist">
+                            <div id="log1"></div>
+                            <div id="log2"></div>
+                            <div id="log3"></div>
+                            <div id="log4"></div>
+                            <div id="log5"></div>
+                            <div id="log6"></div>
+                            <div id="log7"></div>
+                            <div id="log8"></div>
+                            <div id="log9"></div>
+                            <div id="log10"></div>
+                            <div id="log11"></div>
+                            <div id="log12"></div>
+                            <div id="log13"></div>
+                        </div>
                     </div>
 
                 </div>
@@ -217,26 +231,34 @@
                             </div>
                         </div>
 
-                        <div id="Workers" class="tabcontent">
-                            <img id="buy_worker" src="Assets/name_tag_buy_workers.png" style="position:relative; top: 91px; left: 9px" onmouseover="toolTips('buy_workers')" onmouseout="toolTips('noTip')" onmouseup="buyWorker()">
-                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 91px; left: 4px" onmousedown="buttonStat('down', 'worker_number_button')" onmouseup="buttonStat('up', 'worker_number_button')"
+                        <div id="Workers" class="tabcontent" style="position: relative;left: 5px;top: 39px;overflow-x: hidden;overflow-y: auto;height: 556px;width: 785px;">
+                            <img id="buy_worker" src="Assets/name_tag_buy_workers.png" style="position:relative; top: 91px; left: 63px" onmouseover="toolTips('buy_workers')" onmouseout="toolTips('noTip')" onmouseup="buyWorker()">
+                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 91px; left: 58px" onmousedown="buttonStat('down', 'worker_number_button')" onmouseup="buttonStat('up', 'worker_number_button')"
                                 onmouseout="buttonStat('out', 'worker_number_button')">
                             <div id="energy_workers_stats">
                                 <img id="energy_worker_stats_back" src="Assets/worker_stats.png" style="position: relative">
-                                <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; top:-55px; left: 351px" onmousedown="buttonStat('down', 'energy_worker_stats_button')"
+                                <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; left: -53px" onmousedown="buttonStat('down', 'energy_worker_stats_button')"
                                     onmouseup="buttonStat('up', 'energy_worker_stats_button')" onmouseover="buttonStat('hover', 'energy_worker_stats_button');toolTips('stop_workers')"
                                     onmouseout="buttonStat('up', 'energy_worker_stats_button'); toolTips('noTip')">
-                                <div id="free_workers" style="position:relative; top: -89px; left: 29px; width: 160px; color: Azure;font-weight: bold">FREE: 0</div>
-                                <div id="active_workers" style="position:relative; top: -111px; left: 178px; width: 160px; color: Azure;font-weight: bold">ACTIVE: 0</div>
+                                <div id="free_workers" style="position:relative; top: -44px; left: 29px; width: 160px; color: Azure;font-weight: bold">FREE: 0</div>
+                                <div id="active_workers" style="position:relative; top: -66px; left: 178px; width: 160px; color: Azure;font-weight: bold">ACTIVE: 0</div>
                             </div>
-                            <div id="workers_tags">
-                                <div id="energy_workers" style="position: relative">
-                                    <img id="energy_worker_name_tag" src="Assets/name_tag_energy_workers.png" onmouseover="toolTips('energy_workers')" onmouseout="toolTips('noTip')" style="position: relative">
-                                    <img id="energy_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px" onmouseover="toolTips('energy_workers')" onmousedown="buttonStat('down', 'energy_worker_+_button')"
-                                        onmouseup="buttonStat('up', 'energy_worker_+_button')" onmouseout="buttonStat('up', 'energy_worker_+_button'); toolTips('noTip')">
-                                    <img id="energy_worker_-_button" src="Assets/-_button_unpressed.png" style="position: relative; top: -40px; left: 223px" onmouseover="toolTips('energy_workers')"
-                                        onmousedown="buttonStat('down', 'energy_worker_-_button')" onmouseup="buttonStat('up', 'energy_worker_-_button')" onmouseout="buttonStat('up', 'energy_worker_-_button'); toolTips('noTip')">
-                                </div>
+                            <div id="loading_bars_fill">
+                                <img id="energy_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left:-270px">
+                                <img id="energy_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; left:-271px; z-index: -1">
+
+                            </div>
+                            <div id="workers_stats">
+                                <img id="energy_worker_name_tag" src="Assets/name_tag_energy_workers.png" onmouseover="toolTips('energy_workers')" onmouseout="toolTips('noTip')" style="position: relative">
+                                <img id="energy_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative" onmouseover="toolTips('energy_workers')" onmousedown="buttonStat('down', 'energy_worker_+_button')"
+                                    onmouseup="buttonStat('up', 'energy_worker_+_button')" onmouseout="buttonStat('up', 'energy_worker_+_button'); toolTips('noTip')">
+                                <img id="energy_worker_-_button" src="Assets/-_button_unpressed.png" style="position: relative" onmouseover="toolTips('energy_workers')"
+                                    onmousedown="buttonStat('down', 'energy_worker_-_button')" onmouseup="buttonStat('up', 'energy_worker_-_button')" onmouseout="buttonStat('up', 'energy_worker_-_button'); toolTips('noTip')">
+                                <div></div>
+                                <img id="energy_worker_number_background" src="Assets/number_plate.png" style="position: relative">
+                                <div id="energy_worker_number" style="position:relative; text-align:center; color: Azure; top: 9px; left: -45px;">0</div>
+                                <img id="energy_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" onmouseover="toolTips('energy_workers_bar')" onmouseout="toolTips('noTip')" style="position: relative; top:8px">
+                            </div>
                                 <!-- <div id="wood_workers" style="position: relative">
                                     <img id="wood_worker_name_tag" src="Assets/name_tag.png" style="position: relative">
                                     <img id="wood_worker_+_button" src="Assets/+_button_unpressed.png" style="position: relative; left: -5px"
@@ -259,12 +281,6 @@
                                         onmouseup="buttonStat('up', 'oil_worker_-_button')"
                                         onmouseout="buttonStat('up', 'oil_worker_-_button')">
                                 </div> -->
-                            </div>
-                            <div id="worker_numbers">
-                                <div style="position: relative">
-                                    <img id="energy_worker_number_background" src="Assets/number_plate.png">
-                                    <div id="energy_worker_number" style="position:relative; text-align:center; top: -32px; color: Azure">0</div>
-                                </div>
                                 <!-- <div style="position: relative">
                                     <img id="wood_worker_number_background" src="Assets/number_plate.png">
                                     <div id="wood_worker_number" style="position:relative; text-align:center; top: -32px; color: Azure">0</div>
@@ -273,12 +289,6 @@
                                     <img id="oil_worker_number_background" src="Assets/number_plate.png">
                                     <div id="oil_worker_number" style="position:relative; text-align:center; top: -32px; color: Azure">0</div>
                                 </div> -->
-                            </div>
-                            <div id="loading_bars_fill">
-                                <div id="loading_bar_1_fill" style="position: relative">
-                                    <img id="energy_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; top: 22px">
-                                    <img id="energy_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left: -270px">
-                                </div>
                                 <!-- <div id="loading_bar_2_fill" style="position: relative">
                                     <img id="wood_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; top: 22px">
                                     <img id="wood_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left: -270px">
@@ -287,18 +297,12 @@
                                     <img id="oil_worker_loading_bar_background" src="Assets/loading-bar-background.png" style="position: relative; top: 22px">
                                     <img id="oil_worker_loading_bar_fill" src="Assets/loading-bar-fill.png" style="position: relative; left: -270px">
                                 </div> -->
-                            </div>
-                            <div id="loading_bars">
-                                <div id="loading_bar_1" style="position: relative">
-                                    <img id="energy_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" onmouseover="toolTips('energy_workers_bar')" onmouseout="toolTips('noTip')" style="position: relative; top: 22px">
-                                </div>
                                 <!-- <div id="loading_bar_2" style="position: relative">
                                     <img id="wood_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" style="position: relative; top: 22px">
                                 </div>
                                 <div id="loading_bar_3" style="position: relative">
                                     <img id="oil_worker_loading_bar_frame" src="Assets/loading-bar-frame.png" style="position: relative; top: 22px">
                                 </div> -->
-                            </div>
                         </div>
 
                         <div id="Materials" class="tabcontent">

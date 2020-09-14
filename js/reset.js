@@ -1,84 +1,83 @@
 function saveGame() {
     try {
-        localStorage.setItem("PowerData", JSON.stringify(PowerData));
-        localStorage.setItem("PowerStorageData", JSON.stringify(PowerStorageData));
-        localStorage.setItem("TurbineData", JSON.stringify(TurbineData));
-        localStorage.setItem("RepeatSlots", JSON.stringify(RepeatSlots));
-        localStorage.setItem("OneTimeSlots", JSON.stringify(OneTimeSlots));
-        localStorage.setItem("OneTimeUpgradesCompleat", JSON.stringify(OneTimeUpgradesCompleat));
-        localStorage.setItem("OneTimeUpgradesNotCompleat", JSON.stringify(OneTimeUpgradesNotCompleat));
-        localStorage.setItem("SlotsDtat", JSON.stringify(SlotsDtat));
-        localStorage.setItem("WorkerStatusData", JSON.stringify(WorkerStatusData));
-        localStorage.setItem("JobData", JSON.stringify(JobData));
-        localStorage.setItem("JobEfficiencyData", JSON.stringify(JobEfficiencyData));
-        localStorage.setItem("JobTimeData", JSON.stringify(JobTimeData));
-        localStorage.setItem("JobProductionData", JSON.stringify(JobProductionData));
-        localStorage.setItem("JobProgressBarData", JSON.stringify(JobProgressBarData));
-        localStorage.setItem("DisplayData", JSON.stringify(DisplayData));
-        localStorage.setItem("TabData", JSON.stringify(TabData));
-        localStorage.setItem("NixieDictionary", JSON.stringify(NixieDictionary));
-        localStorage.setItem("MiscellaneousData", JSON.stringify(MiscellaneousData));
+        localStorage.setItem("NMPGamePowerData", JSON.stringify(PowerData));
+        localStorage.setItem("NMPGamePowerStorageData", JSON.stringify(PowerStorageData));
+        localStorage.setItem("NMPGameTurbineData", JSON.stringify(TurbineData));
+        localStorage.setItem("NMPGameRepeatSlots", JSON.stringify(RepeatSlots));
+        localStorage.setItem("NMPGameOneTimeSlots", JSON.stringify(OneTimeSlots));
+        localStorage.setItem("NMPGameOneTimeUpgradesCompleat", JSON.stringify(OneTimeUpgradesCompleat));
+        localStorage.setItem("NMPGameOneTimeUpgradesNotCompleat", JSON.stringify(OneTimeUpgradesNotCompleat));
+        localStorage.setItem("NMPGameSlotsDtat", JSON.stringify(SlotsDtat));
+        localStorage.setItem("NMPGameWorkerStatusData", JSON.stringify(WorkerStatusData));
+        localStorage.setItem("NMPGameJobData", JSON.stringify(JobData));
+        localStorage.setItem("NMPGameJobEfficiencyData", JSON.stringify(JobEfficiencyData));
+        localStorage.setItem("NMPGameJobTimeData", JSON.stringify(JobTimeData));
+        localStorage.setItem("NMPGameJobProductionData", JSON.stringify(JobProductionData));
+        localStorage.setItem("NMPGameJobProgressBarData", JSON.stringify(JobProgressBarData));
+        localStorage.setItem("NMPGameDisplayData", JSON.stringify(DisplayData));
+        localStorage.setItem("NMPGameTabData", JSON.stringify(TabData));
+        localStorage.setItem("NMPGameNixieDictionary", JSON.stringify(NixieDictionary));
+        localStorage.setItem("NMPGameMiscellaneousData", JSON.stringify(MiscellaneousData));
     } catch (err) {
         console.log("Cannot access localStorage - browser may be old or storage may be corrupt")
     }
-    console.log("All data was saved successfully");
-
+    logList("Game Saved.");
 }
 
 function loadGame() {
-    if (JSON.parse(localStorage.getItem("PowerData")) != null) {
-        PowerData = JSON.parse(localStorage.getItem("PowerData"));
+    if (JSON.parse(localStorage.getItem("NMPGamePowerData")) != null) {
+        PowerData = JSON.parse(localStorage.getItem("NMPGamePowerData"));
     }
-    if (JSON.parse(localStorage.getItem("PowerStorageData")) != null) {
-        PowerStorageData = JSON.parse(localStorage.getItem("PowerStorageData"));
+    if (JSON.parse(localStorage.getItem("NMPGamePowerStorageData")) != null) {
+        PowerStorageData = JSON.parse(localStorage.getItem("NMPGamePowerStorageData"));
     }
-    if (JSON.parse(localStorage.getItem("TurbineData")) != null) {
-        TurbineData = JSON.parse(localStorage.getItem("TurbineData"));
+    if (JSON.parse(localStorage.getItem("NMPGameTurbineData")) != null) {
+        TurbineData = JSON.parse(localStorage.getItem("NMPGameTurbineData"));
     }
-    if (JSON.parse(localStorage.getItem("RepeatSlots")) != null) {
-        RepeatSlots = JSON.parse(localStorage.getItem("RepeatSlots"));
+    if (JSON.parse(localStorage.getItem("NMPGameRepeatSlots")) != null) {
+        RepeatSlots = JSON.parse(localStorage.getItem("NMPGameRepeatSlots"));
     }
-    if (JSON.parse(localStorage.getItem("OneTimeSlots")) != null) {
-        OneTimeSlots = JSON.parse(localStorage.getItem("OneTimeSlots"));
+    if (JSON.parse(localStorage.getItem("NMPGameOneTimeSlots")) != null) {
+        OneTimeSlots = JSON.parse(localStorage.getItem("NMPGameOneTimeSlots"));
     }
-    if (JSON.parse(localStorage.getItem("OneTimeUpgradesCompleat")) != null) {
-        OneTimeUpgradesCompleat = JSON.parse(localStorage.getItem("OneTimeUpgradesCompleat"));
+    if (JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesCompleat")) != null) {
+        OneTimeUpgradesCompleat = JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesCompleat"));
     }
-    if (JSON.parse(localStorage.getItem("OneTimeUpgradesNotCompleat")) != null) {
-        OneTimeUpgradesNotCompleat = JSON.parse(localStorage.getItem("OneTimeUpgradesNotCompleat"));
+    if (JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesNotCompleat")) != null) {
+        OneTimeUpgradesNotCompleat = JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesNotCompleat"));
     }
-    if (JSON.parse(localStorage.getItem("SlotsDtat")) != null) {
-        SlotsDtat = JSON.parse(localStorage.getItem("SlotsDtat"));
+    if (JSON.parse(localStorage.getItem("NMPGameSlotsDtat")) != null) {
+        SlotsDtat = JSON.parse(localStorage.getItem("NMPGameSlotsDtat"));
     }
-    if (JSON.parse(localStorage.getItem("WorkerStatusData")) != null) {
-        WorkerStatusData = JSON.parse(localStorage.getItem("WorkerStatusData"));
+    if (JSON.parse(localStorage.getItem("NMPGameWorkerStatusData")) != null) {
+        WorkerStatusData = JSON.parse(localStorage.getItem("NMPGameWorkerStatusData"));
     }
-    if (JSON.parse(localStorage.getItem("JobData")) != null) {
-        JobData = JSON.parse(localStorage.getItem("JobData"));
+    if (JSON.parse(localStorage.getItem("NMPGameJobData")) != null) {
+        JobData = JSON.parse(localStorage.getItem("NMPGameJobData"));
     }
-    if (JSON.parse(localStorage.getItem("JobEfficiencyData")) != null) {
-        JobEfficiencyData = JSON.parse(localStorage.getItem("JobEfficiencyData"));
+    if (JSON.parse(localStorage.getItem("NMPGameJobEfficiencyData")) != null) {
+        JobEfficiencyData = JSON.parse(localStorage.getItem("NMPGameJobEfficiencyData"));
     }
-    if (JSON.parse(localStorage.getItem("JobTimeData")) != null) {
-        JobTimeData = JSON.parse(localStorage.getItem("JobTimeData"));
+    if (JSON.parse(localStorage.getItem("NMPGameJobTimeData")) != null) {
+        JobTimeData = JSON.parse(localStorage.getItem("NMPGameJobTimeData"));
     }
-    if (JSON.parse(localStorage.getItem("JobProductionData")) != null) {
-        JobProductionData = JSON.parse(localStorage.getItem("JobProductionData"));
+    if (JSON.parse(localStorage.getItem("NMPGameJobProductionData")) != null) {
+        JobProductionData = JSON.parse(localStorage.getItem("NMPGameJobProductionData"));
     }
-    if (JSON.parse(localStorage.getItem("JobProgressBarData")) != null) {
-        JobProgressBarData = JSON.parse(localStorage.getItem("JobProgressBarData"));
+    if (JSON.parse(localStorage.getItem("NMPGameJobProgressBarData")) != null) {
+        JobProgressBarData = JSON.parse(localStorage.getItem("NMPGameJobProgressBarData"));
     }
-    if (JSON.parse(localStorage.getItem("DisplayData")) != null) {
-        DisplayData = JSON.parse(localStorage.getItem("DisplayData"));
+    if (JSON.parse(localStorage.getItem("NMPGameDisplayData")) != null) {
+        DisplayData = JSON.parse(localStorage.getItem("NMPGameDisplayData"));
     }
-    if (JSON.parse(localStorage.getItem("TabData")) != null) {
-        TabData = JSON.parse(localStorage.getItem("TabData"));
+    if (JSON.parse(localStorage.getItem("NMPGameTabData")) != null) {
+        TabData = JSON.parse(localStorage.getItem("NMPGameTabData"));
     }
-    if (JSON.parse(localStorage.getItem("NixieDictionary")) != null) {
-        NixieDictionary = JSON.parse(localStorage.getItem("NixieDictionary"));
+    if (JSON.parse(localStorage.getItem("NMPGameNixieDictionary")) != null) {
+        NixieDictionary = JSON.parse(localStorage.getItem("NMPGameNixieDictionary"));
     }
-    if (JSON.parse(localStorage.getItem("MiscellaneousData")) != null) {
-        MiscellaneousData = JSON.parse(localStorage.getItem("MiscellaneousData"));
+    if (JSON.parse(localStorage.getItem("NMPGameMiscellaneousData")) != null) {
+        MiscellaneousData = JSON.parse(localStorage.getItem("NMPGameMiscellaneousData"));
     }
 
     if (TabData.energyTabAccess == 1) {
@@ -89,6 +88,25 @@ function loadGame() {
     }
     if (TabData.workersTabAccess == 1) {
         document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center_workers.png"
+        switch (WorkerStatusData.buyX) {
+            case 1:
+                document.getElementById("worker_number").src = "Assets/1_button_unpressed.png"
+                break;
+            case 2:
+                document.getElementById("worker_number").src = "Assets/10_button_unpressed.png"
+                break;
+            case 3:
+                document.getElementById("worker_number").src = "Assets/100_button_unpressed.png"
+                break;
+            case 4:
+                document.getElementById("worker_number").src = "Assets/all_button_unpressed.png"
+                break;
+            default:
+
+        }
+        if (WorkerStatusData.workers > 0) {
+            document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
+        }
     }
     if (TabData.materialsTabAccess == 1) {
         document.getElementById("tab_button_4").src = "Assets/Button_Tabs_Center_materials.png"

@@ -14,6 +14,8 @@ var MiscellaneousData = {
     ],
     randomDigitsLen: 8,
     displayID: "",
+    logList: ["","","","","","","","","","","","","",""],
+    logListLines: [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 }
 
 function startMessage() {
@@ -140,13 +142,32 @@ function tillEnough(material, cost) {
 function offLineTime(time) {
     var tic = 0
     for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
-        mainLoopFast()
+        workers()
         if (tic % MiscellaneousData.mediamLoopTime == 0) {
-            mainLoopMediam()
+            slowTurbine()
+            makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
         }
         // if (tic % MiscellaneousData.slowLoopTime == 0) {
         //     mainLoopSlow()
         // }
         tic += 1
+    }
+}
+
+function logList(log, lines = 1) {
+    for (i = 12; i > 0; i--) {
+        MiscellaneousData.logList[i] = MiscellaneousData.logList[i - lines]
+    }
+    for (i = 0; i < 13; i++) {
+        if (MiscellaneousData.logList[i] == undefined) {
+            MiscellaneousData.logList[i] = ""
+        }
+        if (MiscellaneousData.logListLines[i] + i - 1 > 13) {
+            MiscellaneousData.logList[i] = ""
+        }
+    }
+    MiscellaneousData.logList[0] = log
+    for (i = 0; i < 13; i++) {
+        document.getElementById("log" + (i + 1)).innerHTML = MiscellaneousData.logList[i]
     }
 }

@@ -159,6 +159,7 @@ function buyWorkersTab() {
         removeSlot("Buy Workers Tab", "OneTimeSlots")
         addTooEnd("Worker Speed", "RepeatSlots")
         updateText("Upgrades")
+        logList("Workers Tab Unlocked.", 2)
     }
 }
 
@@ -170,6 +171,7 @@ function buyCapasitor() {
         updatePowerStorage()
         updateText("Power")
         updateText("Upgrades")
+        logList("Capasitor " + PowerStorageData.capasitors + " Purchased.", 2)
     }
 }
 
@@ -181,6 +183,11 @@ function buyBattery() {
         updatePowerStorage()
         updateText("Power")
         updateText("Upgrades")
+        if (PowerStorageData.capasitors > 9) {
+            logList("Battery " + PowerStorageData.batteries + " Purchased.", 2)
+        } else {
+            logList("Battery " + PowerStorageData.batteries + " Purchased.")
+        }
     }
 }
 
@@ -192,6 +199,7 @@ function buyPowerPerTick() {
         PowerData.powerPerTick += 1
         updateText("Power")
         updateText("Upgrades")
+        logList("PowerPerTick " + PowerData.powerPerTick + " Purchased.", 2)
     }
 }
 
@@ -210,6 +218,7 @@ function buyWorkerSpeed() {
         WorkerStatusData.workerSpeedCost *= 5
         updateText("workers")
         updateText("Upgrades")
+        logList("Worker Speed Purchased.", 2)
     }
 }
 
@@ -221,6 +230,7 @@ function buyWorkerDiscount(level) {
                 costRecalculation("workers", -10)
                 addTooEnd("Worker Discount Level 2", "OneTimeSlots")
                 removeSlot("Worker Discount Level 1", "OneTimeSlots")
+                logList("Worker Discount Level 1 Unlocked.", 2)
             }
             break;
         case 2:
@@ -229,6 +239,7 @@ function buyWorkerDiscount(level) {
                 costRecalculation("workers", -10)
                 addTooEnd("Worker Discount Level 3", "OneTimeSlots")
                 removeSlot("Worker Discount Level 2", "OneTimeSlots")
+                logList("Worker Discount Level 2 Unlocked.", 2)
             }
             break;
         case 3:
@@ -237,6 +248,7 @@ function buyWorkerDiscount(level) {
                 costRecalculation("workers", -10)
                 addTooEnd("Worker Discount Level 4", "OneTimeSlots")
                 removeSlot("Worker Discount Level 3", "OneTimeSlots")
+                logList("Worker Discount Level 3 Unlocked.", 2)
             }
             break;
         case 4:
@@ -244,6 +256,7 @@ function buyWorkerDiscount(level) {
                 PowerData.currentPower -= WorkerStatusData.workerDiscountCost[3]
                 costRecalculation("workers", -10)
                 removeSlot("Worker Discount Level 4", "OneTimeSlots")
+                logList("Worker Discount Level 4 Unlocked.", 2)
             }
             break;
         default:
@@ -270,6 +283,7 @@ function getPowerPerTime() {
         document.getElementById("energy_stats_connector_6").style.visibility = "visible"
         removeSlot("Power Per Time", "OneTimeSlots")
         updateText("Upgrades")
+        logList("Power Per Time Display Unlocked.", 2)
     }
 }
 
@@ -283,6 +297,7 @@ function getStorageBar() {
         document.getElementById("power_bar_fram").style.visibility = "visible"
         removeSlot("Storage Bar", "OneTimeSlots")
         updateText("Upgrades")
+        logList("Power Storage Bar Display Unlocked.", 2)
     }
 }
 

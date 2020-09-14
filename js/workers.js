@@ -210,7 +210,7 @@ function workers() {
         JobTimeData.plasticJobTimeCurrent -= JobData.plasticWorker * JobEfficiencyData.plasticWorkerEfficiency
         if (JobTimeData.energyJobTimeCurrent <= 0) {
             if (JobTimeData.energyJobTimeCurrent * -1 > JobTimeData.energyJobTime) {
-                spinTurbine(((JobTimeData.energyJobTimeCurrent % JobTimeData.energyJobTime) + 1) * JobProductionData.energyJobProduction)
+                spinTurbine((((JobTimeData.energyJobTimeCurrent * -1) % JobTimeData.energyJobTime) + 1) * JobProductionData.energyJobProduction)
                 JobTimeData.energyJobTimeCurrent = (JobTimeData.energyJobTime * (JobTimeData.energyJobTimeCurrent % JobTimeData.energyJobTime)) - JobTimeData.energyJobTimeCurrent
             } else {
                 spinTurbine(JobProductionData.energyJobProduction)
