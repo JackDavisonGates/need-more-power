@@ -102,7 +102,7 @@ function loadGame() {
     }
 
     if (loadNumber > 15) {
-        MiscellaneousData.logList = ["","","","","","","","","","","","","",""]
+        MiscellaneousData.logList = ["", "", "", "", "", "", "", "", "", "", "", "", "", ""]
         logList("Game Loaded")
     }
 
@@ -198,6 +198,10 @@ function loadGame() {
                 document.getElementById("power_bar_fill_yellow").style.visibility = "visible"
                 document.getElementById("cover_block").style.visibility = "visible"
                 document.getElementById("power_bar_fram").style.visibility = "visible"
+                break;
+            case "Item List":
+                document.getElementById("power_items_text").style.visibility = "visible"
+                document.getElementById("power_items").style.visibility = "visible"
                 break;
             default:
 

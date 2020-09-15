@@ -54,19 +54,7 @@ function buttonStat(stat, button) {
                     document.getElementById("power_items_button").src = "Assets/power_items_button_pressed.png"
                     break;
                 case "up":
-                    if (DisplayData.powerItemsButton == 0) {
-                        document.getElementById("power_items_middle").style.height = "200px"
-                        document.getElementById("power_items_text").style.top = "-274px"
-                        document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
-                        document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
-                        DisplayData.powerItemsButton = 1
-                    } else {
-                        document.getElementById("power_items_middle").style.height = "0px"
-                        document.getElementById("power_items_text").style.top = "0px"
-                        document.getElementById("power_items_text_line_1").innerHTML = ""
-                        document.getElementById("power_items_text_line_2").innerHTML = ""
-                        DisplayData.powerItemsButton = 0
-                    }
+                    powerItemsDisplay(1)
                     document.getElementById("power_items_button").src = "Assets/power_items_button_hover.png"
                     break;
                 case "hover":

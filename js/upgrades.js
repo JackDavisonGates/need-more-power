@@ -155,17 +155,14 @@ function slotToFunction(slot, name) {
 }
 
 function slotToTooltip(slot, number) {
-    console.log(slot)
     switch (slot) {
         case "repeat":
             if (RepeatSlots[number] != "") {
-                console.log(RepeatSlots[number])
                 toolTips(RepeatSlots[number])
             }
             break;
         case "one_time":
             if (OneTimeSlots[number] != "") {
-                console.log(OneTimeSlots[number])
                 toolTips(OneTimeSlots[number])
             }
             break;
@@ -197,6 +194,7 @@ function buyCapasitor() {
         logList("Capasitor " + PowerStorageData.capasitors + " Purchased.", 2)
         document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
         document.getElementById("tool_tip").innerHTML = "buys a capasitor cost: " + formatNumber(PowerStorageData.capasitorCost) + "W"
+        powerItemsDisplay()
     }
 }
 
@@ -215,6 +213,7 @@ function buyBattery() {
         }
         document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
         document.getElementById("tool_tip").innerHTML = "buys a battery witch has a storage efficency of " + formatNumber(PowerStorageData.batteriesEfficency) + " cost: " + PowerStorageData.batteryCost + "W"
+        powerItemsDisplay()
     }
 }
 
@@ -228,6 +227,7 @@ function buyPowerPerTick() {
         updateText("Upgrades")
         logList("PowerPerTick " + PowerData.powerPerTick + " Purchased.", 2)
         document.getElementById("tool_tip").innerHTML = "upgrads the amount of RPM added per click cost: " + formatNumber(PowerData.powerPerTickCost) + "W"
+        powerItemsDisplay()
     }
 }
 
@@ -248,6 +248,7 @@ function buyWorkerSpeed() {
         updateText("Upgrades")
         logList("Worker Speed Purchased.", 2)
         document.getElementById("tool_tip").innerHTML = "upgrads the speed of your workers cost: " + formatNumber(WorkerStatusData.workerSpeedCost) + "W"
+        powerItemsDisplay()
     }
 }
 

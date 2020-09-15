@@ -8,6 +8,7 @@ var DisplayData = {
     errorsPerSec: 0.5,
     errorsPerSecCount: 0,
     powerItemsButton: 0,
+    powerItemsSize: 1,
 }
 
 var TabData = {
@@ -661,6 +662,37 @@ function cogSpeed() {
         document.getElementById("background_cog").style.animation = "spin " + (1 / TurbineData.turbineSpeed) * 6000 + "s linear infinite"
     }
 
+}
+
+function powerItemsDisplay(change = 0) {
+    if (change == 1) {
+        if (DisplayData.powerItemsButton == 0) {
+            document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
+            if (PowerStorageData.batteries > 0) {
+                document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
+                DisplayData.powerItemsSize = 2
+            }
+            document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
+            document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
+            DisplayData.powerItemsButton = 1
+        } else {
+            document.getElementById("power_items_middle").style.height = "0px"
+            document.getElementById("power_items_text").style.top = "0px"
+            document.getElementById("power_items_text_line_1").innerHTML = ""
+            document.getElementById("power_items_text_line_2").innerHTML = ""
+            DisplayData.powerItemsButton = 0
+        }
+    } else {
+        if (DisplayData.powerItemsButton == 1) {
+            document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
+            if (PowerStorageData.batteries > 0) {
+                document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
+                DisplayData.powerItemsSize = 2
+            }
+            document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
+            document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
+        }
+    }
 }
 
 //var data = {
