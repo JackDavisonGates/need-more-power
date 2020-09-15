@@ -102,6 +102,7 @@ function loadGame() {
     }
 
     if (loadNumber > 15) {
+        MiscellaneousData.logList = ["","","","","","","","","","","","","",""]
         logList("Game Loaded")
     }
 

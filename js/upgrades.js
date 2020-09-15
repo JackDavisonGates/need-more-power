@@ -154,9 +154,29 @@ function slotToFunction(slot, name) {
     }
 }
 
+function slotToTooltip(slot, number) {
+    console.log(slot)
+    switch (slot) {
+        case "repeat":
+            if (RepeatSlots[number] != "") {
+                console.log(RepeatSlots[number])
+                toolTips(RepeatSlots[number])
+            }
+            break;
+        case "one_time":
+            if (OneTimeSlots[number] != "") {
+                console.log(OneTimeSlots[number])
+                toolTips(OneTimeSlots[number])
+            }
+            break;
+        default:
+
+    }
+}
+
 function buyWorkersTab() {
-    if (PowerData.currentPower >= 200) {
-        PowerData.currentPower -= 200
+    if (PowerData.currentPower >= WorkerStatusData.workerTabCost) {
+        PowerData.currentPower -= WorkerStatusData.workerTabCost
         TabData.workersTabAccess = 1
         document.getElementById("tab_button_3").src = "Assets/Button_Tabs_Center_workers.png"
         removeSlot("Buy Workers Tab", "OneTimeSlots")
@@ -176,6 +196,7 @@ function buyCapasitor() {
         updateText("Upgrades")
         logList("Capasitor " + PowerStorageData.capasitors + " Purchased.", 2)
         document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
+        document.getElementById("tool_tip").innerHTML = "buys a capasitor cost: " + formatNumber(PowerStorageData.capasitorCost) + "W"
     }
 }
 
@@ -193,6 +214,7 @@ function buyBattery() {
             logList("Battery " + PowerStorageData.batteries + " Purchased.")
         }
         document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
+        document.getElementById("tool_tip").innerHTML = "buys a battery witch has a storage efficency of " + formatNumber(PowerStorageData.batteriesEfficency) + " cost: " + PowerStorageData.batteryCost + "W"
     }
 }
 
@@ -205,6 +227,7 @@ function buyPowerPerTick() {
         updateText("Power")
         updateText("Upgrades")
         logList("PowerPerTick " + PowerData.powerPerTick + " Purchased.", 2)
+        document.getElementById("tool_tip").innerHTML = "upgrads the amount of RPM added per click cost: " + formatNumber(PowerData.powerPerTickCost) + "W"
     }
 }
 
@@ -224,6 +247,7 @@ function buyWorkerSpeed() {
         updateText("workers")
         updateText("Upgrades")
         logList("Worker Speed Purchased.", 2)
+        document.getElementById("tool_tip").innerHTML = "upgrads the speed of your workers cost: " + formatNumber(WorkerStatusData.workerSpeedCost) + "W"
     }
 }
 

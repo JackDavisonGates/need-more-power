@@ -16,7 +16,7 @@ function toolTips(id) {
             break;
         case "generator":
             document.getElementById("tool_tip").innerHTML =
-                "This is a test of the tool tip by clicking the generator it will speed up."
+                "by clicking the generator it will speed up."
             document.getElementById("flavour_text").innerHTML =
                 "Electricity is one of man's greatest inventions it is up there with fire, computers and twerking."
             MouseLocation = "generator"
@@ -69,6 +69,90 @@ function toolTips(id) {
             document.getElementById("flavour_text").innerHTML =
                 ""
             MouseLocation = "peryear"
+            break;
+        case "Capasitor":
+            document.getElementById("tool_tip").innerHTML =
+                "buys a capasitor cost: " + formatNumber(PowerStorageData.capasitorCost) + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Capasitor"
+            break;
+        case "Battery":
+            document.getElementById("tool_tip").innerHTML =
+                "buys a battery witch has a storage efficency of " + PowerStorageData.batteriesEfficency + " cost: " + formatNumber(PowerStorageData.batteryCost) + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Battery"
+            break;
+        case "Power Per Tick":
+            document.getElementById("tool_tip").innerHTML =
+                "upgrads the amount of RPM added per click cost: " + formatNumber(PowerData.powerPerTickCost) + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Power Per Tick"
+            break;
+        case "Worker Speed":
+            document.getElementById("tool_tip").innerHTML =
+                "upgrads the speed of your workers cost: " + formatNumber(WorkerStatusData.workerSpeedCost) + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Worker Speed"
+            break;
+        case "Buy Workers Tab":
+            document.getElementById("tool_tip").innerHTML =
+                "gives you access to the workers cost: " + WorkerStatusData.workerTabCost + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Buy Workers Tab"
+            break;
+        case "Worker Discount Level 1":
+            document.getElementById("tool_tip").innerHTML =
+                "Reduses the cost of the workers cost: " + WorkerStatusData.workerDiscountCost[0] + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Worker Discount Level 1"
+            break;
+        case "Worker Discount Level 2":
+            document.getElementById("tool_tip").innerHTML =
+                "Reduses the cost of the workers cost: " + WorkerStatusData.workerDiscountCost[1] + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Worker Discount Level 2"
+            break;
+        case "Worker Discount Level 3":
+            document.getElementById("tool_tip").innerHTML =
+                "Reduses the cost of the workers cost: " + WorkerStatusData.workerDiscountCost[2] + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Worker Discount Level 3"
+            break;
+        case "Worker Discount Level 4":
+            document.getElementById("tool_tip").innerHTML =
+                "Reduses the cost of the workers cost: " + WorkerStatusData.workerDiscountCost[3] + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Worker Discount Level 4"
+            break;
+        case "Power Per Time":
+            document.getElementById("tool_tip").innerHTML =
+                "Adds a display of the power per time cost: " + PowerData.perTimeCost + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Power Per Time"
+            break;
+        case "Storage Bar":
+            document.getElementById("tool_tip").innerHTML =
+                "Adds a display of the battery and capasitor power cost: " + PowerData.barCost + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Storage Bar"
+            break;
+        case "Item List":
+            document.getElementById("tool_tip").innerHTML =
+                "Adds a display of the items that efect the generator cost: " + PowerData.powerItemsCost + "W"
+            document.getElementById("flavour_text").innerHTML =
+                ""
+            MouseLocation = "Item List"
             break;
         case "buy_workers":
             if (WorkerStatusData.buyNumber == 1 || WorkerStatusData.buyNumber == -1) {

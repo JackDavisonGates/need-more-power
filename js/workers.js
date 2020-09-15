@@ -9,6 +9,7 @@ var WorkerStatusData = {
     workerDiscountCost: [50, 500, 5000, 50000],
     workerDiscountLevel: [0, 0, 0, 0],
     workerSpeedCost: 100,
+    workerTabCost: 200,
 }
 
 var JobData = {
