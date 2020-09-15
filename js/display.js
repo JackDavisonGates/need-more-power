@@ -665,15 +665,18 @@ function cogSpeed() {
 }
 
 function powerItemsDisplay(change = 0) {
+    DisplayData.powerItemsSize = 1
     if (change == 1) {
         if (DisplayData.powerItemsButton == 0) {
             document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
             if (PowerStorageData.batteries > 0) {
-                document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
-                DisplayData.powerItemsSize = 2
-            } else if (PowerData.powerPerTick > 1) {
-                document.getElementById("power_items_text_line_3").innerHTML = "Power Per Tick: " + PowerData.powerPerTick
-                DisplayData.powerItemsSize = 3
+                DisplayData.powerItemsSize += 1
+                document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Batteries: " + PowerStorageData.batteries
+            }
+            if (PowerData.powerPerTick > 1) {
+                DisplayData.powerItemsSize += 1
+                document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Power Per Tick: " + PowerData.powerPerTick
+
             }
             document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
             document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
@@ -690,11 +693,12 @@ function powerItemsDisplay(change = 0) {
         if (DisplayData.powerItemsButton == 1) {
             document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
             if (PowerStorageData.batteries > 0) {
-                document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
-                DisplayData.powerItemsSize = 2
-            } else if (PowerData.powerPerTick > 1) {
-                document.getElementById("power_items_text_line_3").innerHTML = "Power Per Tick: " + PowerData.powerPerTick
-                DisplayData.powerItemsSize = 3
+                DisplayData.powerItemsSize += 1
+                document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Batteries: " + PowerStorageData.batteries
+            }
+            if (PowerData.powerPerTick > 1) {
+                DisplayData.powerItemsSize += 1
+                document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Power Per Tick: " + PowerData.powerPerTick
             }
             document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
             document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
