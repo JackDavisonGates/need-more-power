@@ -706,6 +706,112 @@ function powerItemsDisplay(change = 0) {
     }
 }
 
+function costCheck() {
+    for (i = 1; i <= SlotsDtat.OneTimeSlotsFilled; i++) {
+        switch (OneTimeSlots[i]) {
+            case "Buy Workers Tab":
+                if (PowerData.currentPower >= WorkerStatusData.workerTabCost) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Power Per Time":
+                if (PowerData.currentPower >= PowerData.perTimeCost) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Storage Bar":
+                if (PowerData.currentPower >= PowerData.barCost) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Item List":
+                if (PowerData.currentPower >= PowerData.powerItemsCost) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Worker Discount Level 1":
+                if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[0]) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Worker Discount Level 2":
+                if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[1]) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Worker Discount Level 3":
+                if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[2]) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Worker Discount Level 4":
+                if (PowerData.currentPower >= WorkerStatusData.workerDiscountCost[3]) {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("one_time_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            default:
+
+        }
+    }
+    for (i = 1; i <= SlotsDtat.RepeatSlotsFilled; i++) {
+        switch (RepeatSlots[i]) {
+            case "Capasitor":
+                if (PowerData.currentPower >= PowerStorageData.capasitorCost) {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Battery":
+                if (PowerData.currentPower >= PowerStorageData.batteryCost) {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Power Per Tick":
+                if (PowerData.currentPower >= PowerData.powerPerTickCost) {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            case "Worker Speed":
+                if (PowerData.currentPower >= WorkerStatusData.workerSpeedCost) {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(0%)"
+                } else {
+                    document.getElementById("repeat_slot_" + i).style.filter = "grayscale(100%)"
+                }
+                break;
+            default:
+
+        }
+    }
+    if (PowerData.currentPower >= workerTotalCost(WorkerStatusData.buyNumber)) {
+        document.getElementById("buy_worker").style.filter = "grayscale(0%)"
+        document.getElementById("worker_number").style.filter = "grayscale(0%)"
+    } else {
+        document.getElementById("buy_worker").style.filter = "grayscale(100%)"
+        document.getElementById("worker_number").style.filter = "grayscale(100%)"
+    }
+}
+
 //var data = {
 //  labels: ["0"],
 //  datasets: [{

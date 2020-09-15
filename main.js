@@ -516,13 +516,14 @@ function mainLoopMediam() {
     makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
     revealTabs()
     cogSpeed()
+    costCheck()
     //updateGraph()
 }
 
 function mainLoopSlow() {
-    gatherMaterials()
-    planetProduction()
-    useTelescope()
+    //gatherMaterials()
+    //planetProduction()
+    //useTelescope()
 }
 
 window.onload = function() {
@@ -538,7 +539,7 @@ var mainGameLoop = window.setInterval(function() {
         mainLoopMediam()
     }
     if (MiscellaneousData.gameTicks % MiscellaneousData.slowLoopTime == 0) {
-        //mainLoopSlow()
+        mainLoopSlow()
         let elapsedTime = Date.now() - startedAt
         if (elapsedTime > MiscellaneousData.slowLoopTime * MiscellaneousData.gameSpeed + 10000) {
             offLineTime(elapsedTime)
