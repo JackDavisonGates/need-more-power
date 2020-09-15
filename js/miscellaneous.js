@@ -4,7 +4,7 @@ var MiscellaneousData = {
     gameSpeed: 50,
     mediamLoopTime: 10,
     slowLoopTime: 25,
-    saveGameTime: 3600000,
+    saveGameTime: 600000,
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
