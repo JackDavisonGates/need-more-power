@@ -1,5 +1,6 @@
 function saveGame() {
     try {
+        MiscellaneousData.gameSavedTime = Date.now()
         localStorage.setItem("NMPGamePowerData", JSON.stringify(PowerData));
         localStorage.setItem("NMPGamePowerStorageData", JSON.stringify(PowerStorageData));
         localStorage.setItem("NMPGameTurbineData", JSON.stringify(TurbineData));
@@ -20,65 +21,91 @@ function saveGame() {
         localStorage.setItem("NMPGameMiscellaneousData", JSON.stringify(MiscellaneousData));
     } catch (err) {
         console.log("Cannot access localStorage - browser may be old or storage may be corrupt")
+        MiscellaneousData.gameSavedTime = 0
     }
     logList("Game Saved.");
 }
 
 function loadGame() {
+    var loadNumber = 0
     if (JSON.parse(localStorage.getItem("NMPGamePowerData")) != null) {
         PowerData = JSON.parse(localStorage.getItem("NMPGamePowerData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGamePowerStorageData")) != null) {
         PowerStorageData = JSON.parse(localStorage.getItem("NMPGamePowerStorageData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameTurbineData")) != null) {
         TurbineData = JSON.parse(localStorage.getItem("NMPGameTurbineData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameRepeatSlots")) != null) {
         RepeatSlots = JSON.parse(localStorage.getItem("NMPGameRepeatSlots"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameOneTimeSlots")) != null) {
         OneTimeSlots = JSON.parse(localStorage.getItem("NMPGameOneTimeSlots"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesCompleat")) != null) {
         OneTimeUpgradesCompleat = JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesCompleat"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesNotCompleat")) != null) {
         OneTimeUpgradesNotCompleat = JSON.parse(localStorage.getItem("NMPGameOneTimeUpgradesNotCompleat"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameSlotsDtat")) != null) {
         SlotsDtat = JSON.parse(localStorage.getItem("NMPGameSlotsDtat"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameWorkerStatusData")) != null) {
         WorkerStatusData = JSON.parse(localStorage.getItem("NMPGameWorkerStatusData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameJobData")) != null) {
         JobData = JSON.parse(localStorage.getItem("NMPGameJobData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameJobEfficiencyData")) != null) {
         JobEfficiencyData = JSON.parse(localStorage.getItem("NMPGameJobEfficiencyData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameJobTimeData")) != null) {
         JobTimeData = JSON.parse(localStorage.getItem("NMPGameJobTimeData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameJobProductionData")) != null) {
         JobProductionData = JSON.parse(localStorage.getItem("NMPGameJobProductionData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameJobProgressBarData")) != null) {
         JobProgressBarData = JSON.parse(localStorage.getItem("NMPGameJobProgressBarData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameDisplayData")) != null) {
         DisplayData = JSON.parse(localStorage.getItem("NMPGameDisplayData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameTabData")) != null) {
         TabData = JSON.parse(localStorage.getItem("NMPGameTabData"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameNixieDictionary")) != null) {
         NixieDictionary = JSON.parse(localStorage.getItem("NMPGameNixieDictionary"));
+        loadNumber += 1
     }
     if (JSON.parse(localStorage.getItem("NMPGameMiscellaneousData")) != null) {
         MiscellaneousData = JSON.parse(localStorage.getItem("NMPGameMiscellaneousData"));
+        loadNumber += 1
     }
+
+    if (loadNumber > 15) {
+        logList("Game Loaded")
+    }
+
+    offLineTime(Date.now() - MiscellaneousData.gameSavedTime)
 
     if (TabData.energyTabAccess == 1) {
         document.getElementById("tab_button_1").src = "Assets/Button_Tabs_Center_generator.png"

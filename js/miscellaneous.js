@@ -4,7 +4,7 @@ var MiscellaneousData = {
     gameSpeed: 50,
     mediamLoopTime: 10,
     slowLoopTime: 25,
-    saveGameTime: 60000,
+    saveGameTime: 3600000,
     toBeDisplayed: "",
     displayNumber: 0,
     display: "",
@@ -16,6 +16,9 @@ var MiscellaneousData = {
     displayID: "",
     logList: ["","","","","","","","","","","","","",""],
     logListLines: [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    offLinePoints: 0,
+    offLinePointsGain: 1000,
+    gameSavedTime: Date.now(),
 }
 
 function startMessage() {
@@ -140,17 +143,21 @@ function tillEnough(material, cost) {
 }
 
 function offLineTime(time) {
-    var tic = 0
-    for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
-        workers()
-        if (tic % MiscellaneousData.mediamLoopTime == 0) {
-            slowTurbine()
-            makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
-        }
-        // if (tic % MiscellaneousData.slowLoopTime == 0) {
-        //     mainLoopSlow()
-        // }
-        tic += 1
+    // var tic = 0
+    // for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
+    //     workers()
+    //     if (tic % MiscellaneousData.mediamLoopTime == 0) {
+    //         slowTurbine()
+    //         makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
+    //     }
+    //     // if (tic % MiscellaneousData.slowLoopTime == 0) {
+    //     //     mainLoopSlow()
+    //     // }
+    //     tic += 1
+    // }
+    MiscellaneousData.offLinePoints += Math.floor(time / MiscellaneousData.offLinePointsGain)
+    if (Math.floor(time / MiscellaneousData.offLinePointsGain) > 30) {
+        logList("you gaind " + Math.floor(time / MiscellaneousData.offLinePointsGain) + " offline points.", 2)
     }
 }
 

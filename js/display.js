@@ -7,6 +7,7 @@ var DisplayData = {
     oilWorkerNumber: 0,
     errorsPerSec: 0.5,
     errorsPerSecCount: 0,
+    powerItemsButton: 0,
 }
 
 var TabData = {

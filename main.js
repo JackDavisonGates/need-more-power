@@ -8,6 +8,7 @@ var PowerData = {
     barYellow: 0,
     barCost: 50,
     perTimeCost: 50,
+    powerItemsCost: 50,
 }
 
 var PowerStorageData = {
@@ -42,6 +43,37 @@ function buttonStat(stat, button) {
                     break;
                 case "up":
                     document.getElementById("Turbine-spin-button").src = "Assets/Turbine_button_unpressed.png"
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case "power_items_button":
+            switch (stat) {
+                case "down":
+                    document.getElementById("power_items_button").src = "Assets/power_items_button_pressed.png"
+                    break;
+                case "up":
+                    if (DisplayData.powerItemsButton == 0) {
+                        document.getElementById("power_items_middle").style.height = "200px"
+                        document.getElementById("power_items_text").style.top = "-274px"
+                        document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
+                        document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
+                        DisplayData.powerItemsButton = 1
+                    } else {
+                        document.getElementById("power_items_middle").style.height = "0px"
+                        document.getElementById("power_items_text").style.top = "0px"
+                        document.getElementById("power_items_text_line_1").innerHTML = ""
+                        document.getElementById("power_items_text_line_2").innerHTML = ""
+                        DisplayData.powerItemsButton = 0
+                    }
+                    document.getElementById("power_items_button").src = "Assets/power_items_button_hover.png"
+                    break;
+                case "hover":
+                    document.getElementById("power_items_button").src = "Assets/power_items_button_hover.png"
+                    break;
+                case "out":
+                    document.getElementById("power_items_button").src = "Assets/power_items_button.png"
                     break;
                 default:
                     break;
@@ -509,6 +541,7 @@ window.onload = function() {
 };
 
 var startedAt = Date.now()
+var gameSavePoint = Date.now()
 
 var mainGameLoop = window.setInterval(function() {
     mainLoopFast()
@@ -522,10 +555,10 @@ var mainGameLoop = window.setInterval(function() {
             offLineTime(elapsedTime)
         }
         startedAt = Date.now()
-
-    }
-    if (MiscellaneousData.gameTicks % MiscellaneousData.saveGameTime == 0) {
-        saveGame()
+        if (MiscellaneousData.saveGameTime < Date.now() - gameSavePoint) {
+            saveGame()
+            gameSavePoint = Date.now()
+        }
     }
     startMessage()
     MiscellaneousData.gameTicks += 1

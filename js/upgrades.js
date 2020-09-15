@@ -13,7 +13,7 @@ var OneTimeSlots = {
     2: "Worker Discount Level 1",
     3: "Power Per Time",
     4: "Storage Bar",
-    5: "",
+    5: "Item List",
     6: "",
     7: "",
 }
@@ -39,7 +39,7 @@ var OneTimeUpgradesNotCompleat = {
 }
 
 var SlotsDtat = {
-    OneTimeSlotsFilled: 4,
+    OneTimeSlotsFilled: 5,
     RepeatSlotsFilled: 3,
     OneTimeSlotsCompleat: 0,
 }
@@ -142,6 +142,9 @@ function slotToFunction(slot, name) {
                 case "Storage Bar":
                     getStorageBar()
                     break;
+                case "Item List":
+                    getItemList()
+                    break;
                 default:
 
             }
@@ -183,7 +186,7 @@ function buyBattery() {
         updatePowerStorage()
         updateText("Power")
         updateText("Upgrades")
-        if (PowerStorageData.capasitors > 9) {
+        if (PowerStorageData.batteries > 9) {
             logList("Battery " + PowerStorageData.batteries + " Purchased.", 2)
         } else {
             logList("Battery " + PowerStorageData.batteries + " Purchased.")
@@ -298,6 +301,17 @@ function getStorageBar() {
         removeSlot("Storage Bar", "OneTimeSlots")
         updateText("Upgrades")
         logList("Power Storage Bar Display Unlocked.", 2)
+    }
+}
+
+function getItemList() {
+    if (PowerData.currentPower >= PowerData.powerItemsCost) {
+        PowerData.currentPower -= PowerData.powerItemsCost
+        document.getElementById("power_items_text").style.visibility = "visible"
+        document.getElementById("power_items").style.visibility = "visible"
+        removeSlot("Item List", "OneTimeSlots")
+        updateText("Upgrades")
+        logList("Power Item List Display Unlocked.", 2)
     }
 }
 

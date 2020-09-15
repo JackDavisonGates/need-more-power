@@ -237,3 +237,27 @@ body {
     grid-template-rows: 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px 22px;
     grid-template-columns: 185PX;
 }
+
+#power_items {
+    position: relative;
+    display: grid;
+    top: -50px;
+    left: 528px;
+    grid-template-rows: 1px 86px auto 24px;
+    grid-template-columns: 230PX;
+}
+
+#power_items_middle {
+    background: url('Assets/power_items_middle.png');
+    background-repeat: repeat-y;
+}
+
+#power_items_text {
+    color: Azure;
+    font-weight: bold;
+    position: relative;
+    display: grid;
+    left: 546px;
+    grid-template-rows: 22px 22px 22px 22px 22px 22px 22px 22px 22px;
+    grid-template-columns: 190PX;
+}
