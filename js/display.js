@@ -671,6 +671,9 @@ function powerItemsDisplay(change = 0) {
             if (PowerStorageData.batteries > 0) {
                 document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
                 DisplayData.powerItemsSize = 2
+            } else if (PowerData.powerPerTick > 1) {
+                document.getElementById("power_items_text_line_3").innerHTML = "Power Per Tick: " + PowerData.powerPerTick
+                DisplayData.powerItemsSize = 3
             }
             document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
             document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
@@ -678,8 +681,9 @@ function powerItemsDisplay(change = 0) {
         } else {
             document.getElementById("power_items_middle").style.height = "0px"
             document.getElementById("power_items_text").style.top = "0px"
-            document.getElementById("power_items_text_line_1").innerHTML = ""
-            document.getElementById("power_items_text_line_2").innerHTML = ""
+            for (i = 1; i <= 9; i++) {
+                document.getElementById("power_items_text_line_" + i).innerHTML = ""
+            }
             DisplayData.powerItemsButton = 0
         }
     } else {
@@ -688,6 +692,9 @@ function powerItemsDisplay(change = 0) {
             if (PowerStorageData.batteries > 0) {
                 document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
                 DisplayData.powerItemsSize = 2
+            } else if (PowerData.powerPerTick > 1) {
+                document.getElementById("power_items_text_line_3").innerHTML = "Power Per Tick: " + PowerData.powerPerTick
+                DisplayData.powerItemsSize = 3
             }
             document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
             document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
