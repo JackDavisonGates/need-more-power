@@ -175,6 +175,7 @@ function buyCapasitor() {
         updateText("Power")
         updateText("Upgrades")
         logList("Capasitor " + PowerStorageData.capasitors + " Purchased.", 2)
+        document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
     }
 }
 
@@ -191,6 +192,7 @@ function buyBattery() {
         } else {
             logList("Battery " + PowerStorageData.batteries + " Purchased.")
         }
+        document.getElementById("power_items_text_line_2").innerHTML = "Batteries: " + PowerStorageData.batteries
     }
 }
 

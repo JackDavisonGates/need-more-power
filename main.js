@@ -527,6 +527,7 @@ function mainLoopMediam() {
     slowTurbine()
     makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
     revealTabs()
+    cogSpeed()
     //updateGraph()
 }
 
