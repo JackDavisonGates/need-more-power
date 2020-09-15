@@ -665,10 +665,13 @@ function cogSpeed() {
 }
 
 function powerItemsDisplay(change = 0) {
-    DisplayData.powerItemsSize = 1
+    DisplayData.powerItemsSize = 0
     if (change == 1) {
         if (DisplayData.powerItemsButton == 0) {
-            document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
+            if (PowerStorageData.capasitors > 0) {
+                DisplayData.powerItemsSize += 1
+                document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Capasitors: " + PowerStorageData.capasitors
+            }
             if (PowerStorageData.batteries > 0) {
                 DisplayData.powerItemsSize += 1
                 document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Batteries: " + PowerStorageData.batteries
@@ -691,7 +694,10 @@ function powerItemsDisplay(change = 0) {
         }
     } else {
         if (DisplayData.powerItemsButton == 1) {
-            document.getElementById("power_items_text_line_1").innerHTML = "Capasitors: " + PowerStorageData.capasitors
+            if (PowerStorageData.capasitors > 0) {
+                DisplayData.powerItemsSize += 1
+                document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Capasitors: " + PowerStorageData.capasitors
+            }
             if (PowerStorageData.batteries > 0) {
                 DisplayData.powerItemsSize += 1
                 document.getElementById("power_items_text_line_" + DisplayData.powerItemsSize).innerHTML = "Batteries: " + PowerStorageData.batteries
@@ -702,6 +708,13 @@ function powerItemsDisplay(change = 0) {
             }
             document.getElementById("power_items_middle").style.height = DisplayData.powerItemsSize * 22 + "px"
             document.getElementById("power_items_text").style.top = ((DisplayData.powerItemsSize * 22) * -1) - 76 + "px"
+        } else {
+            document.getElementById("power_items_middle").style.height = "0px"
+            document.getElementById("power_items_text").style.top = "0px"
+            for (i = 1; i <= 9; i++) {
+                document.getElementById("power_items_text_line_" + i).innerHTML = ""
+            }
+            DisplayData.powerItemsButton = 0
         }
     }
 }
