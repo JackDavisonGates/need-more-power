@@ -82,18 +82,16 @@ function buyWorker() {
         WorkerStatusData.workerCost = WorkerStatusData.workerBaseCost * Math.pow(WorkerStatusData.costRatio + 1, WorkerStatusData.workers)
         updateText("Workers")
         document.getElementById("energy_worker_stats_button").src = "Assets/worker_stats_button_unpressed.png"
-        if (WorkerStatusData.buyX == 4) {
-            WorkerStatusData.buyNumber = -1
-        }
         toolTips("buy_workers")
     }
 }
 
 function workerTotalCost(number) {
+    console.log("workerTotalCost() with " + number + " number")
     var totalCost = WorkerStatusData.workerCost
     var currentCost = WorkerStatusData.workerCost
     var x = 1
-    if (number == -1) {
+    if (WorkerStatusData.buyX == 4) {
         var powerUsed = WorkerStatusData.workerCost
         number = 0
         while (x == 1) {
@@ -132,7 +130,6 @@ function buyNumber() {
             document.getElementById("worker_number").src = "Assets/100_button_unpressed.png"
             break;
         case 3:
-            WorkerStatusData.buyNumber = -1
             WorkerStatusData.buyX = 4
             document.getElementById("worker_number").src = "Assets/all_button_unpressed.png"
             break;

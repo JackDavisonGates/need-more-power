@@ -14,8 +14,8 @@ var MiscellaneousData = {
     ],
     randomDigitsLen: 8,
     displayID: "",
-    logList: ["","","","","","","","","","","","","",""],
-    logListLines: [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    logList: ["", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    logListLines: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     offLinePoints: 0,
     offLinePointsGain: 1000,
     gameSavedTime: Date.now(),
@@ -121,21 +121,21 @@ function PerSecond(material) {
 function tillEnough(material, cost) {
     switch (material) {
         case "energy":
-        if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) {
-            if (cost - PowerData.currentPower <= 0) {
-                return 0
+            if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) {
+                if (cost - PowerData.currentPower <= 0) {
+                    return 0
+                } else {
+                    return (cost - PowerData.currentPower) / PerSecond(material)
+                }
+            } else if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower < PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) {
+                return (((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) - PowerData.currentPower) / PerSecond(material)) + ((cost - (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors)) / PerSecond(material) * PowerStorageData.batteriesEfficency)
             } else {
-                return (cost - PowerData.currentPower) / PerSecond(material)
+                if (cost - PowerData.currentPower <= 0) {
+                    return 0
+                } else {
+                    return (cost - PowerData.currentPower) / PerSecond(material)
+                }
             }
-        } else if (cost > PowerStorageData.capasitorsStorage * PowerStorageData.capasitors && PowerData.currentPower < PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) {
-            return (((PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) - PowerData.currentPower) / PerSecond(material)) + ((cost - (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors)) / PerSecond(material) * PowerStorageData.batteriesEfficency)
-        } else {
-            if (cost - PowerData.currentPower <= 0) {
-                return 0
-            } else {
-                return (cost - PowerData.currentPower) / PerSecond(material)
-            }
-        }
             break;
         default:
 
@@ -143,20 +143,8 @@ function tillEnough(material, cost) {
 }
 
 function offLineTime(time) {
-    // var tic = 0
-    // for (var i = 0; i < Math.floor(time / MiscellaneousData.gameSpeed); i++) {
-    //     workers()
-    //     if (tic % MiscellaneousData.mediamLoopTime == 0) {
-    //         slowTurbine()
-    //         makePower(TurbineData.generatorEfficency * (TurbineData.turbineSpeed / 1000))
-    //     }
-    //     // if (tic % MiscellaneousData.slowLoopTime == 0) {
-    //     //     mainLoopSlow()
-    //     // }
-    //     tic += 1
-    // }
     MiscellaneousData.offLinePoints += Math.floor(time / MiscellaneousData.offLinePointsGain)
-    if (Math.floor(time / MiscellaneousData.offLinePointsGain) > 30) {
+    if (Math.floor(time / MiscellaneousData.offLinePointsGain) > 50) {
         logList("you gaind " + Math.floor(time / MiscellaneousData.offLinePointsGain) + " offline points.", 2)
     }
 }
