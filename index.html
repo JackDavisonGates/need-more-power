@@ -263,8 +263,8 @@
 
                         <div id="Workers" class="tabcontent" style="position: relative;left: 5px;top: 39px;overflow-x: hidden;overflow-y: auto;height: 556px;width: 785px;">
                             <img id="buy_worker" src="Assets/name_tag_buy_workers.png" style="position:relative; top: 91px; left: 63px" onmouseover="toolTips('buy_workers')" onmouseout="toolTips('noTip')" onmouseup="buyWorker()">
-                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 91px; left: 58px" onmousedown="buttonStat('down', 'worker_number_button')" onmouseup="buttonStat('up', 'worker_number_button')"
-                                onmouseout="buttonStat('out', 'worker_number_button')">
+                            <img id="worker_number" src="Assets/1_button_unpressed.png" style="position:relative; top: 91px; left: 58px" onmousedown="buttonStat('down', 'worker_number_button')" onmouseover="toolTips('buy_workers_number')" onmouseup="buttonStat('up', 'worker_number_button')"
+                                onmouseout="buttonStat('out', 'worker_number_button'); toolTips('noTip')" onmouseout="toolTips('noTip')">
                             <div id="energy_workers_stats">
                                 <img id="energy_worker_stats_back" src="Assets/worker_stats.png" style="position: relative">
                                 <img id="energy_worker_stats_button" src="Assets/worker_stats_button_off.png" style="position: relative; left: -53px" onmousedown="buttonStat('down', 'energy_worker_stats_button')"

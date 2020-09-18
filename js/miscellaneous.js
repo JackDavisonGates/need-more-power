@@ -145,7 +145,7 @@ function tillEnough(material, cost) {
 function offLineTime(time) {
     MiscellaneousData.offLinePoints += Math.floor(time / MiscellaneousData.offLinePointsGain)
     if (Math.floor(time / MiscellaneousData.offLinePointsGain) > 50) {
-        logList("you gaind " + Math.floor(time / MiscellaneousData.offLinePointsGain) + " offline points.", 2)
+        logList("you gaind " + formatNumber(Math.floor(time / MiscellaneousData.offLinePointsGain), 0) + " offline points.", 2)
     }
 }
 

@@ -166,6 +166,18 @@ function toolTips(id) {
                 "Don't think of them as slaves, think of them as unpaid interns."
             MouseLocation = "buy_workers"
             break;
+        case "buy_workers_number":
+            if (WorkerStatusData.buyNumber == 1 || WorkerStatusData.buyNumber == -1) {
+                document.getElementById("tool_tip").innerHTML =
+                    "this is how much workers you can buy at ones"
+            } else {
+                document.getElementById("tool_tip").innerHTML =
+                    "you can get more than one worker at a time"
+            }
+            document.getElementById("flavour_text").innerHTML =
+                "Don't think of them as slaves, think of them as unpaid interns."
+            MouseLocation = "buy_workers_number"
+            break;
         case "stop_workers":
             document.getElementById("tool_tip").innerHTML =
                 "This stops all active workers and any job progress will remain when all workers are removed."
