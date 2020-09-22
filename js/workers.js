@@ -87,7 +87,6 @@ function buyWorker() {
 }
 
 function workerTotalCost(number) {
-    console.log("workerTotalCost() with " + number + " number")
     var totalCost = WorkerStatusData.workerCost
     var currentCost = WorkerStatusData.workerCost
     var x = 1

@@ -495,10 +495,12 @@ function powerBar() {
     redmove = PowerData.currentPower * 100 / (PowerStorageData.capasitorsStorage * PowerStorageData.capasitors)
     yellowmove = (PowerData.currentPower - PowerStorageData.capasitorsStorage * PowerStorageData.capasitors) * 100 / (PowerStorageData.batteriesStorage * PowerStorageData.batteries)
 
-    if (redmove <= 100) {
+    if (redmove < 100) {
         document.getElementById("power_bar_fill_red").style.left = redmove * 7.32 + -705 + "px"
+    } else {
+        document.getElementById("power_bar_fill_red").style.left = 27 + "px"
     }
-    if (yellowmove >= 0) {
+    if (yellowmove > 0) {
         document.getElementById("power_bar_fill_yellow").style.left = yellowmove * 7.32 + -705 + "px"
     } else {
         document.getElementById("power_bar_fill_yellow").style.left = -705 + "px"
