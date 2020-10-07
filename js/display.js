@@ -655,15 +655,6 @@ function energyStatsButtons(button) {
     }
 }
 
-function cogSpeed() {
-    if (TurbineData.turbineSpeed == 0) {
-        document.getElementById("background_cog").style.animation = "spin 0s linear infinite"
-    } else {
-        document.getElementById("background_cog").style.animation = "spin " + (1 / TurbineData.turbineSpeed) * 6000 + "s linear infinite"
-    }
-
-}
-
 function powerItemsDisplay(change = 0) {
     DisplayData.powerItemsSize = 0
     if (change == 1) {
